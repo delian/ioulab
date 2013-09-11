@@ -20,10 +20,28 @@
             "linkIcons"
         ],
         "views": [
-            "MyViewport"
+            "mainView"
         ],
         "autoCreateViewport": true,
         "name": "iouLab"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "Ext.QuickTips.init();",
+                    ""
+                ]
+            },
+            "designerId": "273cf99f-c462-421e-86d4-c426cf1f7a86"
+        }
+    ]
 }

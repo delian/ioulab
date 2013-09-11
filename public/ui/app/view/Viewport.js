@@ -14,6 +14,6 @@
  */
 
 Ext.define('iouLab.view.Viewport', {
-    extend: 'iouLab.view.MyViewport',
+    extend: 'iouLab.view.mainView',
     renderTo: Ext.getBody()
 });

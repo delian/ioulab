@@ -34,8 +34,13 @@ Ext.application({
         'linkIcons'
     ],
     views: [
-        'MyViewport'
+        'mainView'
     ],
     autoCreateViewport: true,
-    name: 'iouLab'
+    name: 'iouLab',
+
+    launch: function() {
+        Ext.QuickTips.init();
+    }
+
 });
