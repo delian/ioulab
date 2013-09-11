@@ -31,10 +31,12 @@ Ext.application({
         'iouBase',
         'labDevices',
         'routerIcons',
-        'linkIcons'
+        'linkIcons',
+        'deviceLinks'
     ],
     views: [
-        'mainView'
+        'mainView',
+        'links'
     ],
     autoCreateViewport: true,
     name: 'iouLab',

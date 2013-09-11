@@ -1,0 +1,100 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "storeId": "deviceLinks",
+        "designer|userClassName": "deviceLinks"
+    },
+    "designerId": "5ece103d-7398-4141-929a-09482ff330e9",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "8f20aef7-1b7f-47ab-8274-64c385b0678a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "1054d1a4-bd01-409c-8954-3919b531af62"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lab"
+            },
+            "designerId": "62786bde-4b60-4ec3-ad68-fa30b32348ba"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "source"
+            },
+            "designerId": "cbb693c0-ccd9-4f72-8639-166717902705"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "target"
+            },
+            "designerId": "bc6d6ea6-a376-4333-b9f5-961d43501651"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/device/22/links"
+            },
+            "designerId": "effb3f05-5d38-4962-879d-f7c269df33e3"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "type"
+            },
+            "designerId": "1fe07a3b-b396-4419-8e7d-8920703dc8e6"
+        }
+    ]
+}

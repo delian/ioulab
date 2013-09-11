@@ -17,10 +17,12 @@
             "iouBase",
             "labDevices",
             "routerIcons",
-            "linkIcons"
+            "linkIcons",
+            "deviceLinks"
         ],
         "views": [
-            "mainView"
+            "mainView",
+            "links"
         ],
         "autoCreateViewport": true,
         "name": "iouLab"
@@ -37,8 +39,7 @@
             "userConfig": {
                 "fn": "launch",
                 "implHandler": [
-                    "Ext.QuickTips.init();",
-                    ""
+                    "Ext.QuickTips.init();"
                 ]
             },
             "designerId": "273cf99f-c462-421e-86d4-c426cf1f7a86"

@@ -126,31 +126,21 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		obj.on('change', function(child) {
 			console.log('element>>change>>', child, obj, arguments);
 			if (obj.oType == 'device') {
-				sendMsg('updateDevice', {
-					lab : labId,
-					id : obj.id,
-					x : obj.attributes.position.x,
-					y : obj.attributes.position.y,
-					z : obj.attributes.z,
-					name : child.attributes.attrs.text.text,
-					icon : child.oIcon,
-					type : child.oTemp,
-					status : child.oStatus
-				});
+				obj.oMsg.z = obj.attributes.z;
+				obj.oMsg.x = obj.attributes.position.x;
+				obj.oMsg.y = obj.attributes.position.y;
+				sendMsg('updateDevice',obj.oMsg);
 			}
 			if (obj.oType == 'link') {
-				console.log('Child labels are', child, child.attributes);
-				obj.attributes.source.name = child.attributes.labels[0].attrs.text.text;
-				obj.attributes.target.name = child.attributes.labels[2].attrs.text.text;
-				sendMsg('updateLink', {
-					lab : labId,
-					id : obj.id,
-					source : obj.attributes.source,
-					target : obj.attributes.target,
-					z : obj.attributes.z,
-					vertices : obj.attributes.vertices,
-					name : obj.attributes.labels[1].attrs.text.text
-				});
+				obj.oMsg.z = obj.attributes.z;
+				obj.oMsg.source.id = obj.attributes.source.id;
+				obj.oMsg.source.x = obj.attributes.source.x;
+				obj.oMsg.source.y = obj.attributes.source.y;
+				obj.oMsg.target.id = obj.attributes.target.id;
+				obj.oMsg.target.x = obj.attributes.target.x;
+				obj.oMsg.target.y = obj.attributes.target.y;
+				obj.oMsg.vertices = obj.attributes.vertices;
+				sendMsg('updateLink', obj.oMsg);
 			}
 		});
 		obj.on('remove', function(type, child) { // Automatic handle of the remove
@@ -170,15 +160,15 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		return graph.addCell(obj);
 	}
 
-	function rawAddDevice(id, x, y, text, icon, type, status) {
+	function rawAddDevice(msg) {
 		console.log('rawAddDevice', arguments);
-		var s = status ? status : 'offline';
+		msg.status = msg.status || 'offline';
 
 		var image = new joint.shapes.basic.Image({
-			id : id,
+			id : msg.id,
 			position : {
-				x : x,
-				y : y
+				x : msg.x,
+				y : msg.y
 			},
 			size : {
 				width : devWidth,
@@ -186,32 +176,22 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			},
 			attrs : {
 				text : {
-					text : text,
+					text : msg.name,
 					fill : 'black'
 				},
 				image : {
-					'xlink:href' : icon,
-					opacity : s == 'offline' ? offlineOpacity : 1,
+					'xlink:href' : msg.icon,
+					opacity : msg.status == 'offline' ? offlineOpacity : 1,
 					width : devWidth,
 					height : devHeight
 				}
 			}
 		});
+		msg.lab = labId;
 		image.oType = 'device';
-		image.oIcon = icon;
-		image.oTemp = type;
-		image.oStatus = s;
+		image.oMsg = msg;
 		addObj(image);
-		sendMsg('addDevice', {
-			lab : labId,
-			id : id,
-			x : x,
-			y : y,
-			name : text,
-			type : type,
-			icon : icon,
-			status : image.oStatus
-		});
+		sendMsg('addDevice', msg);
 		return image;
 	}
 
@@ -226,7 +206,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			url : '/rest/allocate/deviceId',
 			success : function(res) {
 				var msg = Ext.JSON.decode(res.responseText);
-				rawAddDevice(msg.id, x, y, text, icon, type);
+				rawAddDevice({ id: msg.id, x: x, y: y, icon: icon, type: type, name: text, status: 'offline' });
 			},
 			failure : function() {
 				console.error('No device ID!!!');
@@ -263,33 +243,25 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		return image;
 	}
 
-	function rawAddLink(id, id1, id2, x1, y1, x2, y2, text, upText, downText, style, vertices) {
+	function rawAddLink(msg) {
 		console.log('rawAddLink', arguments);
 		link = new joint.dia.Link({
-			id : id,
-			source : {
-				id : id1,
-				x : x1,
-				y : y1
-			},
-			target : {
-				id : id2,
-				x : x2,
-				y : y2
-			},
-			vertices : vertices ? vertices : [],
+			id : msg.id,
+			source : msg.source,
+			target : msg.target,
+			vertices : msg.vertices ? msg.vertices : [],
 			labels : [ {
 				position : linkSLabel,
 				attrs : {
 					text : {
-						text : upText || ""
+						text : msg.source.name || ""
 					}
 				}
 			}, {
 				position : linkLabel,
 				attrs : {
 					text : {
-						text : text,
+						text : msg.name,
 						'font-weight' : 'bold'
 					}
 				}
@@ -297,7 +269,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				position : linkNLabel,
 				attrs : {
 					text : {
-						text : downText || ""
+						text : msg.target.name || ""
 					}
 				}
 
@@ -309,25 +281,10 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			link.off('cell:pointerdown'); // Not working
 
 		link.oType = 'link';
+		link.oMsg = msg;
+		msg.lab=labId;
 		addObj(link);
-		sendMsg('addLink', {
-			lab : labId,
-			id : id,
-			source : {
-				id : id1,
-				x : x1,
-				y : y1,
-				name : upText
-			},
-			target : {
-				id : id2,
-				x : x2,
-				y : y2,
-				name : downText
-			},
-			name : text,
-			type : style
-		});
+		sendMsg('addLink', msg);
 		return link;
 	}
 
@@ -339,9 +296,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			success : function(res) {
 				var msg = Ext.JSON.decode(res.responseText);
 				if (id1 && id2)
-					rawAddLink(msg.id, id1, id2, 0, 0, 0, 0, name || type, "", "", type);
+					rawAddLink({ id: msg.id, source: { id: id1 }, target: { id: id2 }, type: type, name: name || type });
 				else
-					rawAddLink(msg.id, 0, 0, x, y, x + 100, y, name || type, "", "", type);
+					rawAddLink({ id: msg.id, source: { x: x, y: y }, target: { x: x+100, y: y}, type: type, name: name || type })
 			},
 			failure : function() {
 				console.error('No Link ID!!!');
@@ -405,7 +362,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			return sockUpdateDevice(msg); // It exists, so instead we shall do an update
 
 		suspendEvents = true;
-		rawAddDevice(msg.id, msg.x, msg.y, msg.name, msg.icon, msg.type, msg.status);
+		rawAddDevice(msg);
 		suspendEvents = false;
 		if (config && config.sockAddDevice)
 			config.sockAddDevice(msg);
@@ -420,8 +377,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			return sockUpdateLink(msg); // It exists, so instead we shall do an update
 
 		suspendEvents = true;
-		rawAddLink(msg.id, msg.source.id, msg.target.id, msg.source.x, msg.source.y, msg.target.x, msg.target.y, msg.name, msg.source.name, msg.target.name,
-				msg.type, msg.vertices);
+		rawAddLink(msg);
 		suspendEvents = false;
 		if (config && config.sockAddLink)
 			config.sockAddLink(msg);
@@ -453,10 +409,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					'xlink:href' : msg.icon
 				}
 			}); // This is unconfirmed to work
-		if (msg.icon)
-			d.oIcon = msg.icon;
-		if (msg.type)
-			d.oTemp = msg.type;
+		d.oMsg = msg;
 		if (msg.status) {
 			d.oStatus = msg.status;
 			d.attr({
@@ -511,7 +464,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				}
 			}
 		});
-
+		d.oMsg=msg;
 		suspendEvents = false;
 		if (config && config.sockUpdateLink)
 			config.sockUpdateLink(msg);

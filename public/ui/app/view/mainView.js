@@ -237,8 +237,6 @@ Ext.define('iouLab.view.mainView', {
                                                                             fieldLabel: 'Add new Template',
                                                                             labelAlign: 'right',
                                                                             labelWidth: 130,
-                                                                            allowBlank: false,
-                                                                            allowOnlyWhitespace: false,
                                                                             emptyText: 'Select Type',
                                                                             enableKeyEvents: true,
                                                                             editable: false,
@@ -266,10 +264,7 @@ Ext.define('iouLab.view.mainView', {
                                                                     xtype: 'gridcolumn',
                                                                     dataIndex: 'name',
                                                                     text: 'Name',
-                                                                    flex: 1,
-                                                                    editor: {
-                                                                        xtype: 'textfield'
-                                                                    }
+                                                                    flex: 1
                                                                 },
                                                                 {
                                                                     xtype: 'gridcolumn',
@@ -533,6 +528,12 @@ Ext.define('iouLab.view.mainView', {
                                                                             align: 'center',
                                                                             items: [
                                                                                 {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        Ext.StoreMgr.get('deviceLinks').getProxy().url='/rest/device/'+record.get('id')+'/links';
+                                                                                        Ext.StoreMgr.get('deviceLinks').load();
+                                                                                        Ext.create('widget.links').show();
+
+                                                                                    },
                                                                                     icon: 'icons/link.png',
                                                                                     tooltip: 'Show Links'
                                                                                 },
