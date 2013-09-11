@@ -1,0 +1,100 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "storeId": "iouBase",
+        "designer|userClassName": "iouBase"
+    },
+    "designerId": "6d53458f-8d92-4a19-9bd3-db54ac1a612a",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "72439fdc-2aca-49a1-bf40-4de678baa310"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "designerId": "cd49c552-6fd9-4945-87b7-6dfaa062bae0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "memory"
+            },
+            "designerId": "882c2455-2375-48c4-bf62-e76949fcc10e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nvram"
+            },
+            "designerId": "0a8f3a40-3010-442a-8418-868a2e2dcb44"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ethernet"
+            },
+            "designerId": "fac812bf-2be5-4616-82da-f3cfe40e643f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "serial"
+            },
+            "designerId": "759ae9c3-03cf-4c41-bb49-31720c68c567"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/iouBase"
+            },
+            "designerId": "38c752bf-98bf-469d-a79f-7a7bb20c0e29"
+        }
+    ]
+}

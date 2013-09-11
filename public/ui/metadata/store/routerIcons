@@ -1,0 +1,76 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "storeId": "routerIcons",
+        "designer|userClassName": "routerIcons"
+    },
+    "designerId": "5685604d-b02d-462b-bfb6-360a889f9ccd",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "4fc15dbf-8b15-4791-9281-99d006b24d90"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "90e5744a-4146-491b-a3c4-0527a9fc2671"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "width"
+            },
+            "designerId": "2663a67b-6d6e-48e8-a90d-b89cc6ee0ece"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "height"
+            },
+            "designerId": "68d3b60e-3a00-4188-956e-31130d9ec46f"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/icons"
+            },
+            "designerId": "52202d31-2d97-426a-8612-da05ea53988c"
+        }
+    ]
+}

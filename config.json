@@ -1,0 +1,70 @@
+{
+  "mongoUrl": "mongodb://127.0.0.1/iouDb",
+  "labPath": "labs",
+  "iouBase": [
+	{ "id" : "IOU 12.4", "description" : "IOU Router 12.4 Advanced", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
+	{ "id" : "IOU 15.0", "description" : "IOU Router 15.0 Advanced", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
+	{ "id" : "IOU 15.1", "description" : "IOU Router 15.1 Advanced", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
+	{ "id" : "IOU 15.2", "description" : "IOU Router 15.2 Advanced", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
+	{ "id" : "IOU 15.3", "description" : "IOU Router 15.3 Advanced", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 }
+  ],
+  "deviceIcons": [
+	{ "id" :"icons/devices/cisco-router-256-black.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-gray.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-red.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-yellow.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-green.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-lgreen.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-light.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cisco-router-256-blue.png", "name" : "Cisco Router", "width" : 50, "height" : 50 },
+
+	{ "id" :"icons/devices/router-256-black.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-gray.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-red.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-yellow.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-green.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-lgreen.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-light.png", "name" : "Router", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/router-256-blue.png", "name" : "Router", "width" : 50, "height" : 50 },
+
+	{ "id" :"icons/devices/switch-256-black.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-gray.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-red.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-yellow.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-green.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-lgreen.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-light.png", "name" : "Switch", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/switch-256-blue.png", "name" : "Switch", "width" : 50, "height" : 50 },
+
+	{ "id" :"icons/devices/cloud-256-black.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-gray.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-red.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-yellow.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-green.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-lgreen.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-light.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/cloud-256-blue.png", "name" : "Cloud", "width" : 50, "height" : 50 },
+
+	{ "id" :"icons/devices/network-256-black.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-gray.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-red.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-yellow.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-green.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-lgreen.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-light.png", "name" : "Network", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/network-256-blue.png", "name" : "Network", "width" : 50, "height" : 50 },
+
+	{ "id" :"icons/devices/notebook-256-black.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-gray.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-red.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-yellow.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-green.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-lgreen.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-light.png", "name" : "Computer", "width" : 50, "height" : 50 },
+	{ "id" :"icons/devices/notebook-256-blue.png", "name" : "Computer", "width" : 50, "height" : 50 }
+  ],
+  "linkIcons": [
+	{ "id" : "serial", "icon" :"icons/devices/serial-link.png", "name" : "Serial Link" },
+	{ "id" : "ethernet", "icon" :"icons/devices/ethernet-link.png", "name" : "Ethernet Link" }
+  ]
+}

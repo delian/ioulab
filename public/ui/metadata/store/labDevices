@@ -1,0 +1,29 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "model": "labDevices",
+        "storeId": "labDevices",
+        "designer|userClassName": "labDevices"
+    },
+    "designerId": "bfc50f5c-372e-4870-8390-839e0e2ef6fb",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/lab/1/devices"
+            },
+            "designerId": "6c9f0dc1-dbc7-426b-9559-537aa50b2b74"
+        }
+    ]
+}

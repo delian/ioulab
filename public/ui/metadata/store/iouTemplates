@@ -1,0 +1,30 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "model": "iouTemplates",
+        "storeId": "iouTemplates",
+        "designer|userClassName": "iouTemplates"
+    },
+    "designerId": "bb15d7c8-965f-4d2b-bc1a-f59572637fcd",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/ious"
+            },
+            "designerId": "9b6458b3-a905-4298-9fbe-c97914eee71f"
+        }
+    ]
+}

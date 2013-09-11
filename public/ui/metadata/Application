@@ -1,0 +1,29 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "labDevices",
+            "iouTemplates"
+        ],
+        "stores": [
+            "treeMenu",
+            "editLabs",
+            "iouTemplates",
+            "iouBase",
+            "labDevices",
+            "routerIcons",
+            "linkIcons"
+        ],
+        "views": [
+            "MyViewport"
+        ],
+        "autoCreateViewport": true,
+        "name": "iouLab"
+    },
+    "designerId": "application"
+}

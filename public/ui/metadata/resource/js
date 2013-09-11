@@ -1,0 +1,15 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "libs/joint.js",
+        "defer": false,
+        "id": "joint.js"
+    },
+    "designerId": "aab33239-c350-4cfa-b4bb-8c6df48f761f"
+}

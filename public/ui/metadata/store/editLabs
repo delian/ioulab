@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "storeId": "editLabs",
+        "designer|userClassName": "editLabs"
+    },
+    "designerId": "66cf3ba4-7f57-44fb-896a-c64d50496dce",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "5b3eb4e2-979f-4a77-b39a-51989c1088fa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "cbc978b1-38c5-43be-a2cd-d714e77deab6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "designerId": "d94aab14-7b70-45d6-8690-f461be95f348"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/labs"
+            },
+            "designerId": "c8572772-0cd4-449f-8829-8401e4e1041b"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onStoreDataChangeD",
+                "implHandler": [
+                    "//console.log('data changed');",
+                    "var s=Ext.getCmp('treeMenu').getStore();",
+                    "var labs=s.getById('labs');",
+                    "labs.removeAll();",
+                    "store.each(function(n) {",
+                    "    labs.appendChild({",
+                    "        id: n.get('id'),",
+                    "        leaf: true,",
+                    "        text: n.get('name')",
+                    "    });",
+                    "});",
+                    ""
+                ],
+                "name": "datachanged",
+                "scope": "me"
+            },
+            "designerId": "5e8ef1b8-6866-4ac6-86fd-a5f2a770f9f2"
+        }
+    ]
+}

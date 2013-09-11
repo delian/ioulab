@@ -1,0 +1,57 @@
+{
+    "name": "ui",
+    "settings": {
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://127.0.0.1:3000/",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true
+    },
+    "xdsVersion": "3.0.0",
+    "xdsBuild": 1130,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "645b8fc1-f4e6-4a24-a453-e65eee01c56e"
+        ],
+        "store": [
+            "5c5f06c5-ccd9-478b-8f45-df8f76a0967f",
+            "66cf3ba4-7f57-44fb-896a-c64d50496dce",
+            "bb15d7c8-965f-4d2b-bc1a-f59572637fcd",
+            "6d53458f-8d92-4a19-9bd3-db54ac1a612a",
+            "bfc50f5c-372e-4870-8390-839e0e2ef6fb",
+            "5685604d-b02d-462b-bfb6-360a889f9ccd",
+            "8d056b1b-97cc-40cb-bfa1-14ae04a4738a"
+        ],
+        "controller": [],
+        "model": [
+            "be918370-250e-4f6a-82df-7df0550b751f",
+            "8105505c-6cd0-4292-b831-730d57d36e88"
+        ],
+        "resource": [
+            "390caf1a-cad7-4276-8945-7f74d92aa5e2",
+            "85127b4a-eeb3-461d-911e-6e2b4e0f539a",
+            "aab33239-c350-4cfa-b4bb-8c6df48f761f",
+            "e8f5ec34-94c5-458b-9fdc-25ccfd504a70",
+            "fb1cb1bd-3f1f-4b9a-8940-543ef872c00c",
+            "7f2e4b2a-c6f4-450b-af6e-81ab3c395ee4",
+            "4617d553-237e-44b1-a635-8684fa637680"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

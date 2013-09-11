@@ -1,0 +1,52 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "storeId": "treeMenu",
+        "designer|userClassName": "treeMenu",
+        "root": [
+            "{",
+            "    expanded: true,",
+            "    text: \"Root Menu\",",
+            "    children: [",
+            "        { id: 'manageLabs', text: \"Manage Labs\", leaf: true },",
+            "        { id: 'manageIOU', text: \"Manage Device Templates\", leaf: true },",
+            "        { id: 'labs', text: \"Labs\", expanded: true, children: [",
+            "        ] }",
+            "    ]",
+            "}"
+        ]
+    },
+    "designerId": "5c5f06c5-ccd9-478b-8f45-df8f76a0967f",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "designerId": "23692e60-51ab-406f-969d-66ca4473f14e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "ecc71177-a8d6-4055-9248-45a9599c2874"
+        }
+    ]
+}
