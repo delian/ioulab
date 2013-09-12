@@ -1944,9 +1944,10 @@
                                             "userConfig": {
                                                 "fn": "onEditLabDiagramDeactivate",
                                                 "implHandler": [
-                                                    "console.log('The Tab is deactivated');",
-                                                    "if (diagram) diagram.destroy();",
-                                                    "diagram = null;"
+                                                    "if (diagram) {",
+                                                    "    diagram.destroy();",
+                                                    "\tdiagram = null;",
+                                                    "}"
                                                 ],
                                                 "name": "deactivate",
                                                 "scope": "me"

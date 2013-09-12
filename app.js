@@ -37,6 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // development only
 if ('development' == app.get('env')) { app.use(express.errorHandler()); }
 
+app.get('/',function(req,res){
+	res.redirect('/ui/app.html');
+});
+
 // Set the mongoDB connection
 var mongoClient = require('mongodb').MongoClient;
 

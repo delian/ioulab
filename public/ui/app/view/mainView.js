@@ -946,9 +946,10 @@ Ext.define('iouLab.view.mainView', {
     },
 
     onEditLabDiagramDeactivate: function(component, eOpts) {
-        console.log('The Tab is deactivated');
-        if (diagram) diagram.destroy();
-        diagram = null;
+        if (diagram) {
+            diagram.destroy();
+        	diagram = null;
+        }
     },
 
     onGridpanelSelect: function(rowmodel, record, index, eOpts) {
