@@ -176,7 +176,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			},
 			attrs : {
 				text : {
-					text : msg.name,
+					text : msg.name || "",
 					fill : 'black'
 				},
 				image : {
@@ -403,7 +403,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (msg.name && msg.icon)
 			d.attr({
 				text : {
-					text : msg.name
+					text : msg.name || ""
 				},
 				image : {
 					'xlink:href' : msg.icon
