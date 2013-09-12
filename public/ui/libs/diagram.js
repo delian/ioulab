@@ -261,7 +261,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				position : linkLabel,
 				attrs : {
 					text : {
-						text : msg.name,
+						text : msg.name || "",
 						'font-weight' : 'bold'
 					}
 				}
@@ -439,31 +439,35 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		d.set('source', msg.source);
 		d.set('target', msg.target);
 		d.set('z', msg.z);
+		
 		d.label(0, {
 			position : linkSLabel,
 			attrs : {
 				text : {
-					text : msg.source.name
+					text : msg.source.name || ""
 				}
 			}
 		});
+		
 		d.label(1, {
 			position : linkLabel,
 			attrs : {
 				text : {
-					text : msg.name,
+					text : msg.name || "",
 					'font-weight' : 'bold'
 				}
 			}
 		});
+		
 		d.label(2, {
 			position : linkNLabel,
 			attrs : {
 				text : {
-					text : msg.target.name
+					text : msg.target.name || ""
 				}
 			}
 		});
+
 		d.oMsg=msg;
 		suspendEvents = false;
 		if (config && config.sockUpdateLink)
@@ -521,12 +525,11 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 
 		if (msg.lab!=labId) return;
 		
-		var garbage = {};
-		var k;
-		for (k in objs)
-			garbage[k] = objs[k];
-
 		if (msg) {
+			var garbage = {};
+			var k;
+			for (k in objs) garbage[k] = objs[k];
+
 			if (msg.devices) {
 				Ext.Array.each(msg.devices, function(n) {
 					sockAddDevice(n);
@@ -550,6 +553,10 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (config && config.sockGetAll)
 			config.sockGetAll(msg);
 	}
+	
+	function refresh() {
+		sendMsg('getAll',{ lab: labId });
+	}
 
 	// Set the socket event handlers
 	// TODO: Error handling
@@ -570,9 +577,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		}, 50); // In 50ms do a full refresh
 	});
 
-	setTimeout(function() {
-		sendMsg('getAll', { lab: labId });
-	}, 1000); // First refresh after one second
+//	setTimeout(function() {
+//		sendMsg('getAll', { lab: labId });
+//	}, 1000); // First refresh after one second
 
 	diag.getAllId = setInterval(function() {
 		sendMsg('getAll', { lab: labId });
@@ -590,6 +597,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	diag.setScale = setScale;
 	diag.setScaleQuiet = setScaleQuiet;
 	diag.destroy = destroy;
+	diag.refresh = refresh;
 
 	return diag;
 }

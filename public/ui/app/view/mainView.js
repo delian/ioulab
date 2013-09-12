@@ -680,6 +680,16 @@ Ext.define('iouLab.view.mainView', {
                                                                 type: 'fit'
                                                             }
                                                         }
+                                                    ],
+                                                    tools: [
+                                                        {
+                                                            xtype: 'tool',
+                                                            handler: function(event, toolEl, owner, tool) {
+                                                                console.log('Refresh is invoked!');
+                                                                if (diagram) diagram.refresh();
+                                                            },
+                                                            type: 'refresh'
+                                                        }
                                                     ]
                                                 }
                                             ],
@@ -784,7 +794,6 @@ Ext.define('iouLab.view.mainView', {
     onTreepanelSelect: function(rowmodel, record, index, eOpts) {
         var n=Ext.getCmp('tabList');
         var id=record.get('id');
-        console.log('Tree',id);
         
         // Hide all
         n.down('#manageLabs').tab.hide();

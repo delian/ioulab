@@ -90,7 +90,6 @@
                                 "implHandler": [
                                     "var n=Ext.getCmp('tabList');",
                                     "var id=record.get('id');",
-                                    "console.log('Tree',id);",
                                     "",
                                     "// Hide all",
                                     "n.down('#manageLabs').tab.hide();",
@@ -1863,6 +1862,43 @@
                                                         "layout": "fit"
                                                     },
                                                     "designerId": "3abfec4b-250a-4afa-b890-69db69bcb01f"
+                                                },
+                                                {
+                                                    "type": "Ext.panel.Tool",
+                                                    "reference": {
+                                                        "name": "tools",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|displayName": "refresh",
+                                                        "type": "refresh"
+                                                    },
+                                                    "designerId": "ce496246-4f74-41dd-828d-9d8b3915c2ce",
+                                                    "cn": [
+                                                        {
+                                                            "type": "fixedfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "handler",
+                                                                "designer|params": [
+                                                                    "event",
+                                                                    "toolEl",
+                                                                    "owner",
+                                                                    "tool"
+                                                                ],
+                                                                "implHandler": [
+                                                                    "console.log('Refresh is invoked!');",
+                                                                    "if (diagram) diagram.refresh();"
+                                                                ]
+                                                            },
+                                                            "designerId": "10a3016f-b99f-472f-a98a-2002d190a81e"
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         },
