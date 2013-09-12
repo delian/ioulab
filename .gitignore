@@ -4,3 +4,4 @@ labs/*
 .settings
 iou/*
 .project
+npm-debug.log
