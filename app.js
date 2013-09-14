@@ -55,7 +55,7 @@ mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 	if (err) throw err;
 	db = mongoDb;
 
-	var iouObj = require('./lib/ioulib')(db,e);
+	var iouObj = require('./lib/iouLib')(db,e);
 	
 	// Load my REST API
 	require('./lib/restApi.js')(app,mongoDb,e); // We have all the handlers now. Lets load the REST API

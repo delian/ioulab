@@ -542,19 +542,57 @@ Ext.define('iouLab.view.mainView', {
                                                                                     tooltip: 'Open Console'
                                                                                 },
                                                                                 {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        console.log('We want to stop the device');
+                                                                                        Ext.Ajax.request({
+                                                                                            url: '/rest/device/'+record.get('id')+'/stop',
+                                                                                            success: function(res) {
+                                                                                                console.log('We did stop');
+                                                                                            }
+                                                                                        });
+                                                                                    },
                                                                                     disabled: false,
                                                                                     icon: 'icons/stop.png',
                                                                                     tooltip: 'Stop'
                                                                                 },
                                                                                 {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        console.log('We want to start the device');
+                                                                                        Ext.Ajax.request({
+                                                                                            url: '/rest/device/'+record.get('id')+'/start',
+                                                                                            success: function(res) {
+                                                                                                console.log('We did start');
+                                                                                            }
+                                                                                        });
+                                                                                    },
                                                                                     icon: 'icons/start.png',
                                                                                     tooltip: 'Start'
                                                                                 },
                                                                                 {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        console.log('We want to reset the device');
+                                                                                        Ext.Ajax.request({
+                                                                                            url: '/rest/device/'+record.get('id')+'/reset',
+                                                                                            success: function(res) {
+                                                                                                console.log('We did reset');
+                                                                                            }
+                                                                                        });
+
+                                                                                    },
                                                                                     icon: 'icons/reset.png',
                                                                                     tooltip: 'Reset to default'
                                                                                 },
                                                                                 {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        console.log('We want to save the device');
+                                                                                        Ext.Ajax.request({
+                                                                                            url: '/rest/device/'+record.get('id')+'/save',
+                                                                                            success: function(res) {
+                                                                                                console.log('We did save');
+                                                                                            }
+                                                                                        });
+
+                                                                                    },
                                                                                     icon: 'icons/save.png',
                                                                                     tooltip: 'Save to default'
                                                                                 }

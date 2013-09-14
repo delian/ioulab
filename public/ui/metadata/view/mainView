@@ -1477,7 +1477,39 @@
                                                                                 "iconCls": null,
                                                                                 "tooltip": "Stop"
                                                                             },
-                                                                            "designerId": "90155d60-f9a4-4dba-90cd-46279028479b"
+                                                                            "designerId": "90155d60-f9a4-4dba-90cd-46279028479b",
+                                                                            "cn": [
+                                                                                {
+                                                                                    "type": "fixedfunction",
+                                                                                    "reference": {
+                                                                                        "name": "items",
+                                                                                        "type": "array"
+                                                                                    },
+                                                                                    "codeClass": null,
+                                                                                    "userConfig": {
+                                                                                        "fn": "handler",
+                                                                                        "designer|params": [
+                                                                                            "view",
+                                                                                            "rowIndex",
+                                                                                            "colIndex",
+                                                                                            "item",
+                                                                                            "e",
+                                                                                            "record",
+                                                                                            "row"
+                                                                                        ],
+                                                                                        "implHandler": [
+                                                                                            "console.log('We want to stop the device');",
+                                                                                            "Ext.Ajax.request({",
+                                                                                            "    url: '/rest/device/'+record.get('id')+'/stop',",
+                                                                                            "    success: function(res) {",
+                                                                                            "        console.log('We did stop');",
+                                                                                            "    }",
+                                                                                            "});"
+                                                                                        ]
+                                                                                    },
+                                                                                    "designerId": "8a14828d-e6c1-4c43-88b3-6857ee151fd6"
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         {
                                                                             "type": "actioncolumnitem",
@@ -1491,7 +1523,39 @@
                                                                                 "icon": "icons/start.png",
                                                                                 "tooltip": "Start"
                                                                             },
-                                                                            "designerId": "e8f27641-4dbc-4c5b-abe5-2c8c128d6405"
+                                                                            "designerId": "e8f27641-4dbc-4c5b-abe5-2c8c128d6405",
+                                                                            "cn": [
+                                                                                {
+                                                                                    "type": "fixedfunction",
+                                                                                    "reference": {
+                                                                                        "name": "items",
+                                                                                        "type": "array"
+                                                                                    },
+                                                                                    "codeClass": null,
+                                                                                    "userConfig": {
+                                                                                        "fn": "handler",
+                                                                                        "designer|params": [
+                                                                                            "view",
+                                                                                            "rowIndex",
+                                                                                            "colIndex",
+                                                                                            "item",
+                                                                                            "e",
+                                                                                            "record",
+                                                                                            "row"
+                                                                                        ],
+                                                                                        "implHandler": [
+                                                                                            "console.log('We want to start the device');",
+                                                                                            "Ext.Ajax.request({",
+                                                                                            "    url: '/rest/device/'+record.get('id')+'/start',",
+                                                                                            "    success: function(res) {",
+                                                                                            "        console.log('We did start');",
+                                                                                            "    }",
+                                                                                            "});"
+                                                                                        ]
+                                                                                    },
+                                                                                    "designerId": "8458bbcf-17dc-4dfb-bc7a-58f8b711e3a0"
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         {
                                                                             "type": "actioncolumnitem",
@@ -1505,7 +1569,40 @@
                                                                                 "icon": "icons/reset.png",
                                                                                 "tooltip": "Reset to default"
                                                                             },
-                                                                            "designerId": "0e1f3da1-8516-4a82-a31c-4cb417c4cadc"
+                                                                            "designerId": "0e1f3da1-8516-4a82-a31c-4cb417c4cadc",
+                                                                            "cn": [
+                                                                                {
+                                                                                    "type": "fixedfunction",
+                                                                                    "reference": {
+                                                                                        "name": "items",
+                                                                                        "type": "array"
+                                                                                    },
+                                                                                    "codeClass": null,
+                                                                                    "userConfig": {
+                                                                                        "fn": "handler",
+                                                                                        "designer|params": [
+                                                                                            "view",
+                                                                                            "rowIndex",
+                                                                                            "colIndex",
+                                                                                            "item",
+                                                                                            "e",
+                                                                                            "record",
+                                                                                            "row"
+                                                                                        ],
+                                                                                        "implHandler": [
+                                                                                            "console.log('We want to reset the device');",
+                                                                                            "Ext.Ajax.request({",
+                                                                                            "    url: '/rest/device/'+record.get('id')+'/reset',",
+                                                                                            "    success: function(res) {",
+                                                                                            "        console.log('We did reset');",
+                                                                                            "    }",
+                                                                                            "});",
+                                                                                            ""
+                                                                                        ]
+                                                                                    },
+                                                                                    "designerId": "3f187c85-12d0-46e9-a943-2e858480f40a"
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         {
                                                                             "type": "actioncolumnitem",
@@ -1519,7 +1616,40 @@
                                                                                 "icon": "icons/save.png",
                                                                                 "tooltip": "Save to default"
                                                                             },
-                                                                            "designerId": "df5ba340-3cfe-4dd4-933e-08d56f4a3c45"
+                                                                            "designerId": "df5ba340-3cfe-4dd4-933e-08d56f4a3c45",
+                                                                            "cn": [
+                                                                                {
+                                                                                    "type": "fixedfunction",
+                                                                                    "reference": {
+                                                                                        "name": "items",
+                                                                                        "type": "array"
+                                                                                    },
+                                                                                    "codeClass": null,
+                                                                                    "userConfig": {
+                                                                                        "fn": "handler",
+                                                                                        "designer|params": [
+                                                                                            "view",
+                                                                                            "rowIndex",
+                                                                                            "colIndex",
+                                                                                            "item",
+                                                                                            "e",
+                                                                                            "record",
+                                                                                            "row"
+                                                                                        ],
+                                                                                        "implHandler": [
+                                                                                            "console.log('We want to save the device');",
+                                                                                            "Ext.Ajax.request({",
+                                                                                            "    url: '/rest/device/'+record.get('id')+'/save',",
+                                                                                            "    success: function(res) {",
+                                                                                            "        console.log('We did save');",
+                                                                                            "    }",
+                                                                                            "});",
+                                                                                            ""
+                                                                                        ]
+                                                                                    },
+                                                                                    "designerId": "b1b9b15f-286b-4d69-9bdc-465bb5adaa7b"
+                                                                                }
+                                                                            ]
                                                                         }
                                                                     ]
                                                                 }
