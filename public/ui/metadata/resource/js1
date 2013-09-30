@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "js1",
-        "url": "libs/diagram.js",
-        "id": "diagram.js"
+        "id": "diagram.js",
+        "url": "libs/diagram.js"
     },
     "designerId": "fb1cb1bd-3f1f-4b9a-8940-543ef872c00c"
 }

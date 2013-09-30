@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "js3",
-        "url": "/socket.io/socket.io.js",
-        "id": "socket.io.js"
+        "id": "socket.io.js",
+        "url": "/socket.io/socket.io.js"
     },
     "designerId": "4617d553-237e-44b1-a635-8684fa637680"
 }

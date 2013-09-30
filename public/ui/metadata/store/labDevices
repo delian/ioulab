@@ -7,9 +7,9 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": false,
+        "designer|userClassName": "labDevices",
         "model": "labDevices",
-        "storeId": "labDevices",
-        "designer|userClassName": "labDevices"
+        "storeId": "labDevices"
     },
     "designerId": "bfc50f5c-372e-4870-8390-839e0e2ef6fb",
     "cn": [

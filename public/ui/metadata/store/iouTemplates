@@ -8,9 +8,9 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
+        "designer|userClassName": "iouTemplates",
         "model": "iouTemplates",
-        "storeId": "iouTemplates",
-        "designer|userClassName": "iouTemplates"
+        "storeId": "iouTemplates"
     },
     "designerId": "bb15d7c8-965f-4d2b-bc1a-f59572637fcd",
     "cn": [

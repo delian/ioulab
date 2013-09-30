@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "mainView",
         "designer|initialView": true,
+        "designer|userClassName": "mainView",
         "layout": "fit"
     },
     "designerId": "645b8fc1-f4e6-4a24-a453-e65eee01c56e",
@@ -34,12 +34,18 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1,
+                        "animCollapse": true,
+                        "autoScroll": true,
+                        "collapseDirection": "left",
+                        "collapseFirst": false,
+                        "collapsed": false,
+                        "collapsible": true,
                         "frame": true,
                         "id": "treeMenu",
+                        "layout|flex": 1,
+                        "lines": false,
                         "maxWidth": 250,
                         "minWidth": null,
-                        "autoScroll": true,
                         "resizable": [
                             "{",
                             "        pinned:true,",
@@ -48,19 +54,13 @@
                             "}"
                         ],
                         "resizeHandles": "e",
-                        "animCollapse": true,
-                        "collapseDirection": "left",
-                        "collapseFirst": false,
-                        "collapsed": false,
-                        "collapsible": true,
-                        "title": "Select Service",
-                        "rowLines": true,
-                        "store": "treeMenu",
-                        "lines": false,
                         "root": [
                             "root"
                         ],
-                        "rootVisible": false
+                        "rootVisible": false,
+                        "rowLines": true,
+                        "store": "treeMenu",
+                        "title": "Select Service"
                     },
                     "designerId": "5a9ae581-353c-4dfc-a1ac-07b1f78670ac",
                     "cn": [
@@ -72,9 +72,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "animate": true,
                                 "designer|displayName": "Main Tree",
-                                "stripeRows": true,
-                                "animate": true
+                                "stripeRows": true
                             },
                             "designerId": "dc67083c-3354-4792-afb2-155dcb2b22a9"
                         },
@@ -148,10 +148,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 4,
                         "designer|displayName": "Right Container",
-                        "resizable": null,
-                        "layout": "fit"
+                        "layout": "fit",
+                        "layout|flex": 4,
+                        "resizable": null
                     },
                     "designerId": "778f83a6-d41c-41d8-b43c-48c28b908d17",
                     "cn": [
@@ -163,17 +163,17 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "id": "tabList",
-                                "itemId": "tabPanel",
-                                "designer|displayName": "Manage",
-                                "resizable": null,
-                                "resizeHandles": null,
+                                "activeTab": 6,
                                 "bodyBorder": false,
+                                "designer|displayName": "Manage",
                                 "glyph": null,
                                 "icon": null,
+                                "id": "tabList",
+                                "itemId": "tabPanel",
                                 "overlapHeader": false,
-                                "title": null,
-                                "activeTab": 6
+                                "resizable": null,
+                                "resizeHandles": null,
+                                "title": null
                             },
                             "designerId": "9d75c525-7dc1-4f61-840d-9e39701de305",
                             "cn": [
@@ -221,9 +221,9 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "autoScroll": true,
-                                                        "title": "Edit Labs",
                                                         "forceFit": true,
-                                                        "store": "editLabs"
+                                                        "store": "editLabs",
+                                                        "title": "Edit Labs"
                                                     },
                                                     "designerId": "6bf7c5f1-a08f-4a1c-8473-050eba1ce0f4",
                                                     "cn": [
@@ -244,8 +244,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "hidden": true,
                                                                 "dataIndex": "id",
+                                                                "hidden": true,
                                                                 "text": "Id"
                                                             },
                                                             "designerId": "92075a06-e6d4-4355-9ae2-73a66198b502"
@@ -259,8 +259,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "name",
-                                                                "text": "Name",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Name"
                                                             },
                                                             "designerId": "5b9a34a3-02e5-47e2-be80-ad9035ffb3e9",
                                                             "cn": [
@@ -284,8 +284,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "description",
-                                                                "text": "Description",
-                                                                "flex": 3
+                                                                "flex": 3,
+                                                                "text": "Description"
                                                             },
                                                             "designerId": "614a039d-c704-42bd-8b09-801cd43c18d5",
                                                             "cn": [
@@ -321,13 +321,13 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "fn": "handler",
                                                                         "designer|params": [
                                                                             "event",
                                                                             "toolEl",
                                                                             "owner",
                                                                             "tool"
                                                                         ],
+                                                                        "fn": "handler",
                                                                         "implHandler": [
                                                                             "owner.up(\"gridpanel\").getStore().load();",
                                                                             ""
@@ -354,8 +354,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "maxWidth": 50,
-                                                                "align": "center"
+                                                                "align": "center",
+                                                                "maxWidth": 50
                                                             },
                                                             "designerId": "67f0133c-b3f4-4544-87ab-825fe35cd98a",
                                                             "cn": [
@@ -382,7 +382,6 @@
                                                                             },
                                                                             "codeClass": null,
                                                                             "userConfig": {
-                                                                                "fn": "handler",
                                                                                 "designer|params": [
                                                                                     "view",
                                                                                     "rowIndex",
@@ -392,6 +391,7 @@
                                                                                     "record",
                                                                                     "row"
                                                                                 ],
+                                                                                "fn": "handler",
                                                                                 "implHandler": [
                                                                                     "Ext.Msg.confirm('Delete?','Do you want to delete this LAB '+record.get('name')+'?',function(y) {",
                                                                                     "    if (y==='yes') view.up(\"gridpanel\").getStore().remove(record);",
@@ -413,9 +413,9 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "dock": "top",
                                                                 "container|pack": "end",
-                                                                "designer|displayName": "editToolbar"
+                                                                "designer|displayName": "editToolbar",
+                                                                "dock": "top"
                                                             },
                                                             "designerId": "8ecbb064-51ef-4dbc-a220-237d0c278cf1",
                                                             "cn": [
@@ -427,13 +427,13 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "layout|flex": null,
                                                                         "designer|displayName": "Add Lab",
+                                                                        "emptyText": "Enter lab name",
+                                                                        "enableKeyEvents": true,
                                                                         "fieldLabel": "Add new Lab",
                                                                         "labelAlign": "right",
                                                                         "labelWidth": 90,
-                                                                        "emptyText": "Enter lab name",
-                                                                        "enableKeyEvents": true
+                                                                        "layout|flex": null
                                                                     },
                                                                     "designerId": "0504572d-f4da-401f-8ec3-ee69c8f6c028",
                                                                     "cn": [
@@ -523,9 +523,9 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "autoScroll": true,
-                                                        "title": "Edit Device Templates",
                                                         "forceFit": true,
-                                                        "store": "iouTemplates"
+                                                        "store": "iouTemplates",
+                                                        "title": "Edit Device Templates"
                                                     },
                                                     "designerId": "3f71bcdb-2b46-4541-b6d1-50e25b8b7e94",
                                                     "cn": [
@@ -559,13 +559,13 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "fn": "handler",
                                                                         "designer|params": [
                                                                             "event",
                                                                             "toolEl",
                                                                             "owner",
                                                                             "tool"
                                                                         ],
+                                                                        "fn": "handler",
                                                                         "implHandler": [
                                                                             "owner.up(\"gridpanel\").getStore().load();",
                                                                             ""
@@ -592,9 +592,9 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "dock": "top",
                                                                 "container|pack": "end",
-                                                                "designer|displayName": "editToolbar"
+                                                                "designer|displayName": "editToolbar",
+                                                                "dock": "top"
                                                             },
                                                             "designerId": "89066af9-153c-40c8-85ce-83a4e8559b05",
                                                             "cn": [
@@ -606,15 +606,15 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "layout|flex": null,
                                                                         "designer|displayName": "addDevice",
+                                                                        "displayField": "id",
+                                                                        "editable": false,
+                                                                        "emptyText": "Select Type",
+                                                                        "enableKeyEvents": true,
                                                                         "fieldLabel": "Add new Template",
                                                                         "labelAlign": "right",
                                                                         "labelWidth": 130,
-                                                                        "emptyText": "Select Type",
-                                                                        "enableKeyEvents": true,
-                                                                        "editable": false,
-                                                                        "displayField": "id",
+                                                                        "layout|flex": null,
                                                                         "store": "iouBase"
                                                                     },
                                                                     "designerId": "4a9268cf-d23c-4187-ae36-349fa83092be",
@@ -678,10 +678,10 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "hidden": true,
                                                                 "dataIndex": "id",
-                                                                "text": "Id",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "hidden": true,
+                                                                "text": "Id"
                                                             },
                                                             "designerId": "5ae5a9b8-b37b-467f-b080-11943f3e45b7"
                                                         },
@@ -694,8 +694,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "name",
-                                                                "text": "Name",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Name"
                                                             },
                                                             "designerId": "3a664e63-bed2-4cbf-b34d-d5b22dd9d825"
                                                         },
@@ -708,8 +708,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "description",
-                                                                "text": "Description",
-                                                                "flex": 4
+                                                                "flex": 4,
+                                                                "text": "Description"
                                                             },
                                                             "designerId": "7b810de6-392e-4146-af81-479b622ae4f3",
                                                             "cn": [
@@ -734,8 +734,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "icon",
-                                                                "text": "Icon",
-                                                                "flex": 0.7
+                                                                "flex": 0.7,
+                                                                "text": "Icon"
                                                             },
                                                             "designerId": "52cd7b97-8d2b-49db-b59f-1b98d74f8c1e",
                                                             "cn": [
@@ -747,10 +747,10 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
+                                                                        "designer|displayName": "tpl",
                                                                         "implHandler": [
                                                                             "<IMG SRC=\"{icon}\" width=15 height=15/>"
-                                                                        ],
-                                                                        "designer|displayName": "tpl"
+                                                                        ]
                                                                     },
                                                                     "designerId": "fc8ef276-9601-4c7d-9d27-c56a059aaea2"
                                                                 },
@@ -762,6 +762,10 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
+                                                                        "allowBlank": false,
+                                                                        "allowOnlyWhitespace": false,
+                                                                        "displayField": "name",
+                                                                        "editable": false,
                                                                         "listConfig": [
                                                                             "{",
                                                                             "    getInnerTpl: function() {",
@@ -769,10 +773,6 @@
                                                                             "    }",
                                                                             "}"
                                                                         ],
-                                                                        "allowBlank": false,
-                                                                        "allowOnlyWhitespace": false,
-                                                                        "editable": false,
-                                                                        "displayField": "name",
                                                                         "store": "routerIcons",
                                                                         "valueField": "id"
                                                                     },
@@ -800,8 +800,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "memory",
-                                                                "text": "Memory (Mb)",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Memory (Mb)"
                                                             },
                                                             "designerId": "85831594-e8fd-471d-a72e-d3fc7162d05c",
                                                             "cn": [
@@ -833,8 +833,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "nvram",
-                                                                "text": "Nvram (Kb)",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Nvram (Kb)"
                                                             },
                                                             "designerId": "0e555fec-ee6b-4148-b6c6-ccb25d6b72ea",
                                                             "cn": [
@@ -866,8 +866,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "ethernet",
-                                                                "text": "Ethernet",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Ethernet"
                                                             },
                                                             "designerId": "83d4bde8-4320-4f81-a911-24cb46461ed3",
                                                             "cn": [
@@ -899,8 +899,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "serial",
-                                                                "text": "Serial",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Serial"
                                                             },
                                                             "designerId": "f6c53146-4f94-4c51-b5a5-fb899a1bce09",
                                                             "cn": [
@@ -932,8 +932,8 @@
                                                             "userConfig": {
                                                                 "align": "center",
                                                                 "dataIndex": "type",
-                                                                "text": "Type",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Type"
                                                             },
                                                             "designerId": "9c47973b-170e-43e7-ac69-27f5c8541225",
                                                             "cn": [
@@ -947,8 +947,8 @@
                                                                     "userConfig": {
                                                                         "allowBlank": false,
                                                                         "allowOnlyWhitespace": false,
-                                                                        "editable": false,
                                                                         "displayField": "id",
+                                                                        "editable": false,
                                                                         "store": "iouBase"
                                                                     },
                                                                     "designerId": "85fd70c8-2068-4fc2-b528-d34b0ffc862d"
@@ -963,8 +963,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "maxWidth": 50,
-                                                                "align": "center"
+                                                                "align": "center",
+                                                                "maxWidth": 50
                                                             },
                                                             "designerId": "2679dcea-5ce9-4c78-9991-ac50d4bd00e8",
                                                             "cn": [
@@ -988,7 +988,6 @@
                                                                             },
                                                                             "codeClass": null,
                                                                             "userConfig": {
-                                                                                "fn": "handler",
                                                                                 "designer|params": [
                                                                                     "view",
                                                                                     "rowIndex",
@@ -998,6 +997,7 @@
                                                                                     "record",
                                                                                     "row"
                                                                                 ],
+                                                                                "fn": "handler",
                                                                                 "implHandler": [
                                                                                     "Ext.Msg.confirm('Delete?','Do you want to delete this device type '+record.get('name')+'?',function(y) {",
                                                                                     "    if (y==='yes') view.up(\"gridpanel\").getStore().remove(record);",
@@ -1072,11 +1072,11 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "layout|anchor": "100%",
-                                                                "itemId": "labName",
                                                                 "fieldLabel": "LAB Name",
+                                                                "itemId": "labName",
                                                                 "labelAlign": "right",
                                                                 "labelWidth": 120,
+                                                                "layout|anchor": "100%",
                                                                 "value": null
                                                             },
                                                             "designerId": "aaede833-edb5-4dfb-8f75-755fae8ef84f"
@@ -1089,11 +1089,11 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "layout|anchor": "100%",
-                                                                "itemId": "labDescription",
                                                                 "fieldLabel": "LAB Description",
+                                                                "itemId": "labDescription",
                                                                 "labelAlign": "right",
                                                                 "labelWidth": 120,
+                                                                "layout|anchor": "100%",
                                                                 "value": null
                                                             },
                                                             "designerId": "bcf2f8c5-956f-4b2b-bce5-727b4918002f"
@@ -1106,8 +1106,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "container|align": null,
                                                                 "border": "0 0 0 0",
+                                                                "container|align": null,
                                                                 "frame": false
                                                             },
                                                             "designerId": "08a18923-5ee9-43e3-8ac9-8adf8c43321f",
@@ -1201,12 +1201,12 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "autoScroll": true,
+                                                                "forceFit": true,
                                                                 "id": null,
                                                                 "itemId": "reviewDevices",
-                                                                "autoScroll": true,
-                                                                "title": "Review Devices",
-                                                                "forceFit": true,
-                                                                "store": "labDevices"
+                                                                "store": "labDevices",
+                                                                "title": "Review Devices"
                                                             },
                                                             "designerId": "37e5a23d-9356-4c5c-8461-c7f61491a24c",
                                                             "cn": [
@@ -1240,13 +1240,13 @@
                                                                             },
                                                                             "codeClass": null,
                                                                             "userConfig": {
-                                                                                "fn": "handler",
                                                                                 "designer|params": [
                                                                                     "event",
                                                                                     "toolEl",
                                                                                     "owner",
                                                                                     "tool"
                                                                                 ],
+                                                                                "fn": "handler",
                                                                                 "implHandler": [
                                                                                     "owner.up(\"gridpanel\").getStore().load();",
                                                                                     ""
@@ -1283,8 +1283,8 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "hidden": true,
                                                                         "dataIndex": "id",
+                                                                        "hidden": true,
                                                                         "text": "Id"
                                                                     },
                                                                     "designerId": "b71c9b40-6514-4f8c-be68-4c586d7552d5"
@@ -1299,8 +1299,8 @@
                                                                     "userConfig": {
                                                                         "align": "center",
                                                                         "dataIndex": "status",
-                                                                        "text": "Status",
-                                                                        "flex": 0.5
+                                                                        "flex": 0.5,
+                                                                        "text": "Status"
                                                                     },
                                                                     "designerId": "6862fa2c-d24c-41c5-bb63-9f8db5f1db30"
                                                                 },
@@ -1313,8 +1313,8 @@
                                                                     "codeClass": null,
                                                                     "userConfig": {
                                                                         "align": "center",
-                                                                        "text": "Icon",
-                                                                        "flex": 0.3
+                                                                        "flex": 0.3,
+                                                                        "text": "Icon"
                                                                     },
                                                                     "designerId": "6758afc7-2148-4964-ad56-ca901f68ada4",
                                                                     "cn": [
@@ -1326,10 +1326,10 @@
                                                                             },
                                                                             "codeClass": null,
                                                                             "userConfig": {
+                                                                                "designer|displayName": "tpl",
                                                                                 "implHandler": [
                                                                                     "<IMG SRC=\"{icon}\" width=15 height=15/>"
-                                                                                ],
-                                                                                "designer|displayName": "tpl"
+                                                                                ]
                                                                             },
                                                                             "designerId": "e162942f-26d7-4892-9c31-666864e502b6"
                                                                         }
@@ -1344,8 +1344,8 @@
                                                                     "codeClass": null,
                                                                     "userConfig": {
                                                                         "dataIndex": "name",
-                                                                        "text": "Name",
-                                                                        "flex": 2
+                                                                        "flex": 2,
+                                                                        "text": "Name"
                                                                     },
                                                                     "designerId": "b049bc3f-76f0-4031-97b8-3f04aa3f91c4"
                                                                 },
@@ -1358,8 +1358,8 @@
                                                                     "codeClass": null,
                                                                     "userConfig": {
                                                                         "dataIndex": "type",
-                                                                        "text": "Template",
-                                                                        "flex": 2
+                                                                        "flex": 2,
+                                                                        "text": "Template"
                                                                     },
                                                                     "designerId": "50fdec24-c171-4c83-861d-bb5565b30788",
                                                                     "cn": [
@@ -1371,7 +1371,6 @@
                                                                             },
                                                                             "codeClass": null,
                                                                             "userConfig": {
-                                                                                "fn": "renderer",
                                                                                 "designer|params": [
                                                                                     "value",
                                                                                     "metaData",
@@ -1381,6 +1380,7 @@
                                                                                     "store",
                                                                                     "view"
                                                                                 ],
+                                                                                "fn": "renderer",
                                                                                 "implHandler": [
                                                                                     "var r = Ext.StoreMgr.get('iouTemplates').getById(value);",
                                                                                     "return r?r.get('name'):'';",
@@ -1399,10 +1399,10 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "maxWidth": null,
-                                                                        "width": 120,
+                                                                        "align": "center",
                                                                         "defaultWidth": null,
-                                                                        "align": "center"
+                                                                        "maxWidth": null,
+                                                                        "width": 120
                                                                     },
                                                                     "designerId": "8e4f18df-b480-42ff-881b-a9c73f0ab4e0",
                                                                     "cn": [
@@ -1428,7 +1428,6 @@
                                                                                     },
                                                                                     "codeClass": null,
                                                                                     "userConfig": {
-                                                                                        "fn": "handler",
                                                                                         "designer|params": [
                                                                                             "view",
                                                                                             "rowIndex",
@@ -1438,6 +1437,7 @@
                                                                                             "record",
                                                                                             "row"
                                                                                         ],
+                                                                                        "fn": "handler",
                                                                                         "implHandler": [
                                                                                             "Ext.StoreMgr.get('deviceLinks').getProxy().url='/rest/device/'+record.get('id')+'/links';",
                                                                                             "Ext.StoreMgr.get('deviceLinks').load();",
@@ -1487,7 +1487,6 @@
                                                                                     },
                                                                                     "codeClass": null,
                                                                                     "userConfig": {
-                                                                                        "fn": "handler",
                                                                                         "designer|params": [
                                                                                             "view",
                                                                                             "rowIndex",
@@ -1497,6 +1496,7 @@
                                                                                             "record",
                                                                                             "row"
                                                                                         ],
+                                                                                        "fn": "handler",
                                                                                         "implHandler": [
                                                                                             "console.log('We want to stop the device');",
                                                                                             "Ext.Ajax.request({",
@@ -1533,7 +1533,6 @@
                                                                                     },
                                                                                     "codeClass": null,
                                                                                     "userConfig": {
-                                                                                        "fn": "handler",
                                                                                         "designer|params": [
                                                                                             "view",
                                                                                             "rowIndex",
@@ -1543,6 +1542,7 @@
                                                                                             "record",
                                                                                             "row"
                                                                                         ],
+                                                                                        "fn": "handler",
                                                                                         "implHandler": [
                                                                                             "console.log('We want to start the device');",
                                                                                             "Ext.Ajax.request({",
@@ -1579,7 +1579,6 @@
                                                                                     },
                                                                                     "codeClass": null,
                                                                                     "userConfig": {
-                                                                                        "fn": "handler",
                                                                                         "designer|params": [
                                                                                             "view",
                                                                                             "rowIndex",
@@ -1589,6 +1588,7 @@
                                                                                             "record",
                                                                                             "row"
                                                                                         ],
+                                                                                        "fn": "handler",
                                                                                         "implHandler": [
                                                                                             "console.log('We want to reset the device');",
                                                                                             "Ext.Ajax.request({",
@@ -1626,7 +1626,6 @@
                                                                                     },
                                                                                     "codeClass": null,
                                                                                     "userConfig": {
-                                                                                        "fn": "handler",
                                                                                         "designer|params": [
                                                                                             "view",
                                                                                             "rowIndex",
@@ -1636,6 +1635,7 @@
                                                                                             "record",
                                                                                             "row"
                                                                                         ],
+                                                                                        "fn": "handler",
                                                                                         "implHandler": [
                                                                                             "console.log('We want to save the device');",
                                                                                             "Ext.Ajax.request({",
@@ -1781,6 +1781,16 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "allowBlank": null,
+                                                                "allowOnlyWhitespace": null,
+                                                                "designer|displayName": "Add Device",
+                                                                "displayField": "name",
+                                                                "editable": false,
+                                                                "emptyText": "Select Device",
+                                                                "fieldLabel": "Add Device",
+                                                                "labelAlign": "right",
+                                                                "labelWidth": 80,
+                                                                "layout|flex": null,
                                                                 "listConfig": [
                                                                     "{",
                                                                     "    getInnerTpl: function() {",
@@ -1788,16 +1798,6 @@
                                                                     "    }",
                                                                     "}"
                                                                 ],
-                                                                "layout|flex": null,
-                                                                "designer|displayName": "Add Device",
-                                                                "fieldLabel": "Add Device",
-                                                                "labelAlign": "right",
-                                                                "labelWidth": 80,
-                                                                "allowBlank": null,
-                                                                "allowOnlyWhitespace": null,
-                                                                "emptyText": "Select Device",
-                                                                "editable": false,
-                                                                "displayField": "name",
                                                                 "store": "iouTemplates",
                                                                 "valueField": "id"
                                                             },
@@ -1850,6 +1850,16 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
+                                                                "allowBlank": null,
+                                                                "allowOnlyWhitespace": null,
+                                                                "designer|displayName": "Add Link",
+                                                                "displayField": "name",
+                                                                "editable": false,
+                                                                "emptyText": "Select Link",
+                                                                "fieldLabel": "Add Link",
+                                                                "labelAlign": "right",
+                                                                "labelWidth": 80,
+                                                                "layout|flex": null,
                                                                 "listConfig": [
                                                                     "{",
                                                                     "    getInnerTpl: function() {",
@@ -1857,16 +1867,6 @@
                                                                     "    }",
                                                                     "}"
                                                                 ],
-                                                                "layout|flex": null,
-                                                                "designer|displayName": "Add Link",
-                                                                "fieldLabel": "Add Link",
-                                                                "labelAlign": "right",
-                                                                "labelWidth": 80,
-                                                                "allowBlank": null,
-                                                                "allowOnlyWhitespace": null,
-                                                                "emptyText": "Select Link",
-                                                                "editable": false,
-                                                                "displayField": "name",
                                                                 "store": "linkIcons",
                                                                 "valueField": "id"
                                                             },
@@ -1919,8 +1919,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "layout|flex": null,
-                                                                "designer|displayName": "Space"
+                                                                "designer|displayName": "Space",
+                                                                "layout|flex": null
                                                             },
                                                             "designerId": "3a8dde44-d8dc-442a-beff-87c7eb82c1f7"
                                                         },
@@ -1932,15 +1932,15 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "layout|flex": null,
-                                                                "itemId": "scaler",
-                                                                "width": 160,
                                                                 "designer|displayName": "Scaler",
                                                                 "fieldLabel": "Scale",
+                                                                "itemId": "scaler",
                                                                 "labelAlign": "right",
                                                                 "labelWidth": 50,
+                                                                "layout|flex": null,
+                                                                "minValue": 30,
                                                                 "value": 35,
-                                                                "minValue": 30
+                                                                "width": 160
                                                             },
                                                             "designerId": "dc579f15-ce75-4e1d-adb9-988a1087eddd",
                                                             "cn": [
@@ -2014,13 +2014,13 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "fn": "handler",
                                                                 "designer|params": [
                                                                     "event",
                                                                     "toolEl",
                                                                     "owner",
                                                                     "tool"
                                                                 ],
+                                                                "fn": "handler",
                                                                 "implHandler": [
                                                                     "console.log('Refresh is invoked!');",
                                                                     "if (diagram) diagram.refresh();"
@@ -2165,11 +2165,11 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "id": "selectLab",
                                                         "autoScroll": true,
-                                                        "title": "Please select a Lab",
                                                         "forceFit": true,
-                                                        "store": "editLabs"
+                                                        "id": "selectLab",
+                                                        "store": "editLabs",
+                                                        "title": "Please select a Lab"
                                                     },
                                                     "designerId": "a9de6fac-cad9-4e0c-8832-d60a5651d3b6",
                                                     "cn": [
@@ -2190,8 +2190,8 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "hidden": true,
                                                                 "dataIndex": "id",
+                                                                "hidden": true,
                                                                 "text": "Id"
                                                             },
                                                             "designerId": "b12f003b-44a4-49c4-9660-e964a9816f71"
@@ -2205,8 +2205,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "name",
-                                                                "text": "Name",
-                                                                "flex": 1
+                                                                "flex": 1,
+                                                                "text": "Name"
                                                             },
                                                             "designerId": "c7a6796b-6369-409e-8f1e-d29a9f33ec39",
                                                             "cn": [
@@ -2230,8 +2230,8 @@
                                                             "codeClass": null,
                                                             "userConfig": {
                                                                 "dataIndex": "description",
-                                                                "text": "Description",
-                                                                "flex": 3
+                                                                "flex": 3,
+                                                                "text": "Description"
                                                             },
                                                             "designerId": "5ebaf405-af22-481a-b284-1ddc81e1614e",
                                                             "cn": [
@@ -2267,13 +2267,13 @@
                                                                     },
                                                                     "codeClass": null,
                                                                     "userConfig": {
-                                                                        "fn": "handler",
                                                                         "designer|params": [
                                                                             "event",
                                                                             "toolEl",
                                                                             "owner",
                                                                             "tool"
                                                                         ],
+                                                                        "fn": "handler",
                                                                         "implHandler": [
                                                                             "owner.up(\"gridpanel\").getStore().load();",
                                                                             ""

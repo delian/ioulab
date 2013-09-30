@@ -8,8 +8,8 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
-        "storeId": "editLabs",
-        "designer|userClassName": "editLabs"
+        "designer|userClassName": "editLabs",
+        "storeId": "editLabs"
     },
     "designerId": "66cf3ba4-7f57-44fb-896a-c64d50496dce",
     "cn": [

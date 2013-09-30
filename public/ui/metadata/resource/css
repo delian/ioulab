@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "css",
-        "url": "libs/joint.css",
-        "id": "joint.css"
+        "id": "joint.css",
+        "url": "libs/joint.css"
     },
     "designerId": "e8f5ec34-94c5-458b-9fdc-25ccfd504a70"
 }

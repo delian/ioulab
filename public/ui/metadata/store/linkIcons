@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "linkIcons",
-        "designer|userClassName": "linkIcons"
+        "designer|userClassName": "linkIcons",
+        "storeId": "linkIcons"
     },
     "designerId": "8d056b1b-97cc-40cb-bfa1-14ae04a4738a",
     "cn": [

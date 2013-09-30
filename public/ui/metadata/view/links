@@ -6,13 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "height": null,
-        "width": 1000,
-        "designer|userClassName": "links",
         "designer|userAlias": "links",
+        "designer|userClassName": "links",
+        "height": null,
+        "modal": true,
         "title": "Device Links",
         "titleAlign": "center",
-        "modal": true
+        "width": 1000
     },
     "designerId": "df8860df-8203-4042-9201-587f74c321a0",
     "cn": [
@@ -25,10 +25,10 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "deviceLinks",
-                "title": null,
-                "titleCollapse": null,
                 "forceFit": true,
-                "store": "deviceLinks"
+                "store": "deviceLinks",
+                "title": null,
+                "titleCollapse": null
             },
             "designerId": "85278d18-0630-4e39-87a5-8ffe340b97d4",
             "cn": [
@@ -49,10 +49,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "dataIndex": "id",
-                        "text": "Id",
-                        "flex": 1
+                        "flex": 1,
+                        "hidden": true,
+                        "text": "Id"
                     },
                     "designerId": "eef4f48c-8841-4b3d-b7d7-30b38c0776a8"
                 },
@@ -64,10 +64,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "dataIndex": "lab",
-                        "text": "Lab",
-                        "flex": 1
+                        "flex": 1,
+                        "hidden": true,
+                        "text": "Lab"
                     },
                     "designerId": "b64cc820-18bc-4a82-af5c-42b61cbc50ac"
                 },
@@ -80,8 +80,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "type",
-                        "text": "Type",
-                        "flex": 1
+                        "flex": 1,
+                        "text": "Type"
                     },
                     "designerId": "916af5c6-0e58-42fe-99f3-be72158c57c6"
                 },
@@ -94,8 +94,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "source",
-                        "text": "Source Device",
-                        "flex": 2
+                        "flex": 2,
+                        "text": "Source Device"
                     },
                     "designerId": "976f43b9-64ff-4de4-b46f-e368008020a1",
                     "cn": [
@@ -107,7 +107,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "renderer",
                                 "designer|params": [
                                     "value",
                                     "metaData",
@@ -117,6 +116,7 @@
                                     "store",
                                     "view"
                                 ],
+                                "fn": "renderer",
                                 "implHandler": [
                                     "var r = Ext.StoreMgr.get('labDevices').getById(value.id);",
                                     "return r?r.get('name'):'';",
@@ -136,8 +136,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "source",
-                        "text": "Source Interface",
-                        "flex": 2
+                        "flex": 2,
+                        "text": "Source Interface"
                     },
                     "designerId": "b934cf98-3617-4321-b90a-dabe1458579e",
                     "cn": [
@@ -149,10 +149,10 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "tpl",
                                 "implHandler": [
                                     "{source.name}"
-                                ],
-                                "designer|displayName": "tpl"
+                                ]
                             },
                             "designerId": "51412a93-96d8-40ee-90ad-9499fceeea91"
                         }
@@ -167,8 +167,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "target",
-                        "text": "Target Device",
-                        "flex": 2
+                        "flex": 2,
+                        "text": "Target Device"
                     },
                     "designerId": "d6b989e1-17cc-4413-9596-6bbed1e310ea",
                     "cn": [
@@ -180,7 +180,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "renderer",
                                 "designer|params": [
                                     "value",
                                     "metaData",
@@ -190,6 +189,7 @@
                                     "store",
                                     "view"
                                 ],
+                                "fn": "renderer",
                                 "implHandler": [
                                     "var r = Ext.StoreMgr.get('labDevices').getById(value.id);",
                                     "return r?r.get('name'):'';",
@@ -209,8 +209,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "target",
-                        "text": "Target Interface",
-                        "flex": 2
+                        "flex": 2,
+                        "text": "Target Interface"
                     },
                     "designerId": "3a89c325-7135-496e-8b33-251d1540c8a0",
                     "cn": [
@@ -222,11 +222,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "designer|displayName": "tpl",
                                 "implHandler": [
                                     "{source.name}",
                                     ""
-                                ],
-                                "designer|displayName": "tpl"
+                                ]
                             },
                             "designerId": "051a1443-66ad-4382-90e3-80fcc5586611"
                         }
@@ -241,8 +241,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "name",
-                        "text": "Name",
-                        "flex": 2
+                        "flex": 2,
+                        "text": "Name"
                     },
                     "designerId": "66d5e706-0327-4af2-af5d-8e84729cc7df"
                 }

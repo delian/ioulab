@@ -1,6 +1,11 @@
 {
     "name": "ui",
     "settings": {
+        "cmd": {
+            "license": "gpl",
+            "cmdVersion": "4.0.0.193",
+            "frameworkVersion": "4.2.0.663"
+        },
         "canvasControls": {
             "viewportSize": {
                 "name": "Auto Expand",
@@ -16,12 +21,13 @@
         "genTimestamps": false,
         "cacheBust": false,
         "buildShouldOverwriteIndex": true,
-        "generateArchitectVersion": true
+        "generateArchitectVersion": true,
+        "sdkPath": ""
     },
     "xdsVersion": "3.0.0",
-    "xdsBuild": 1130,
+    "xdsBuild": 1221,
     "schemaVersion": 1,
-    "upgradeVersion": 210000000503,
+    "upgradeVersion": 300000000001,
     "framework": "ext42",
     "viewOrderMap": {
         "view": [

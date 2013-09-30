@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "routerIcons",
-        "designer|userClassName": "routerIcons"
+        "designer|userClassName": "routerIcons",
+        "storeId": "routerIcons"
     },
     "designerId": "5685604d-b02d-462b-bfb6-360a889f9ccd",
     "cn": [

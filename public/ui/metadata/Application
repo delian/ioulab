@@ -6,10 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoCreateViewport": true,
         "models": [
             "labDevices",
             "iouTemplates"
         ],
+        "name": "iouLab",
         "stores": [
             "treeMenu",
             "editLabs",
@@ -23,9 +25,7 @@
         "views": [
             "mainView",
             "links"
-        ],
-        "autoCreateViewport": true,
-        "name": "iouLab"
+        ]
     },
     "designerId": "application",
     "cn": [

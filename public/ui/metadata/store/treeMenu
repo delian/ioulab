@@ -7,7 +7,6 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "treeMenu",
         "designer|userClassName": "treeMenu",
         "root": [
             "{",
@@ -20,7 +19,8 @@
             "        ] }",
             "    ]",
             "}"
-        ]
+        ],
+        "storeId": "treeMenu"
     },
     "designerId": "5c5f06c5-ccd9-478b-8f45-df8f76a0967f",
     "cn": [

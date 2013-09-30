@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "iouBase",
-        "designer|userClassName": "iouBase"
+        "designer|userClassName": "iouBase",
+        "storeId": "iouBase"
     },
     "designerId": "6d53458f-8d92-4a19-9bd3-db54ac1a612a",
     "cn": [

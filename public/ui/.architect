@@ -826,11 +826,11 @@
         ]
     },
     "canvasState": {
-        "topInstance": null
+        "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e"
     },
     "inspectorState": {
         "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e",
-        "selectedInstance": "8458bbcf-17dc-4dfb-bc7a-58f8b711e3a0"
+        "selectedInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e"
     },
     "codeState": {
         "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e"

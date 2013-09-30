@@ -7,8 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "storeId": "deviceLinks",
-        "designer|userClassName": "deviceLinks"
+        "designer|userClassName": "deviceLinks",
+        "storeId": "deviceLinks"
     },
     "designerId": "5ece103d-7398-4141-929a-09482ff330e9",
     "cn": [
