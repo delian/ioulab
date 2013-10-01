@@ -1461,7 +1461,37 @@
                                                                                 "icon": "icons/terminal.png",
                                                                                 "tooltip": "Open Console"
                                                                             },
-                                                                            "designerId": "bde8ab80-ccdb-405b-937c-5dc84ee426b7"
+                                                                            "designerId": "bde8ab80-ccdb-405b-937c-5dc84ee426b7",
+                                                                            "cn": [
+                                                                                {
+                                                                                    "type": "fixedfunction",
+                                                                                    "reference": {
+                                                                                        "name": "items",
+                                                                                        "type": "array"
+                                                                                    },
+                                                                                    "codeClass": null,
+                                                                                    "userConfig": {
+                                                                                        "designer|params": [
+                                                                                            "view",
+                                                                                            "rowIndex",
+                                                                                            "colIndex",
+                                                                                            "item",
+                                                                                            "e",
+                                                                                            "record",
+                                                                                            "row"
+                                                                                        ],
+                                                                                        "fn": "handler",
+                                                                                        "implHandler": [
+                                                                                            "var w=window.open('about:blank','Terminal',\"location=0,status=0,scrollbars=1,width=800,height=600\");",
+                                                                                            "console.log('window',w);",
+                                                                                            "",
+                                                                                            "w.document.write('<SCRIPT SRC=\"/socket.io/socket.io.js\"></SCRIPT><SCRIPT SRC=\"terminal.js\"><SCRIPT>terminal();</SCRIPT>URAA');",
+                                                                                            "console.log('terminal write completed');"
+                                                                                        ]
+                                                                                    },
+                                                                                    "designerId": "dccd1e3e-7d3b-4735-849d-57ed0230a544"
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         {
                                                                             "type": "actioncolumnitem",

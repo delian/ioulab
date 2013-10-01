@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js4",
+        "id": "terminal.js",
+        "url": "libs/terminal.js"
+    },
+    "designerId": "1d7c383e-c61d-4fcc-ab1e-0d76194435e0"
+}
