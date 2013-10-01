@@ -1482,11 +1482,14 @@
                                                                                         ],
                                                                                         "fn": "handler",
                                                                                         "implHandler": [
-                                                                                            "var w=window.open('about:blank','Terminal',\"location=0,status=0,scrollbars=1,width=800,height=600\");",
+                                                                                            "var w=window.open('terminal.html','Terminal',\"location=0,status=0,scrollbars=1,width=800,height=600\");",
                                                                                             "console.log('window',w);",
                                                                                             "",
-                                                                                            "w.document.write('<SCRIPT SRC=\"/socket.io/socket.io.js\"></SCRIPT><SCRIPT SRC=\"terminal.js\"><SCRIPT>terminal();</SCRIPT>URAA');",
-                                                                                            "console.log('terminal write completed');"
+                                                                                            "setTimeout(function(){",
+                                                                                            "    w.document.write('<SCRIPT>terminal();</SCRIPT>URAA');",
+                                                                                            "    console.log('terminal write completed');    ",
+                                                                                            "},2000);",
+                                                                                            ""
                                                                                         ]
                                                                                     },
                                                                                     "designerId": "dccd1e3e-7d3b-4735-849d-57ed0230a544"

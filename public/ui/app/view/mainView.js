@@ -539,11 +539,14 @@ Ext.define('iouLab.view.mainView', {
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                                                        var w=window.open('about:blank','Terminal',"location=0,status=0,scrollbars=1,width=800,height=600");
+                                                                                        var w=window.open('terminal.html','Terminal',"location=0,status=0,scrollbars=1,width=800,height=600");
                                                                                         console.log('window',w);
 
-                                                                                        w.document.write('<SCRIPT SRC="/socket.io/socket.io.js"></SCRIPT><SCRIPT SRC="terminal.js"><SCRIPT>terminal();</SCRIPT>URAA');
-                                                                                        console.log('terminal write completed');
+                                                                                        setTimeout(function(){
+                                                                                            w.document.write('<SCRIPT>terminal();</SCRIPT>URAA');
+                                                                                            console.log('terminal write completed');
+                                                                                        },2000);
+
                                                                                     },
                                                                                     icon: 'icons/terminal.png',
                                                                                     tooltip: 'Open Console'
