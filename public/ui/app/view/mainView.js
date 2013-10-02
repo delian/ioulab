@@ -539,13 +539,7 @@ Ext.define('iouLab.view.mainView', {
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                                                        var w=window.open('terminal.html','Terminal',"location=0,status=0,scrollbars=1,width=800,height=600");
-                                                                                        console.log('window',w);
-
-                                                                                        setTimeout(function(){
-                                                                                            w.document.write('<SCRIPT>terminal();</SCRIPT>URAA');
-                                                                                            console.log('terminal write completed');
-                                                                                        },2000);
+                                                                                        window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),"location=0,status=0,scrollbars=1,width=585,height=340");
 
                                                                                     },
                                                                                     icon: 'icons/terminal.png',
