@@ -54,7 +54,7 @@ var io = require('socket.io');
 mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 	if (err) throw err;
 	db = mongoDb;
-
+	
 	var iouObj = require('./lib/iouLib')(db,e);
 	
 	// Load my REST API
@@ -67,50 +67,3 @@ mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 		require('./lib/termSocketBus.js')(sIo,e);
 	});
 });
-
-/*
-
-// My test code -----------------------------------------------------------------------------------------------------------------------------------------------
-var iouApi = require('./lib/ioulib.js');
-var buff = [];
-var socket;
-
-var myIou = iouApi({
-	'data' : function(data) {
-		console.log('>>>', data);
-		buff.push(data);
-		if (socket) socket.emit('data',data); else buff.push(data);
-	}
-});
-
-
-// Add terminal
-var term = require('term.js');
-app.use(term.middleware());
-var io = require('socket.io');
-//
-
-var server = http.createServer(app);
-server.listen(port, function() {
-	console.log('Express server listening on port',port);	
-	// Terminal middleware
-	sIo = io.listen(server);
-	sIo.sockets.on('connection', function(sock) {
-		console.log('connection *********************************************************************************************');
-		socket = sock;
-		socket.on('data', function(data) {
-			console.log('<<<',data);
-			myIou.write(data);
-		});
-
-		socket.on('disconnect', function() {
-			socket = null;
-		});
-
-		while (buff.length) {
-			socket.emit('data', buff.shift());
-		}
-		console.log('End connection!');
-	});
-});
-*/

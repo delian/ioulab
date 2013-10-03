@@ -552,6 +552,8 @@ Ext.define('iouLab.view.mainView', {
                                                                                             url: '/rest/device/'+record.get('id')+'/stop',
                                                                                             success: function(res) {
                                                                                                 console.log('We did stop');
+                                                                                                record.set('status','online');
+                                                                                                record.commit();
                                                                                             }
                                                                                         });
                                                                                     },
@@ -566,6 +568,8 @@ Ext.define('iouLab.view.mainView', {
                                                                                             url: '/rest/device/'+record.get('id')+'/start',
                                                                                             success: function(res) {
                                                                                                 console.log('We did start');
+                                                                                                record.set('status','online');
+                                                                                                record.commit();
                                                                                             }
                                                                                         });
                                                                                     },

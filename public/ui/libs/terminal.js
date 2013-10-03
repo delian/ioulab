@@ -1,3 +1,0 @@
-function terminal() {
-    alert('aaa');
-}

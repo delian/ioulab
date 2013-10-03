@@ -27,21 +27,14 @@
 <SCRIPT SRC="libs/term.js">
 </SCRIPT>
 
-<SCRIPT SRC="libs/terminal.js">
-</SCRIPT>
-
 <SCRIPT>
 
   function activateTerm() {
 
 	 // Check if we have an ID
-	 
 	 if (location.hash == "") window.close(); // Close the window
-
 	 var id = location.hash.match(/\d+/);
-
 	 if (!id) window.close();
-
 	 id = id[0];
 	 
      var socket = io.connect('/term');
@@ -57,8 +50,23 @@
          cols: 80,
          rows: 24,
          useStyle: true,
+         visualBell: true,
          screenKeys: true
        });
+
+       window.onresize = function(evt) {
+           console.log('window',evt,evt.target.innerWidth,evt.target.innerHeight);
+           var cols = parseInt(evt.target.innerWidth/(580/80));
+           var rows = parseInt(evt.target.innerHeight/(320/24))+scroll;
+           cols = cols>80?cols:80;
+           rows = rows>10?rows:10;
+           term.resize(cols,rows);
+           socket.emit('terminalResize',{ rows: rows, cols: cols });
+       }
+
+       setTimeout(function() {
+           window.onresize({ target:window });
+       },500);
        
        term.on('title',function(title) {
          document.title = title;
@@ -81,8 +89,7 @@
        });
        
        // We shall catch also the window close
-       
-       term.write('\x1b[32mWelcole to Terminal\x1b[m\r\n');
+       // term.write('\x1b[32mWelcole to Terminal\x1b[m\r\n');
      });
   }
 
