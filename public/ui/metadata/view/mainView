@@ -1897,7 +1897,8 @@
                                                     "userConfig": {
                                                         "frame": false,
                                                         "itemId": "diagram",
-                                                        "layout": "fit"
+                                                        "layout": "fit",
+                                                        "style": null
                                                     },
                                                     "designerId": "f3358f80-b02a-449a-93c0-c17a64313267"
                                                 }
@@ -1923,6 +1924,8 @@
                                                     "    },",
                                                     "    deviceDoubleClick: function(obj,x,y) {",
                                                     "        console.log('Device DoubleClick',arguments);",
+                                                    "        var id = obj.attributes.id;",
+                                                    "        window.open('terminal.html#'+id,'Terminal'+id,\"location=0,status=0,scrollbars=1,width=585,height=340\");",
                                                     "    },",
                                                     "    linkDoubleClick: function(obj,x,y) {",
                                                     "        console.log('Link DoubleClick',arguments);",
@@ -2275,7 +2278,7 @@
                                                 "fn": "onEditLabDiagramActivate",
                                                 "implHandler": [
                                                     "console.log('editLab is selected',arguments);",
-                                                    "diagram = new createDiagram(component.down('#diagram'),labId,true,{",
+                                                    "diagram = new createDiagram(component.down('#diagram'),labId,false,{",
                                                     "    sockSetScale: function(msg) {",
                                                     "        var scaler = component.down('#scaler');",
                                                     "        scaler.suspendEvents();",

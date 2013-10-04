@@ -1054,6 +1054,8 @@ Ext.define('iouLab.view.mainView', {
             },
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
+                var id = obj.attributes.id;
+                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=1,width=585,height=340");
             },
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);
@@ -1105,7 +1107,7 @@ Ext.define('iouLab.view.mainView', {
 
     onEditLabDiagramActivate: function(component, eOpts) {
         console.log('editLab is selected',arguments);
-        diagram = new createDiagram(component.down('#diagram'),labId,true,{
+        diagram = new createDiagram(component.down('#diagram'),labId,false,{
             sockSetScale: function(msg) {
                 var scaler = component.down('#scaler');
                 scaler.suspendEvents();

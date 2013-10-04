@@ -84,7 +84,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				objs[elId].trigger('cell:doubleclick',objs[elId],arguments[1],arguments[2],arguments[3],arguments[4],arguments[5]); // propagate the event
 		}
 
-		if (e == 'cell:pointermove') { // Draw trash
+		if ((!readOnly) && e == 'cell:pointermove') { // Draw trash
 			if (!diag.trashObj)
 				addTrash();
 			if ((x < trashMaxRegion && y < trashMaxRegion) && diag.trashSize < trashMaxSize)
@@ -123,7 +123,15 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			if (obj.oType=='device'&&config.deviceDoubleClick) config.deviceDoubleClick(obj,x,y);
 			if (obj.oType=='link'&&config.linkDoubleClick) config.linkDoubleClick(obj,x,y);
 		});
-		obj.on('change', function(child) {
+		
+		if (readOnly) {
+			obj.on('change:position', function(child){
+				console.log('Change position in read-only',arguments);
+				obj.attributes=obj._previousAttributes;
+			});
+		}
+		
+		if (!readOnly) obj.on('change', function(child) {
 			console.log('element>>change>>', child, obj, arguments);
 			if (obj.oType == 'device') {
 				obj.oMsg.z = obj.attributes.z;
@@ -143,7 +151,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				sendMsg('updateLink', obj.oMsg);
 			}
 		});
-		obj.on('remove', function(type, child) { // Automatic handle of the remove
+	if (!readOnly) obj.on('remove', function(type, child) { // Automatic handle of the remove
 			console.log('we shall remove', child, obj);
 			if (obj.oType == 'device')
 				sendMsg('removeDevice', {
@@ -190,6 +198,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		msg.lab = labId;
 		image.oType = 'device';
 		image.oMsg = msg;
+		if (readOnly) image.attr({'image': { 'pointer-events':'fill'}, 'text':  { 'pointer-events':'none'} }); // Not working
 		addObj(image);
 		sendMsg('addDevice', msg);
 		return image;
@@ -250,11 +259,13 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			source : msg.source,
 			target : msg.target,
 			vertices : msg.vertices ? msg.vertices : [],
+			attrs: {},
 			labels : [ {
 				position : linkSLabel,
 				attrs : {
 					text : {
-						text : msg.source.name || ""
+						text : msg.source.name || "",
+						'pointer-events': 'none'
 					}
 				}
 			}, {
@@ -262,14 +273,16 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				attrs : {
 					text : {
 						text : msg.name || "",
-						'font-weight' : 'bold'
+						'font-weight' : 'bold',
+						'pointer-events': 'none'
 					}
 				}
 			}, {
 				position : linkNLabel,
 				attrs : {
 					text : {
-						text : msg.target.name || ""
+						text : msg.target.name || "",
+						'pointer-events': 'none'
 					}
 				}
 
@@ -277,9 +290,24 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			smooth : true
 		});
 
-		if (readOnly)
-			link.off('cell:pointerdown'); // Not working
-
+		if (readOnly) link.attr({
+			'.labels': { 'pointer-events':'none' }, 
+			'.link-tools': { 'pointer-events':'none' }, 
+			'.marker-source': { 'pointer-events':'none' },
+			'.marker-target': { 'pointer-events':'none' },
+			'.marker-vertices': { 'pointer-events':'none' },
+			'.marker-arrowheads': { 'pointer-events':'none' }, 
+			'.connection': { 'pointer-events':'none' }, 
+			'.connection-wrap':  { 'pointer-events':'none' }
+		}); // Not working
+/*
+		link.attr({
+		    '.connection': { stroke: 'blue' },
+//		    '.marker-source': { fill: 'red', d: 'M 10 0 L 0 5 L 10 10 z' },
+//		    '.marker-target': { fill: 'yellow', d: 'M 10 0 L 0 5 L 10 10 z' }
+		});
+*/
+		
 		link.oType = 'link';
 		link.oMsg = msg;
 		msg.lab=labId;

@@ -111,6 +111,7 @@
                                         },
                                         {
                                             "id": "2bf95ebe-b3e4-4322-b7c7-880e00cf4281",
+                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "76a42bcc-fb34-4ea4-9104-87551e32ca7e"
@@ -234,7 +235,6 @@
                                         },
                                         {
                                             "id": "692dcde6-e75d-47d3-9d70-9df81a740892",
-                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "7b6bf580-284d-4f88-887e-d45355f61152"
@@ -253,6 +253,7 @@
                                                                 },
                                                                 {
                                                                     "id": "08a18923-5ee9-43e3-8ac9-8adf8c43321f",
+                                                                    "expanded": false,
                                                                     "cn": [
                                                                         {
                                                                             "id": "22d7472d-cada-479d-a483-eceab0afdbb5",
@@ -574,6 +575,7 @@
         },
         "df8860df-8203-4042-9201-587f74c321a0": {
             "id": "df8860df-8203-4042-9201-587f74c321a0",
+            "expanded": false,
             "cn": [
                 {
                     "id": "85278d18-0630-4e39-87a5-8ffe340b97d4",
@@ -878,14 +880,14 @@
         ]
     },
     "canvasState": {
-        "topInstance": "df8860df-8203-4042-9201-587f74c321a0"
+        "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e"
     },
     "inspectorState": {
-        "topInstance": "df8860df-8203-4042-9201-587f74c321a0",
-        "selectedInstance": "66d5e706-0327-4af2-af5d-8e84729cc7df"
+        "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e",
+        "selectedInstance": "f3358f80-b02a-449a-93c0-c17a64313267"
     },
     "codeState": {
-        "topInstance": "df8860df-8203-4042-9201-587f74c321a0"
+        "topInstance": "645b8fc1-f4e6-4a24-a453-e65eee01c56e"
     },
     "editMode": "design",
     "userSettings": {}
