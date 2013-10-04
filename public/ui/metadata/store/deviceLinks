@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
+        "autoLoad": false,
+        "autoSync": true,
         "designer|userClassName": "deviceLinks",
         "storeId": "deviceLinks"
     },

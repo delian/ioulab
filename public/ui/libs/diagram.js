@@ -345,8 +345,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		graph.clear(); // Clear the graph
 		suspendEvents = false;
 		sendMsg('quit');
-		socket.disconnect();
-		socket = null;
+//		socket.disconnect();
+//		socket = null;
 		el.update(''); // Remove the diagram from the ExtJs
 	}
 
@@ -569,17 +569,19 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	socket.on('removeDevice', sockRemoveDevice);
 	socket.on('removeLink', sockRemoveLink);
 	socket.on('setScale', sockSetScale);
+	console.log('Try to do connect!');
 	socket.on('connect', function() { // Implement the Socket Interface
 		console.log('Socket connectedm join lab', labId);
-		socket.emit('joinLab', labId); // Join this lab only
-		setTimeout(function() {
-			sendMsg('getAll', { lab: labId });
-		}, 50); // In 50ms do a full refresh
+//		socket.emit('joinLab', labId); // Join this lab only
+//		setTimeout(function() {
+//			sendMsg('getAll', { lab: labId });
+//		}, 50); // In 50ms do a full refresh
 	});
 
-//	setTimeout(function() {
-//		sendMsg('getAll', { lab: labId });
-//	}, 1000); // First refresh after one second
+	setTimeout(function() {
+		socket.emit('joinLab', labId); // Join this lab only
+		sendMsg('getAll', { lab: labId });
+	}, 300); // First refresh after one second
 
 	diag.getAllId = setInterval(function() {
 		sendMsg('getAll', { lab: labId });

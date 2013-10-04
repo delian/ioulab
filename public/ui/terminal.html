@@ -1,24 +1,23 @@
 <HEAD>
 <style>
-  h1 {
-      margin-bottom: 20px;
-      font: 20px/1.5 sans-serif;
-  }
-            
-  .terminal {
-      float: left;
-      border: #000 solid 5px;
-      font-family: "DejaVu Sans Mono", "Liberation
-      Mono", monospace;
-      font-size: 11px;
-      color: #f0f0f0;
-      background: #000;
-  }
-                                        
-  .terminal-cursor {
-      color: #000;
-      background: #f0f0f0;
-  }
+h1 {
+	margin-bottom: 20px;
+	font: 20px/1.5 sans-serif;
+}
+
+.terminal {
+	float: left;
+	border: #000 solid 5px;
+	font-family: "DejaVu Sans Mono", " Liberation Mono ", monospace;
+	font-size: 11px;
+	color: #f0f0f0;
+	background: #000;
+}
+
+.terminal-cursor {
+	color: #000;
+	background: #f0f0f0;
+}
 </style>
 
 <SCRIPT SRC="/socket.io/socket.io.js">
@@ -82,6 +81,11 @@
          console.log('Received Terminal Out',data);
          term.write(data.data);
        });
+
+       socket.on('updateTerminal',function(data) {
+         console.log('Update terminal');
+         document.title = data.name; 
+       })
        
        socket.on('disconnect',function() {
          term.destroy();
@@ -96,6 +100,6 @@
 </SCRIPT>
 
 </HEAD>
-                                                    
+
 <BODY onload="activateTerm()">
 </BODY>

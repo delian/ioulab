@@ -1123,7 +1123,38 @@
                                                                         "layout|flex": null,
                                                                         "text": "Stop All"
                                                                     },
-                                                                    "designerId": "22d7472d-cada-479d-a483-eceab0afdbb5"
+                                                                    "designerId": "22d7472d-cada-479d-a483-eceab0afdbb5",
+                                                                    "cn": [
+                                                                        {
+                                                                            "type": "basiceventbinding",
+                                                                            "reference": {
+                                                                                "name": "listeners",
+                                                                                "type": "array"
+                                                                            },
+                                                                            "codeClass": null,
+                                                                            "userConfig": {
+                                                                                "fn": "onButtonClick",
+                                                                                "implHandler": [
+                                                                                    "console.log('Stop All');",
+                                                                                    "Ext.Ajax.request({",
+                                                                                    "    url: '/rest/labs/'+labId+'/stop',",
+                                                                                    "    success: function(res) {",
+                                                                                    "        console.log('stop all');",
+                                                                                    "        var s=button.up('panel').down('gridpanel').getStore();",
+                                                                                    "        console.log('found ',s);",
+                                                                                    "        setTimeout(function() {",
+                                                                                    "            s.load();",
+                                                                                    "        },200); // Refresh the grid",
+                                                                                    "    }",
+                                                                                    "});",
+                                                                                    ""
+                                                                                ],
+                                                                                "name": "click",
+                                                                                "scope": "me"
+                                                                            },
+                                                                            "designerId": "0174fd43-20d6-4d80-9b97-9e8257e51b13"
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 {
                                                                     "type": "Ext.button.Button",
@@ -1134,9 +1165,36 @@
                                                                     "codeClass": null,
                                                                     "userConfig": {
                                                                         "layout|flex": null,
-                                                                        "text": "Restart All"
+                                                                        "text": "Start All"
                                                                     },
-                                                                    "designerId": "b1012e03-1866-42b8-aef6-11abb4f0f700"
+                                                                    "designerId": "b1012e03-1866-42b8-aef6-11abb4f0f700",
+                                                                    "cn": [
+                                                                        {
+                                                                            "type": "basiceventbinding",
+                                                                            "reference": {
+                                                                                "name": "listeners",
+                                                                                "type": "array"
+                                                                            },
+                                                                            "codeClass": null,
+                                                                            "userConfig": {
+                                                                                "fn": "onButtonClick1",
+                                                                                "implHandler": [
+                                                                                    "Ext.Ajax.request({",
+                                                                                    "    url: '/rest/labs/'+labId+'/start',",
+                                                                                    "    success: function(res) {",
+                                                                                    "        setTimeout(function() {",
+                                                                                    "            var s=button.up('panel').down('gridpanel').getStore();",
+                                                                                    "            s.load();",
+                                                                                    "        },200); // Refresh the grid",
+                                                                                    "    }",
+                                                                                    "});"
+                                                                                ],
+                                                                                "name": "click",
+                                                                                "scope": "me"
+                                                                            },
+                                                                            "designerId": "d1b17ea3-2d0f-4ad4-a9ce-0ccce230623d"
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 {
                                                                     "type": "Ext.toolbar.Fill",
@@ -1161,7 +1219,34 @@
                                                                         "layout|flex": null,
                                                                         "text": "Reset All Startup Configs to Default"
                                                                     },
-                                                                    "designerId": "5cee473d-cbd9-4851-b2a9-dbfa1de96339"
+                                                                    "designerId": "5cee473d-cbd9-4851-b2a9-dbfa1de96339",
+                                                                    "cn": [
+                                                                        {
+                                                                            "type": "basiceventbinding",
+                                                                            "reference": {
+                                                                                "name": "listeners",
+                                                                                "type": "array"
+                                                                            },
+                                                                            "codeClass": null,
+                                                                            "userConfig": {
+                                                                                "fn": "onButtonClick2",
+                                                                                "implHandler": [
+                                                                                    "Ext.Ajax.request({",
+                                                                                    "    url: '/rest/labs/'+labId+'/reset',",
+                                                                                    "    success: function(res) {",
+                                                                                    "        setTimeout(function() {",
+                                                                                    "            var s=button.up('panel').down('gridpanel').getStore();",
+                                                                                    "            s.load();",
+                                                                                    "        },200); // Refresh the grid",
+                                                                                    "    }",
+                                                                                    "});"
+                                                                                ],
+                                                                                "name": "click",
+                                                                                "scope": "me"
+                                                                            },
+                                                                            "designerId": "bd1343e7-9a3a-4c09-b6cb-9e4a279c3c22"
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 {
                                                                     "type": "Ext.button.Button",
@@ -1174,7 +1259,34 @@
                                                                         "layout|flex": null,
                                                                         "text": "Copy All Startup Configs to Default"
                                                                     },
-                                                                    "designerId": "ae42b299-e7ed-4a06-8e7a-795b67c5d5e9"
+                                                                    "designerId": "ae42b299-e7ed-4a06-8e7a-795b67c5d5e9",
+                                                                    "cn": [
+                                                                        {
+                                                                            "type": "basiceventbinding",
+                                                                            "reference": {
+                                                                                "name": "listeners",
+                                                                                "type": "array"
+                                                                            },
+                                                                            "codeClass": null,
+                                                                            "userConfig": {
+                                                                                "fn": "onButtonClick3",
+                                                                                "implHandler": [
+                                                                                    "Ext.Ajax.request({",
+                                                                                    "    url: '/rest/labs/'+labId+'/save',",
+                                                                                    "    success: function(res) {",
+                                                                                    "        setTimeout(function() {",
+                                                                                    "            var s=button.up('panel').down('gridpanel').getStore();",
+                                                                                    "            s.load();",
+                                                                                    "        },200); // Refresh the grid",
+                                                                                    "    }",
+                                                                                    "});"
+                                                                                ],
+                                                                                "name": "click",
+                                                                                "scope": "me"
+                                                                            },
+                                                                            "designerId": "d0ff3684-1061-41fb-99b1-62cf0faa4ed0"
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ]
                                                         }
@@ -1347,7 +1459,18 @@
                                                                         "flex": 2,
                                                                         "text": "Name"
                                                                     },
-                                                                    "designerId": "b049bc3f-76f0-4031-97b8-3f04aa3f91c4"
+                                                                    "designerId": "b049bc3f-76f0-4031-97b8-3f04aa3f91c4",
+                                                                    "cn": [
+                                                                        {
+                                                                            "type": "Ext.form.field.Text",
+                                                                            "reference": {
+                                                                                "name": "editor",
+                                                                                "type": "object"
+                                                                            },
+                                                                            "codeClass": null,
+                                                                            "designerId": "4c3c88d4-c1f8-4e7b-8854-8de0eab9994f"
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 {
                                                                     "type": "Ext.grid.column.Column",
@@ -1683,6 +1806,15 @@
                                                                             ]
                                                                         }
                                                                     ]
+                                                                },
+                                                                {
+                                                                    "type": "Ext.grid.plugin.RowEditing",
+                                                                    "reference": {
+                                                                        "name": "plugins",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": "Ext.grid.plugin.RowEditing",
+                                                                    "designerId": "00deba0c-a9e5-404b-a719-a71cc7b9a3fa"
                                                                 }
                                                             ]
                                                         }
@@ -1753,7 +1885,76 @@
                                             "userConfig": {
                                                 "title": "Lab diagram"
                                             },
-                                            "designerId": "9d060c15-1db1-4509-ac49-004af79d4f6e"
+                                            "designerId": "9d060c15-1db1-4509-ac49-004af79d4f6e",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.container.Container",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "frame": false,
+                                                        "itemId": "diagram",
+                                                        "layout": "fit"
+                                                    },
+                                                    "designerId": "f3358f80-b02a-449a-93c0-c17a64313267"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onLabDiagramActivate",
+                                                "implHandler": [
+                                                    "console.log('editLab is selected',arguments);",
+                                                    "diagram = new createDiagram(component.down('#diagram'),labId,true,{",
+                                                    "    sockSetScale: function(msg) {",
+                                                    "//        var scaler = component.down('#scaler');",
+                                                    "//        scaler.suspendEvents();",
+                                                    "//        scaler.setValue(msg.x*100);",
+                                                    "//        scaler.resumeEvents();",
+                                                    "    },",
+                                                    "    deviceDoubleClick: function(obj,x,y) {",
+                                                    "        console.log('Device DoubleClick',arguments);",
+                                                    "    },",
+                                                    "    linkDoubleClick: function(obj,x,y) {",
+                                                    "        console.log('Link DoubleClick',arguments);",
+                                                    "    }",
+                                                    "});",
+                                                    ""
+                                                ],
+                                                "name": "activate",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "5c001a86-338f-47ed-ba52-091474a4a270"
+                                        },
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onLabDiagramDeactivate",
+                                                "implHandler": [
+                                                    "if (diagram) {",
+                                                    "    diagram.destroy();",
+                                                    "\tdiagram = null;",
+                                                    "}",
+                                                    ""
+                                                ],
+                                                "name": "deactivate",
+                                                "scope": "me"
+                                            },
+                                            "designerId": "3508c2b6-c169-4e08-a0fa-48e0407102c4"
                                         }
                                     ]
                                 },

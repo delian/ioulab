@@ -242,9 +242,29 @@
                     "userConfig": {
                         "dataIndex": "name",
                         "flex": 2,
-                        "text": "Name"
+                        "text": "Link Name"
                     },
-                    "designerId": "66d5e706-0327-4af2-af5d-8e84729cc7df"
+                    "designerId": "66d5e706-0327-4af2-af5d-8e84729cc7df",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "8367cdac-b371-4864-aaac-a3a2b7b6a36d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.RowEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": "Ext.grid.plugin.RowEditing",
+                    "designerId": "99758aeb-81d5-42d2-a09d-d5ad6f21684b"
                 }
             ]
         }

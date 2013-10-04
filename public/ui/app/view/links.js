@@ -96,9 +96,17 @@ Ext.define('iouLab.view.links', {
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'name',
-                            text: 'Name',
-                            flex: 2
+                            text: 'Link Name',
+                            flex: 2,
+                            editor: {
+                                xtype: 'textfield'
+                            }
                         }
+                    ],
+                    plugins: [
+                        Ext.create('Ext.grid.plugin.RowEditing', {
+
+                        })
                     ]
                 }
             ]

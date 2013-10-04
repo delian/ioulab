@@ -20,7 +20,8 @@ Ext.define('iouLab.store.deviceLinks', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            autoLoad: true,
+            autoLoad: false,
+            autoSync: true,
             storeId: 'deviceLinks',
             fields: [
                 {

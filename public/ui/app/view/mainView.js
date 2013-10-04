@@ -433,22 +433,46 @@ Ext.define('iouLab.view.mainView', {
                                                                     items: [
                                                                         {
                                                                             xtype: 'button',
-                                                                            text: 'Stop All'
+                                                                            text: 'Stop All',
+                                                                            listeners: {
+                                                                                click: {
+                                                                                    fn: me.onButtonClick,
+                                                                                    scope: me
+                                                                                }
+                                                                            }
                                                                         },
                                                                         {
                                                                             xtype: 'button',
-                                                                            text: 'Restart All'
+                                                                            text: 'Start All',
+                                                                            listeners: {
+                                                                                click: {
+                                                                                    fn: me.onButtonClick1,
+                                                                                    scope: me
+                                                                                }
+                                                                            }
                                                                         },
                                                                         {
                                                                             xtype: 'tbfill'
                                                                         },
                                                                         {
                                                                             xtype: 'button',
-                                                                            text: 'Reset All Startup Configs to Default'
+                                                                            text: 'Reset All Startup Configs to Default',
+                                                                            listeners: {
+                                                                                click: {
+                                                                                    fn: me.onButtonClick2,
+                                                                                    scope: me
+                                                                                }
+                                                                            }
                                                                         },
                                                                         {
                                                                             xtype: 'button',
-                                                                            text: 'Copy All Startup Configs to Default'
+                                                                            text: 'Copy All Startup Configs to Default',
+                                                                            listeners: {
+                                                                                click: {
+                                                                                    fn: me.onButtonClick3,
+                                                                                    scope: me
+                                                                                }
+                                                                            }
                                                                         }
                                                                     ]
                                                                 }
@@ -509,7 +533,10 @@ Ext.define('iouLab.view.mainView', {
                                                                             xtype: 'gridcolumn',
                                                                             dataIndex: 'name',
                                                                             text: 'Name',
-                                                                            flex: 2
+                                                                            flex: 2,
+                                                                            editor: {
+                                                                                xtype: 'textfield'
+                                                                            }
                                                                         },
                                                                         {
                                                                             xtype: 'gridcolumn',
@@ -606,6 +633,11 @@ Ext.define('iouLab.view.mainView', {
                                                                                 }
                                                                             ]
                                                                         }
+                                                                    ],
+                                                                    plugins: [
+                                                                        Ext.create('Ext.grid.plugin.RowEditing', {
+
+                                                                        })
                                                                     ]
                                                                 }
                                                             ]
@@ -627,9 +659,29 @@ Ext.define('iouLab.view.mainView', {
                                             items: [
                                                 {
                                                     xtype: 'panel',
-                                                    title: 'Lab diagram'
+                                                    title: 'Lab diagram',
+                                                    items: [
+                                                        {
+                                                            xtype: 'container',
+                                                            frame: false,
+                                                            itemId: 'diagram',
+                                                            layout: {
+                                                                type: 'fit'
+                                                            }
+                                                        }
+                                                    ]
                                                 }
-                                            ]
+                                            ],
+                                            listeners: {
+                                                activate: {
+                                                    fn: me.onLabDiagramActivate,
+                                                    scope: me
+                                                },
+                                                deactivate: {
+                                                    fn: me.onLabDiagramDeactivate,
+                                                    scope: me
+                                                }
+                                            }
                                         },
                                         {
                                             xtype: 'panel',
@@ -917,6 +969,58 @@ Ext.define('iouLab.view.mainView', {
         }
     },
 
+    onButtonClick: function(button, e, eOpts) {
+        console.log('Stop All');
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/stop',
+            success: function(res) {
+                console.log('stop all');
+                var s=button.up('panel').down('gridpanel').getStore();
+                console.log('found ',s);
+                setTimeout(function() {
+                    s.load();
+                },200); // Refresh the grid
+            }
+        });
+        
+    },
+
+    onButtonClick1: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/start',
+            success: function(res) {
+                setTimeout(function() {
+                    var s=button.up('panel').down('gridpanel').getStore();
+                    s.load();
+                },200); // Refresh the grid
+            }
+        });
+    },
+
+    onButtonClick2: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/reset',
+            success: function(res) {
+                setTimeout(function() {
+                    var s=button.up('panel').down('gridpanel').getStore();
+                    s.load();
+                },200); // Refresh the grid
+            }
+        });
+    },
+
+    onButtonClick3: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/save',
+            success: function(res) {
+                setTimeout(function() {
+                    var s=button.up('panel').down('gridpanel').getStore();
+                    s.load();
+                },200); // Refresh the grid
+            }
+        });
+    },
+
     onGridpanelSelect1: function(rowmodel, record, index, eOpts) {
         var t = Ext.getCmp('treeMenu');
         t.getSelectionModel().select(t.getStore().getNodeById(record.get('id')));
@@ -936,6 +1040,33 @@ Ext.define('iouLab.view.mainView', {
                 component.down('#labDescription').setValue(obj.description);
             }
         });
+        
+    },
+
+    onLabDiagramActivate: function(component, eOpts) {
+        console.log('editLab is selected',arguments);
+        diagram = new createDiagram(component.down('#diagram'),labId,true,{
+            sockSetScale: function(msg) {
+        //        var scaler = component.down('#scaler');
+        //        scaler.suspendEvents();
+        //        scaler.setValue(msg.x*100);
+        //        scaler.resumeEvents();
+            },
+            deviceDoubleClick: function(obj,x,y) {
+                console.log('Device DoubleClick',arguments);
+            },
+            linkDoubleClick: function(obj,x,y) {
+                console.log('Link DoubleClick',arguments);
+            }
+        });
+        
+    },
+
+    onLabDiagramDeactivate: function(component, eOpts) {
+        if (diagram) {
+            diagram.destroy();
+        	diagram = null;
+        }
         
     },
 

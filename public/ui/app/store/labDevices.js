@@ -25,6 +25,7 @@ Ext.define('iouLab.store.labDevices', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             autoLoad: false,
+            autoSync: true,
             model: 'iouLab.model.labDevices',
             storeId: 'labDevices',
             proxy: {

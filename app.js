@@ -64,6 +64,6 @@ mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 		console.log('Express server is listening on port',port);
 		sIo = io.listen(server);
 		require('./lib/labSocketBus.js')(sIo,db,e);
-		require('./lib/termSocketBus.js')(sIo,e);
+		require('./lib/termSocketBus.js')(sIo,db,e);
 	});
 });
