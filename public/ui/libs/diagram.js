@@ -259,7 +259,11 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			source : msg.source,
 			target : msg.target,
 			vertices : msg.vertices ? msg.vertices : [],
-			attrs: {},
+			attrs: {
+				'.connection': {
+					'stroke-width':1.5
+				}
+			},
 			labels : [ {
 				position : linkSLabel,
 				attrs : {
@@ -300,6 +304,12 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			'.connection': { 'pointer-events':'none' }, 
 			'.connection-wrap':  { 'pointer-events':'none' }
 		}); // Not working
+		
+		if (msg.type=='serial') link.attr({
+			'.connection': {
+				'stroke-dasharray': 3
+			}
+		});
 /*
 		link.attr({
 		    '.connection': { stroke: 'blue' },
@@ -351,7 +361,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 
 	function setScale(sx, sy) {
 		console.log('setScale', arguments);
-		sendMsg('setScale', {
+		if (!readOnly) sendMsg('setScale', {
 			lab : labId,
 			x : sx,
 			y : sy
@@ -359,9 +369,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		return paper.scale(sx, sy);
 	}
 
-	function setScaleQuiet(sx, sy) {
+	function setScaleQuiet(sx, sy) { 
 		console.log('setScaleQuiet', arguments);
-		return setScale(sx, sy);
+		return paper.scale(sx, sy);
 	}
 
 	function destroy() {

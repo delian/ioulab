@@ -7,11 +7,11 @@ h1 {
 
 .terminal {
 	float: left;
-	border: #000 solid 5px;
+	border: #000000 solid 0px;
 	font-family: "DejaVu Sans Mono", " Liberation Mono ", monospace;
-	font-size: 11px;
+	font-size: 10pt;
 	color: #f0f0f0;
-	background: #000;
+	background: #000000;
 }
 
 .terminal-cursor {
@@ -35,19 +35,18 @@ h1 {
 	 var id = location.hash.match(/\d+/);
 	 if (!id) window.close();
 	 id = id[0];
+
+	 var minCols = 80;
+	 var minRows = 10;
 	 
      var socket = io.connect('/term');
      socket.on('connect',function() {
 
 	   socket.emit('joinTerm',id);
 
-	   setTimeout(function() {
-		   socket.emit('terminalConnect',""); // Emit terminal connect message
-	   },50);
-         
        var term = new Terminal({
-         cols: 80,
-         rows: 24,
+         cols: minCols,
+         rows: minRows,
          useStyle: true,
          visualBell: true,
          screenKeys: true
@@ -55,23 +54,24 @@ h1 {
 
        window.onresize = function(evt) {
            console.log('window',evt,evt.target.innerWidth,evt.target.innerHeight);
-           var cols = parseInt(evt.target.innerWidth/(580/80));
-           var rows = parseInt(evt.target.innerHeight/(320/24));
-           cols = cols>80?cols:80;
-           rows = rows>10?rows:10;
+           var cols = parseInt(evt.target.innerWidth/9.2);
+           var rows = parseInt(evt.target.innerHeight/17.8);
+           cols = cols>minCols?cols:minCols;
+           rows = rows>minRows?rows:minRows;
            term.resize(cols,rows);
            socket.emit('terminalResize',{ rows: rows, cols: cols });
        }
 
        setTimeout(function() {
            window.onresize({ target:window });
-       },500);
+		   socket.emit('terminalConnect',""); // Emit terminal connect message
+       },100);
        
        term.on('title',function(title) {
          document.title = title;
        });
        
-       term.open(document.body);
+       term.open(document.getElementById('terminal'));
 
        term.on('data',function(data) {
          socket.emit('terminalIn',data);
@@ -101,5 +101,6 @@ h1 {
 
 </HEAD>
 
-<BODY onload="activateTerm()">
+<BODY onload="activateTerm()" BGCOLOR="#000000">
+<DIV ID="terminal"></DIV>
 </BODY>

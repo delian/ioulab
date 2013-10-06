@@ -566,7 +566,7 @@ Ext.define('iouLab.view.mainView', {
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                                                        window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),"location=0,status=0,scrollbars=1,width=585,height=340");
+                                                                                        window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),"location=0,status=0,scrollbars=1,width=650,height=400");
 
                                                                                     },
                                                                                     icon: 'icons/terminal.png',
@@ -660,6 +660,37 @@ Ext.define('iouLab.view.mainView', {
                                                 {
                                                     xtype: 'panel',
                                                     title: 'Lab diagram',
+                                                    dockedItems: [
+                                                        {
+                                                            xtype: 'toolbar',
+                                                            dock: 'top',
+                                                            items: [
+                                                                {
+                                                                    xtype: 'tbfill'
+                                                                },
+                                                                {
+                                                                    xtype: 'slider',
+                                                                    itemId: 'scaler',
+                                                                    width: 160,
+                                                                    fieldLabel: 'Scale',
+                                                                    labelAlign: 'right',
+                                                                    labelWidth: 50,
+                                                                    value: 35,
+                                                                    minValue: 30,
+                                                                    listeners: {
+                                                                        change: {
+                                                                            fn: me.onSliderChange1,
+                                                                            scope: me
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    xtype: 'button',
+                                                                    text: 'Restart All'
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
                                                     items: [
                                                         {
                                                             xtype: 'container',
@@ -1043,6 +1074,12 @@ Ext.define('iouLab.view.mainView', {
         
     },
 
+    onSliderChange1: function(slider, newValue, thumb, eOpts) {
+        console.log('Scaler value change');
+        diagram.setScale(parseInt(newValue)/100,parseInt(newValue)/100);
+        
+    },
+
     onLabDiagramActivate: function(component, eOpts) {
         console.log('editLab is selected',arguments);
         diagram = new createDiagram(component.down('#diagram'),labId,true,{
@@ -1055,7 +1092,7 @@ Ext.define('iouLab.view.mainView', {
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
                 var id = obj.attributes.id;
-                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=1,width=585,height=340");
+                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=1,width=650,height=400");
             },
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);

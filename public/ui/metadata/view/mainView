@@ -1605,7 +1605,7 @@
                                                                                         ],
                                                                                         "fn": "handler",
                                                                                         "implHandler": [
-                                                                                            "window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),\"location=0,status=0,scrollbars=1,width=585,height=340\");",
+                                                                                            "window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),\"location=0,status=0,scrollbars=1,width=650,height=400\");",
                                                                                             ""
                                                                                         ]
                                                                                     },
@@ -1888,6 +1888,87 @@
                                             "designerId": "9d060c15-1db1-4509-ac49-004af79d4f6e",
                                             "cn": [
                                                 {
+                                                    "type": "Ext.toolbar.Toolbar",
+                                                    "reference": {
+                                                        "name": "dockedItems",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dock": "top"
+                                                    },
+                                                    "designerId": "b84f676a-b68f-4af7-b88c-f09ba67b9d37",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.toolbar.Fill",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|displayName": "Space",
+                                                                "layout|flex": null
+                                                            },
+                                                            "designerId": "d90e4b79-13e8-47a2-8bfe-4ed76efa505a"
+                                                        },
+                                                        {
+                                                            "type": "Ext.slider.Single",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|displayName": "Scaler",
+                                                                "fieldLabel": "Scale",
+                                                                "itemId": "scaler",
+                                                                "labelAlign": "right",
+                                                                "labelWidth": 50,
+                                                                "layout|flex": null,
+                                                                "minValue": 30,
+                                                                "value": 35,
+                                                                "width": 160
+                                                            },
+                                                            "designerId": "8fdee731-6fbc-4e44-8dc4-c94c8d5d2ead",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "basiceventbinding",
+                                                                    "reference": {
+                                                                        "name": "listeners",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "fn": "onSliderChange1",
+                                                                        "implHandler": [
+                                                                            "console.log('Scaler value change');",
+                                                                            "diagram.setScale(parseInt(newValue)/100,parseInt(newValue)/100);",
+                                                                            ""
+                                                                        ],
+                                                                        "name": "change",
+                                                                        "scope": "me"
+                                                                    },
+                                                                    "designerId": "8c76d685-a349-41ef-90a0-0d2740519497"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "Ext.button.Button",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "layout|flex": null,
+                                                                "text": "Restart All"
+                                                            },
+                                                            "designerId": "ccbbdaa6-a10c-4b29-bcb4-f29688e51469"
+                                                        }
+                                                    ]
+                                                },
+                                                {
                                                     "type": "Ext.container.Container",
                                                     "reference": {
                                                         "name": "items",
@@ -1925,7 +2006,7 @@
                                                     "    deviceDoubleClick: function(obj,x,y) {",
                                                     "        console.log('Device DoubleClick',arguments);",
                                                     "        var id = obj.attributes.id;",
-                                                    "        window.open('terminal.html#'+id,'Terminal'+id,\"location=0,status=0,scrollbars=1,width=585,height=340\");",
+                                                    "        window.open('terminal.html#'+id,'Terminal'+id,\"location=0,status=0,scrollbars=1,width=650,height=400\");",
                                                     "    },",
                                                     "    linkDoubleClick: function(obj,x,y) {",
                                                     "        console.log('Link DoubleClick',arguments);",
