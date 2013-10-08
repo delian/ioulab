@@ -5,7 +5,13 @@ h1 {
 	font: 20px/1.5 sans-serif;
 }
 
+body {
+	margin: 0 0 0 0;
+	background: #606060;
+}
+
 .terminal {
+	margin: 0 0 0 0;
 	float: left;
 	border: #000000 solid 0px;
 	font-family: "DejaVu Sans Mono", " Liberation Mono ", monospace;
@@ -18,6 +24,31 @@ h1 {
 	color: #000;
 	background: #f0f0f0;
 }
+
+#global {
+	width: 100%;
+	display: inline-block;
+	margin: 0 0 0 0;
+	overflow: hidden;
+}
+
+#scroll {
+	margin: 0 0 0 0;
+	width: 12px;
+	height: 100%;
+	overflow: hidden;
+	float: right;
+	background: #404040;
+	display: inline;
+	disabled-border: 1px blue solid;
+}
+
+#scrollbar {
+	margin: 0 0 0 0;
+	background: white;
+	width: 100%;
+	height: 20px;
+}
 </style>
 
 <SCRIPT SRC="/socket.io/socket.io.js">
@@ -29,15 +60,22 @@ h1 {
 <SCRIPT>
 
   function activateTerm() {
-
 	 // Check if we have an ID
 	 if (location.hash == "") window.close(); // Close the window
 	 var id = location.hash.match(/\d+/);
 	 if (!id) window.close();
 	 id = id[0];
 
-	 var minCols = 80;
+	 var minCols = 70;
 	 var minRows = 10;
+	 var minWidth = 610;
+	 var minHeight = 350;
+	 var scrMinHeight = 15;
+	 var scrMinWidth = 12;
+
+	 var scrollEl = document.getElementById('scroll');
+	 var scrollBarEl = document.getElementById('scrollbar');
+	 var globalEl = document.getElementById('terminal');
 	 
      var socket = io.connect('/term');
      socket.on('connect',function() {
@@ -52,17 +90,118 @@ h1 {
          screenKeys: true
        });
 
+       var divWidth=9.2;
+       var divHeight=17.8;
+
+
+       var y = 0;
+
+       function scrollFix() {
+           //console.log('scrollFix',term);
+           var height = scrollEl.offsetHeight;
+           var posBott = (term.ybase-term.ydisp)/term.ybase; // Percentage position from the bottom
+           var scrSize = (term.rows-1)/(term.ybase<term.rows-1?term.rows-1:term.ybase); // percentage size of the scroll
+           var scrHeight = Math.max(height*scrSize,scrMinHeight);
+           var scrTop = (height-scrHeight)*(1-posBott); // We need to verify the calc
+           // console.log('scrHeight',scrHeight,height, scrSize);
+           
+           scrollBarEl.style.height = scrHeight;
+           scrollBarEl.style.marginTop = scrTop;
+       }
+
+       setInterval(scrollFix,300); // Cover the wheel function
+
+       function prePosition(delta) {
+           var height = scrollEl.offsetHeight;
+           var posBott = (term.ybase-term.ydisp)/term.ybase; // Percentage position from the bottom
+           var scrSize = (term.rows-1)/(term.ybase<term.rows-1?term.rows-1:term.ybase); // percentage size of the scroll
+           var scrHeight = Math.max(height*scrSize,scrMinHeight);
+           var scrTop = (height-scrHeight)*(1-posBott); // We need to verify the calc
+
+		   var scrNewTop = scrTop + delta;
+
+		   var lines = (Math.abs(delta)/(scrTop+0.0001))*term.ybase;
+		   if (delta!=0) { 
+			   var l = parseInt(lines*delta/Math.abs(delta));
+			   console.log('lines',l,lines,delta);
+			   l=Math.min(66,l);
+			   l=Math.max(-66,l);
+			   term.scrollDisp(l?l:0);
+		   }
+           
+       }
+
+       var mouseMove = function(e) {
+//           console.log('mousemove',e,e.y-y);
+           var height = scrollEl.offsetHeight;
+           var step = height/term.ybase;
+
+           if (Math.abs(e.y-y)>step) {
+               // We have move
+               prePosition(e.y-y);
+               y=e.y;
+           }
+
+       }
+       
+       scrollBarEl.addEventListener('mousedown',function(e) {
+           console.log('mousedown',e);
+
+           y=e.y;
+           scrollBarEl.addEventListener('mousemove',mouseMove);
+       });
+
+
+       globalEl.addEventListener('mouseup',function(e) {
+//           console.log('mouseup',e);
+           scrollBarEl.removeEventListener('mousemove',mouseMove);
+       });
+
+       scrollEl.addEventListener('click',function(e) {
+           console.log('click',e);
+           var height = scrollEl.offsetHeight;
+           var posBott = (term.ybase-term.ydisp)/term.ybase; // Percentage position from the bottom
+           var scrSize = (term.rows-1)/(term.ybase<term.rows-1?term.rows-1:term.ybase); // percentage size of the scroll
+           var scrHeight = Math.max(height*scrSize,scrMinHeight);
+           var scrTop = (height-scrHeight)*(1-posBott); // We need to verify the calc
+
+           console.log('prepos',e.y,(scrTop+scrHeight/2),e.y-(scrTop+scrHeight/2));
+
+           prePosition(e.y-(scrTop+scrHeight/2));
+       });
+
+       scrollBarEl.addEventListener('click',function(e) {
+           console.log('click scrollbar',e);
+           e.stopPropagation();
+           window.event.cancelBubble = true; // IE compatibility
+       },true);
+
+       globalEl.addEventListener('mouseout',function(e) {
+//           console.log('mouseout',e);
+           scrollBarEl.removeEventListener('mousemove',mouseMove);
+       });
+
        window.onresize = function(evt) {
-           console.log('window',evt,evt.target.innerWidth,evt.target.innerHeight);
-           var cols = parseInt(evt.target.innerWidth/9.2);
-           var rows = parseInt(evt.target.innerHeight/17.8);
-           cols = cols>minCols?cols:minCols;
-           rows = rows>minRows?rows:minRows;
+           console.log('window',evt,evt.target.innerWidth,evt.target.outerWidth,evt.target.innerHeight,evt.target.outerHeight);
+           var width=evt.target.innerWidth;
+           var height=evt.target.innerHeight;
+
+           if (width<minWidth || height<minHeight) {
+               return window.resizeTo(Math.max(width,minWidth),Math.max(width,minHeight));
+           }
+           var cols = parseInt((width-scrMinWidth-2)/divWidth);
+           var rows = parseInt(height/divHeight);
+           cols = Math.max(minCols,cols);
+           rows = Math.max(minRows,rows);
            term.resize(cols,rows);
            socket.emit('terminalResize',{ rows: rows, cols: cols });
        }
 
        setTimeout(function() {
+           console.log('term is',term,term.element);
+           divWidth=term.element.clientWidth/term.cols;
+           divHeight=term.element.clientHeight/term.rows;
+           console.log('divs',divWidth,divHeight);
            window.onresize({ target:window });
 		   socket.emit('terminalConnect',""); // Emit terminal connect message
        },100);
@@ -78,8 +217,10 @@ h1 {
        });
        
        socket.on('terminalOut',function(data) {
-         console.log('Received Terminal Out',data);
+         // console.log('Received Terminal Out',data);
          term.write(data.data);
+         // Fix the scroll
+         scrollFix();
        });
 
        socket.on('updateTerminal',function(data) {
@@ -101,6 +242,11 @@ h1 {
 
 </HEAD>
 
-<BODY onload="activateTerm()" BGCOLOR="#000000">
-<DIV ID="terminal"></DIV>
+<BODY onload="activateTerm()">
+	<DIV ID="global">
+		<DIV ID="terminal"></DIV>
+		<DIV ID="scroll">
+			<DIV ID="scrollbar"></DIV>
+		</DIV>
+	</DIV>
 </BODY>

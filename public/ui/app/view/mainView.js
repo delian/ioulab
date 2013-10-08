@@ -566,7 +566,7 @@ Ext.define('iouLab.view.mainView', {
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                                                        window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),"location=0,status=0,scrollbars=1,width=650,height=400");
+                                                                                        window.open('terminal.html#'+record.get('id'),'Terminal'+record.get('id'),"location=0,status=0,scrollbars=0,width=650,height=400");
 
                                                                                     },
                                                                                     icon: 'icons/terminal.png',
@@ -675,7 +675,7 @@ Ext.define('iouLab.view.mainView', {
                                                                     fieldLabel: 'Scale',
                                                                     labelAlign: 'right',
                                                                     labelWidth: 50,
-                                                                    value: 35,
+                                                                    value: 100,
                                                                     minValue: 30,
                                                                     listeners: {
                                                                         change: {
@@ -686,7 +686,23 @@ Ext.define('iouLab.view.mainView', {
                                                                 },
                                                                 {
                                                                     xtype: 'button',
-                                                                    text: 'Restart All'
+                                                                    text: 'Start All',
+                                                                    listeners: {
+                                                                        click: {
+                                                                            fn: me.onButtonClick4,
+                                                                            scope: me
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    xtype: 'button',
+                                                                    text: 'Stop All',
+                                                                    listeners: {
+                                                                        click: {
+                                                                            fn: me.onButtonClick5,
+                                                                            scope: me
+                                                                        }
+                                                                    }
                                                                 }
                                                             ]
                                                         }
@@ -784,7 +800,7 @@ Ext.define('iouLab.view.mainView', {
                                                                     fieldLabel: 'Scale',
                                                                     labelAlign: 'right',
                                                                     labelWidth: 50,
-                                                                    value: 35,
+                                                                    value: 100,
                                                                     minValue: 30,
                                                                     listeners: {
                                                                         change: {
@@ -795,7 +811,23 @@ Ext.define('iouLab.view.mainView', {
                                                                 },
                                                                 {
                                                                     xtype: 'button',
-                                                                    text: 'Restart All'
+                                                                    text: 'Start All',
+                                                                    listeners: {
+                                                                        click: {
+                                                                            fn: me.onButtonClick7,
+                                                                            scope: me
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    xtype: 'button',
+                                                                    text: 'Stop All',
+                                                                    listeners: {
+                                                                        click: {
+                                                                            fn: me.onButtonClick6,
+                                                                            scope: me
+                                                                        }
+                                                                    }
                                                                 }
                                                             ]
                                                         }
@@ -1080,19 +1112,38 @@ Ext.define('iouLab.view.mainView', {
         
     },
 
+    onButtonClick4: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/start',
+            success: function(res) {
+                console.log('Notify Start All');
+            }
+        });
+    },
+
+    onButtonClick5: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/stop',
+            success: function(res) {
+                console.log('Notify Stop All');
+            }
+        });
+    },
+
     onLabDiagramActivate: function(component, eOpts) {
         console.log('editLab is selected',arguments);
         diagram = new createDiagram(component.down('#diagram'),labId,true,{
             sockSetScale: function(msg) {
-        //        var scaler = component.down('#scaler');
-        //        scaler.suspendEvents();
-        //        scaler.setValue(msg.x*100);
-        //        scaler.resumeEvents();
+                var scaler = component.down('#scaler');
+                scaler.suspendEvents();
+                scaler.setValue(msg.x*100);
+                scaler.resumeEvents();
+                console.log('We received a set scale request to',msg);
             },
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
                 var id = obj.attributes.id;
-                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=1,width=650,height=400");
+                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=0,width=650,height=400");
             },
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);
@@ -1140,6 +1191,24 @@ Ext.define('iouLab.view.mainView', {
     onSliderChange: function(slider, newValue, thumb, eOpts) {
         console.log('Scaler value change');
         diagram.setScale(parseInt(newValue)/100,parseInt(newValue)/100);
+    },
+
+    onButtonClick7: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/start',
+            success: function(res) {
+                console.log('Notify Start All');
+            }
+        });
+    },
+
+    onButtonClick6: function(button, e, eOpts) {
+        Ext.Ajax.request({
+            url: '/rest/labs/'+labId+'/stop',
+            success: function(res) {
+                console.log('Notify Stop All');
+            }
+        });
     },
 
     onEditLabDiagramActivate: function(component, eOpts) {

@@ -61,8 +61,8 @@ mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 	require('./lib/restApi.js')(app,mongoDb,e); // We have all the handlers now. Lets load the REST API
 
 	server.listen(port,function() {
-		console.log('Express server is listening on port',port);
-		sIo = io.listen(server);
+		// console.log('Express server is listening on port',port);
+		sIo = io.listen(server, { log: false });
 		require('./lib/labSocketBus.js')(sIo,db,e);
 		require('./lib/termSocketBus.js')(sIo,db,e);
 	});

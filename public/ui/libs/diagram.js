@@ -39,6 +39,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 
 	// Create the diagram
 	var graph = new joint.dia.Graph();
+
+	document.getElementById(el.id).innerHTML=""; // Force delete
+	
 	var paper = new joint.dia.Paper({
 		el : $('#' + el.id),
 		width : (width > minWidth && width < maxWidth) ? width : maxWidth,
@@ -385,7 +388,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		sendMsg('quit');
 //		socket.disconnect();
 //		socket = null;
-		el.update(''); // Remove the diagram from the ExtJs
+//		el.update(''); // Remove the diagram from the ExtJs
 	}
 
 	// Create the socket.io interface
@@ -427,34 +430,34 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		
 		if (msg.lab!=labId) return;
 
-		if (!objs[msg.id])
-			return; // Does not exists, exist
+		if (!objs[msg.id]) return; // Does not exists, exit
 
 		suspendEvents = true;
+		
 		var d = objs[msg.id];
+
+		d.oMsg = msg;
 
 		d.set('position', {
 			x : msg.x,
 			y : msg.y
 		});
 		d.set('z', msg.z);
-		if (msg.name && msg.icon)
-			d.attr({
-				text : {
-					text : msg.name || ""
-				},
-				image : {
-					'xlink:href' : msg.icon
-				}
-			}); // This is unconfirmed to work
-		d.oMsg = msg;
-		if (msg.status) {
-			d.oStatus = msg.status;
-			d.attr({
-				image : {
-					opacity : msg.status == 'offline' ? offlineOpacity : 1
-				}
-			});
+
+		if (msg.status) d.oStatus = msg.status;
+
+		if (msg.icon) {
+			setTimeout(function(){ // The crash we experience is somehow related to set attribute values, even though they work. This way we avoid the mainstream of the program to be blocked
+				d.attr({
+					text : {
+						text : msg.name || ""
+					},
+					image : {
+						'xlink:href' : msg.icon,
+						opacity : msg.status == 'offline' ? offlineOpacity : 1
+					}
+				});
+			},25);
 		}
 		suspendEvents = false;
 		if (config && config.sockUpdateDevice)

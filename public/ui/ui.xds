@@ -25,7 +25,7 @@
         "sdkPath": ""
     },
     "xdsVersion": "3.0.0",
-    "xdsBuild": 1221,
+    "xdsBuild": 1261,
     "schemaVersion": 1,
     "upgradeVersion": 300000000001,
     "framework": "ext42",
