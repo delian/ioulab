@@ -130,7 +130,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (readOnly) {
 			obj.on('change:position', function(child){
 				console.log('Change position in read-only',arguments);
-				obj.attributes=obj._previousAttributes;
+				if (!obj.forceUpdate) obj.attributes=obj._previousAttributes;
+				delete(obj.forceUpdate);
 			});
 		}
 		
@@ -437,6 +438,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		var d = objs[msg.id];
 
 		d.oMsg = msg;
+		
+		d.forceUpdate=true;
 
 		d.set('position', {
 			x : msg.x,
