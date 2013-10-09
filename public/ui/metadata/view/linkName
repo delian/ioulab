@@ -66,6 +66,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "name",
                                 "editable": false,
                                 "fieldLabel": "Interface",
                                 "itemId": "interface",
@@ -181,6 +182,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "name",
                                 "editable": false,
                                 "fieldLabel": "Interface",
                                 "itemId": "interface",
@@ -272,10 +274,10 @@
                     "        component.down('#source').down('#deviceId').setValue(obj.source.id);",
                     "        component.down('#target').down('#deviceId').setValue(obj.target.id);",
                     "        c=component.down('#source').down('#interface');",
-                    "        c.getStore().getProxy().url='/rest/device/'+obj.source.id+'/interfaces/free';",
+                    "        c.getStore().getProxy().url='/rest/device/'+obj.source.id+'/interfaces/free/'+obj.type;",
                     "        c.setValue(obj.target.name);",
                     "        c=component.down('#target').down('#interface');",
-                    "        c.getStore().getProxy().url='/rest/device/'+obj.target.id+'/interfaces/free';",
+                    "        c.getStore().getProxy().url='/rest/device/'+obj.target.id+'/interfaces/free/'+obj.type;",
                     "        c.setValue(obj.target.name);",
                     "        component.down('#link').down('#name').setValue(obj.name);",
                     "        Ext.Ajax.request({",

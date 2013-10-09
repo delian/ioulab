@@ -55,6 +55,7 @@ Ext.define('iouLab.view.linkName', {
                                     labelAlign: 'right',
                                     labelWidth: 70,
                                     editable: false,
+                                    displayField: 'name',
                                     store: 'leftDevIntf',
                                     valueField: 'name'
                                 },
@@ -116,6 +117,7 @@ Ext.define('iouLab.view.linkName', {
                                     labelAlign: 'right',
                                     labelWidth: 70,
                                     editable: false,
+                                    displayField: 'name',
                                     store: 'rightDevIntf',
                                     valueField: 'name'
                                 },
@@ -169,10 +171,10 @@ Ext.define('iouLab.view.linkName', {
                 component.down('#source').down('#deviceId').setValue(obj.source.id);
                 component.down('#target').down('#deviceId').setValue(obj.target.id);
                 c=component.down('#source').down('#interface');
-                c.getStore().getProxy().url='/rest/device/'+obj.source.id+'/interfaces/free';
+                c.getStore().getProxy().url='/rest/device/'+obj.source.id+'/interfaces/free/'+obj.type;
                 c.setValue(obj.target.name);
                 c=component.down('#target').down('#interface');
-                c.getStore().getProxy().url='/rest/device/'+obj.target.id+'/interfaces/free';
+                c.getStore().getProxy().url='/rest/device/'+obj.target.id+'/interfaces/free/'+obj.type;
                 c.setValue(obj.target.name);
                 component.down('#link').down('#name').setValue(obj.name);
                 Ext.Ajax.request({
