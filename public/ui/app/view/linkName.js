@@ -86,7 +86,6 @@ Ext.define('iouLab.view.linkName', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    anchor: '100%',
                                     itemId: 'name',
                                     fieldLabel: 'Name',
                                     hideLabel: true,

@@ -137,8 +137,7 @@
                                 "hideLabel": true,
                                 "itemId": "name",
                                 "labelAlign": "right",
-                                "labelWidth": 70,
-                                "layout|anchor": "100%"
+                                "labelWidth": 70
                             },
                             "designerId": "c662aa33-313f-4cb0-a340-394684e8ed9b"
                         }
@@ -274,7 +273,7 @@
                                     "        },",
                                     "        target: {",
                                     "            id: comp.down('#target').down('#deviceId').value,",
-                                    "            name: comp.down('#target').down('#interface').value            ",
+                                    "            name: comp.down('#target').down('#interface').value",
                                     "        }",
                                     "    }),",
                                     "    success: function(res) {",

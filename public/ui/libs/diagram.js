@@ -211,6 +211,14 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		image.oMsg = msg;
 		if (readOnly) image.attr({'image': { 'pointer-events':'fill'}, 'text':  { 'pointer-events':'none'} }); // Not working
 		addObj(image);
+		var objModel = paper.findViewByModel(image);
+		if (objModel) objModel.$el.hover(function(evt){
+			console.log('Hover In',arguments);
+			if (config.deviceHoverIn) config.deviceHoverIn(image,evt,objModel);
+		}, function(evt) {
+			console.log('Hover Out',arguments);
+			if (config.deviceHoverOut) config.deviceHoverOut(image,evt,objModel);
+		})
 		sendMsg('addDevice', msg);
 		return image;
 	}

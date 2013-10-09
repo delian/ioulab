@@ -79,9 +79,9 @@ Ext.define('iouLab.view.deviceName', {
         Ext.Ajax.request({
             method: 'PUT',
             url: '/rest/device/'+comp.deviceId,
-            params: {
+            jsonData: Ext.JSON.encode({
                 name: comp.down('#name').value
-            } ,
+            }),
             success: function(res) {
                 comp.close();
             }

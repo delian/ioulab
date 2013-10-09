@@ -133,21 +133,23 @@ body {
 
        var mouseMove = function(e) {
 //           console.log('mousemove',e,e.y-y);
+		   var mY=e.clientY||e.y||0;
            var height = scrollEl.offsetHeight;
            var step = height/term.ybase;
 
-           if (Math.abs(e.y-y)>step) {
+           if (Math.abs(mY-y)>step) {
                // We have move
-               prePosition(e.y-y);
-               y=e.y;
+               prePosition(mY-y);
+               y=mY;
            }
 
        }
        
        scrollBarEl.addEventListener('mousedown',function(e) {
            console.log('mousedown',e);
+		   var mY=e.clientY||e.y||0;
 
-           y=e.y;
+           y=mY;
            scrollBarEl.addEventListener('mousemove',mouseMove);
        });
 
@@ -159,15 +161,17 @@ body {
 
        scrollEl.addEventListener('click',function(e) {
            console.log('click',e);
-           var height = scrollEl.offsetHeight;
+		   var mY=e.clientY||e.y||0;
+
+		   var height = scrollEl.offsetHeight;
            var posBott = (term.ybase-term.ydisp)/term.ybase; // Percentage position from the bottom
            var scrSize = (term.rows-1)/(term.ybase<term.rows-1?term.rows-1:term.ybase); // percentage size of the scroll
            var scrHeight = Math.max(height*scrSize,scrMinHeight);
            var scrTop = (height-scrHeight)*(1-posBott); // We need to verify the calc
 
-           console.log('prepos',e.y,(scrTop+scrHeight/2),e.y-(scrTop+scrHeight/2));
+           console.log('prepos',mY,(scrTop+scrHeight/2),mY-(scrTop+scrHeight/2));
 
-           prePosition(e.y-(scrTop+scrHeight/2));
+           prePosition(mY-(scrTop+scrHeight/2));
        });
 
        scrollBarEl.addEventListener('click',function(e) {
