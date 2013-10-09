@@ -20,11 +20,15 @@
             "labDevices",
             "routerIcons",
             "linkIcons",
-            "deviceLinks"
+            "deviceLinks",
+            "leftDevIntf",
+            "rightDevIntf"
         ],
         "views": [
             "mainView",
-            "links"
+            "links",
+            "deviceName",
+            "linkName"
         ]
     },
     "designerId": "application",

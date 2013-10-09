@@ -1,0 +1,146 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "deviceName",
+        "designer|userClassName": "deviceName",
+        "height": null,
+        "modal": true,
+        "title": "Device",
+        "width": 400
+    },
+    "designerId": "99a55763-a659-45dc-b73c-7b713ee37886",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Properties"
+            },
+            "designerId": "5d27cabf-6c4f-4ad3-958a-e1c2e6132f87",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Name",
+                        "itemId": "name",
+                        "labelAlign": "right",
+                        "layout|anchor": "100%"
+                    },
+                    "designerId": "d0e837c1-87a7-4130-b269-b89b756ea7de"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "designerId": "feb60251-36f5-4909-9d9c-b5e81d0dbd2d",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "designerId": "288fbf35-4211-4a2d-b21b-59174d492368"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "Save"
+                    },
+                    "designerId": "05a60919-241f-4fc4-b519-35cd008c4869",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var comp = button.up('window');",
+                                    "console.log('save',comp,arguments);",
+                                    "",
+                                    "Ext.Ajax.request({",
+                                    "    method: 'PUT',",
+                                    "    url: '/rest/device/'+comp.deviceId,",
+                                    "    params: {",
+                                    "        name: comp.down('#name').value",
+                                    "    } ,",
+                                    "    success: function(res) {",
+                                    "        comp.close();",
+                                    "    }",
+                                    "});",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "designerId": "bbdea929-8ed3-475d-bcd0-857da9fda85a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "console.log('Window show',arguments,component);",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: '/rest/device/'+component.deviceId,",
+                    "    success: function(res) {",
+                    "        var obj = Ext.JSON.decode(res.responseText);",
+                    "        component.down('#name').setValue(obj.name);",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "designerId": "56dcc57b-2854-462a-9f9f-b27e56b08c71"
+        }
+    ]
+}

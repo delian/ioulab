@@ -1222,9 +1222,11 @@ Ext.define('iouLab.view.mainView', {
             },
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
+                Ext.create('widget.deviceName',{ deviceId: obj.id }).show();
             },
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);
+                Ext.create('widget.linkName',{ linkId: obj.id }).show();
             }
         });
         

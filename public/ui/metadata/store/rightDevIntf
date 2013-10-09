@@ -1,0 +1,39 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "rightDevIntf",
+        "storeId": "rightDevIntf"
+    },
+    "designerId": "69534b22-e7d8-4dc8-883a-5a694812b42e",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "designerId": "bad79073-e525-42d7-ba6a-247fcf713b95"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/rest/device/1/interfaces/free"
+            },
+            "designerId": "922b00e6-55c3-4e94-814d-65814efd2aec"
+        }
+    ]
+}

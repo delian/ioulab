@@ -32,11 +32,15 @@ Ext.application({
         'labDevices',
         'routerIcons',
         'linkIcons',
-        'deviceLinks'
+        'deviceLinks',
+        'leftDevIntf',
+        'rightDevIntf'
     ],
     views: [
         'mainView',
-        'links'
+        'links',
+        'deviceName',
+        'linkName'
     ],
     autoCreateViewport: true,
     name: 'iouLab',

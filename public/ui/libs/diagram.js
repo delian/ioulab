@@ -27,6 +27,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	var linkLabel = 0.5;
 	var fullRefresh = 30000;
 	var offlineOpacity = 0.4;
+	var myIdPfx = 'xxxdiagram';
 
 	var suspendEvents = false; // If true, there will be no update to the server
 
@@ -39,11 +40,12 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 
 	// Create the diagram
 	var graph = new joint.dia.Graph();
-
-	document.getElementById(el.id).innerHTML=""; // Force delete
+	
+	document.getElementById(el.id).innerHTML="<DIV ID='"+myIdPfx+labId+"'></DIV>"; // Force delete and rebuild of an element that will be deleted later because of a joint.js bug
 	
 	var paper = new joint.dia.Paper({
-		el : $('#' + el.id),
+//		el : $('#' + el.id),
+		el : $('#' + myIdPfx + labId),
 		width : (width > minWidth && width < maxWidth) ? width : maxWidth,
 		height : (height > minHeight && height < maxHeight) ? height : maxHeight,
 		gridSize : 1,
@@ -64,12 +66,22 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	});
 
 	paper.on('all', function(e, child, jq, x, y) {
-//		console.log('paper>>', arguments);
+		console.log('paper>>', arguments);
 		var elId;
 
 		if (e == 'cell:pointerup') {
 			elId = child.el.getAttribute('model-id');
+			jq.stopPropagation();
+			var d = new Date();
+			if (!diag.click[elId]) diag.click[elId] = new Date(0);
+			if (d - diag.click[elId] < doubleClickInterval) {
+				console.log(arguments[2]);
+				//arguments[2].stopPropagation(); // Stop propagating it
+				objs[elId].trigger('cell:doubleclick',objs[elId],arguments[1],arguments[2],arguments[3],arguments[4],arguments[5]); // propagate the event
+			}
+			
 			diag.click[elId] = new Date(); // Set for the double click
+			
 			if (diag.trashObj && diag.trashSize >= trashMaxSize && x <= trashMaxSize && y <= trashMaxSize) { // Delete the object
 				var obj = objs[elId];
 				obj.remove();
@@ -78,13 +90,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			}
 		}
 
-		if (e == 'cell:pointerdown') {
+		if (e == 'cell:pointerdown') { // Not used for the moment
 			elId = child.el.getAttribute('model-id');
-			var d = new Date();
-			if (!diag.click[elId])
-				diag.click[elId] = new Date(0);
-			if (d - diag.click[elId] < doubleClickInterval)
-				objs[elId].trigger('cell:doubleclick',objs[elId],arguments[1],arguments[2],arguments[3],arguments[4],arguments[5]); // propagate the event
 		}
 
 		if ((!readOnly) && e == 'cell:pointermove') { // Draw trash
@@ -387,6 +394,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		graph.clear(); // Clear the graph
 		suspendEvents = false;
 		sendMsg('quit');
+		paper.remove();
 //		socket.disconnect();
 //		socket = null;
 //		el.update(''); // Remove the diagram from the ExtJs
