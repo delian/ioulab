@@ -773,7 +773,12 @@
                             "id": "33880243-8e63-423e-9c79-bd84f4248f7d"
                         },
                         {
-                            "id": "5cf8c236-b355-4d5f-8162-d1ce9dc3f630"
+                            "id": "5cf8c236-b355-4d5f-8162-d1ce9dc3f630",
+                            "cn": [
+                                {
+                                    "id": "969869d6-9273-44fe-af59-1906ba35dd79"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1055,7 +1060,7 @@
     },
     "inspectorState": {
         "topInstance": "c5451070-e6b4-4dc4-9ac3-2a6ba1bd74b6",
-        "selectedInstance": "000864ea-2efa-43f0-9ded-5824b1e89094"
+        "selectedInstance": "969869d6-9273-44fe-af59-1906ba35dd79"
     },
     "codeState": {
         "topInstance": "c5451070-e6b4-4dc4-9ac3-2a6ba1bd74b6"

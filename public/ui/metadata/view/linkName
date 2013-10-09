@@ -248,7 +248,47 @@
                         "layout|flex": null,
                         "text": "Save"
                     },
-                    "designerId": "5cf8c236-b355-4d5f-8162-d1ce9dc3f630"
+                    "designerId": "5cf8c236-b355-4d5f-8162-d1ce9dc3f630",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var comp = button.up('window');",
+                                    "console.log('save',comp,arguments);",
+                                    "",
+                                    "Ext.Ajax.request({",
+                                    "    method: 'PUT',",
+                                    "    url: '/rest/link/'+comp.linkId,",
+                                    "    jsonData: Ext.JSON.encode({",
+                                    "        name: comp.down('#link').down('#name').value,",
+                                    "        source: {",
+                                    "            id: comp.down('#source').down('#deviceId').value,",
+                                    "            name: comp.down('#source').down('#interface').value",
+                                    "        },",
+                                    "        target: {",
+                                    "            id: comp.down('#target').down('#deviceId').value,",
+                                    "            name: comp.down('#target').down('#interface').value            ",
+                                    "        }",
+                                    "    }),",
+                                    "    success: function(res) {",
+                                    "        comp.close();",
+                                    "    }",
+                                    "});",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "designerId": "969869d6-9273-44fe-af59-1906ba35dd79"
+                        }
+                    ]
                 }
             ]
         },

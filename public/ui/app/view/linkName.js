@@ -142,7 +142,13 @@ Ext.define('iouLab.view.linkName', {
                         },
                         {
                             xtype: 'button',
-                            text: 'Save'
+                            text: 'Save',
+                            listeners: {
+                                click: {
+                                    fn: me.onButtonClick,
+                                    scope: me
+                                }
+                            }
                         }
                     ]
                 }
@@ -156,6 +162,31 @@ Ext.define('iouLab.view.linkName', {
         });
 
         me.callParent(arguments);
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+        var comp = button.up('window');
+        console.log('save',comp,arguments);
+        
+        Ext.Ajax.request({
+            method: 'PUT',
+            url: '/rest/link/'+comp.linkId,
+            jsonData: Ext.JSON.encode({
+                name: comp.down('#link').down('#name').value,
+                source: {
+                    id: comp.down('#source').down('#deviceId').value,
+                    name: comp.down('#source').down('#interface').value
+                },
+                target: {
+                    id: comp.down('#target').down('#deviceId').value,
+                    name: comp.down('#target').down('#interface').value
+                }
+            }),
+            success: function(res) {
+                comp.close();
+            }
+        });
+        
     },
 
     onWindowShow: function(component, eOpts) {
