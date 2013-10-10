@@ -1,0 +1,584 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "objName",
+        "designer|userClassName": "objName",
+        "height": null,
+        "modal": true,
+        "title": "Properties",
+        "width": 532
+    },
+    "designerId": "cf7be045-760c-444a-9008-5bac0b338c8c",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "frame": false,
+                "itemId": "fields",
+                "layout": "fit",
+                "margin": "5 5 5 5"
+            },
+            "designerId": "ab257503-01d2-4e56-a8aa-2c824c3b0169",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Object Type",
+                        "itemId": "type",
+                        "labelAlign": "right",
+                        "value": null
+                    },
+                    "designerId": "df05f97c-2212-4b5e-8717-0f902bade67d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Text",
+                        "itemId": "text",
+                        "labelAlign": "right"
+                    },
+                    "designerId": "659c213d-d82e-4626-9d20-c19e00721c2f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTextChange",
+                                "implHandler": [
+                                    "if (field.up('window').down('#autoSave').getValue()) helperObjSave(field.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "95124f32-dc3f-47f5-adf9-756577fb403d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Font Size",
+                        "itemId": "fontSize",
+                        "labelAlign": "right",
+                        "maxValue": 30,
+                        "minValue": 1,
+                        "step": 0.5
+                    },
+                    "designerId": "f10483cc-9173-4463-ab26-8447fc5ef078",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onFontSizeChange",
+                                "implHandler": [
+                                    "if (field.up('window').down('#autoSave').getValue()) helperObjSave(field.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "17f96b66-0573-4e6b-8647-1d2231238839"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Border Width",
+                        "itemId": "borderWidth",
+                        "labelAlign": "right",
+                        "maxValue": 30,
+                        "minValue": 0,
+                        "step": 0.5
+                    },
+                    "designerId": "7a6224e7-4f21-49bc-8e0b-07790101abbe",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onFontSizeChange2",
+                                "implHandler": [
+                                    "if (field.up('window').down('#autoSave').getValue()) helperObjSave(field.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "18f1d4bb-dd6b-4be8-8a63-fa56d9d43706"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Dash Array",
+                        "itemId": "dashArray",
+                        "labelAlign": "right",
+                        "maxValue": 20,
+                        "minValue": 0
+                    },
+                    "designerId": "04e20e6d-5057-4386-baf1-8dc13bdd3516",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onFontSizeChange1",
+                                "implHandler": [
+                                    "if (field.up('window').down('#autoSave').getValue()) helperObjSave(field.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "7c12fe04-97ac-4af6-abe2-4df1509f2345"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "itemId": "color",
+                        "layout": "hbox"
+                    },
+                    "designerId": "0de54674-7a9e-4160-b79b-2ecb8a81d8ec",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Color",
+                                "itemId": "color",
+                                "labelAlign": "right",
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "designerId": "82d71cbc-81d4-45e7-a935-b5828fbadc7e"
+                        },
+                        {
+                            "type": "Ext.button.Split",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "buttonClass",
+                                "text": "Select Color"
+                            },
+                            "designerId": "fd8e3bef-0b81-40dd-9653-20ebd02cd389",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.ColorPicker",
+                                    "reference": {
+                                        "name": "menu",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "configAlternates": {
+                                        "handler": "object"
+                                    },
+                                    "designerId": "a95986b0-9034-4e4c-8417-b2a8b304b184",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "handler",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "obj",
+                                                    "rgb"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "console.log('Haaandler',arguments);",
+                                                    "var c = rgb.toString();",
+                                                    "obj.up('#fields').down('#color').down('#color').setValue('<SPAN STYLE=\"background:#'+c+'\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>&nbsp;#'+c);",
+                                                    "if (obj.up('window').down('#autoSave').getValue()) helperObjSave(obj.up('window'));",
+                                                    ""
+                                                ]
+                                            },
+                                            "designerId": "62f6a700-9576-4e4f-bf2e-ff2d26d90616"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "itemId": "background",
+                        "layout": "hbox"
+                    },
+                    "designerId": "a8fa5a81-ec40-4c8b-92e7-33c3230f8c35",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Background",
+                                "itemId": "color",
+                                "labelAlign": "right",
+                                "layout|flex": 1,
+                                "value": null
+                            },
+                            "designerId": "54046624-3b2a-4072-937c-e0ccae47fa2d"
+                        },
+                        {
+                            "type": "Ext.button.Split",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": "buttonClass",
+                                "text": "Select Color"
+                            },
+                            "designerId": "4d6c2402-1bab-4fd3-b9ac-4c111f2146cc",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.ColorPicker",
+                                    "reference": {
+                                        "name": "menu",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "245eb5f6-7049-407a-ab7d-04a9b496cc4d",
+                                    "cn": [
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "obj",
+                                                    "rgb"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "console.log('Haaandler',arguments);",
+                                                    "var c = rgb.toString();",
+                                                    "obj.up('#fields').down('#background').down('#color').setValue('<SPAN STYLE=\"background:#'+c+'\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>&nbsp;#'+c);",
+                                                    "if (obj.up('window').down('#autoSave').getValue()) helperObjSave(obj.up('window'));",
+                                                    ""
+                                                ]
+                                            },
+                                            "designerId": "24b98cb0-b709-4732-9170-c7c17fd4c5af"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.slider.Single",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Opacity",
+                        "itemId": "opacity",
+                        "labelAlign": "right",
+                        "value": 17
+                    },
+                    "designerId": "20c7d09b-d71c-431d-a0c0-b58cf7aae3eb",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onOpacityChange",
+                                "implHandler": [
+                                    "if (slider.up('window').down('#autoSave').getValue()) helperObjSave(slider.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "2792915b-dd9c-4df3-b2a2-10acf614a402"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.slider.Single",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Round Corners",
+                        "itemId": "round",
+                        "labelAlign": "right",
+                        "maxValue": 30,
+                        "value": 0
+                    },
+                    "designerId": "063104c1-2f48-4e89-b124-0817d0d5418f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onOpacityChange1",
+                                "implHandler": [
+                                    "if (slider.up('window').down('#autoSave').getValue()) helperObjSave(slider.up('window'));",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "designerId": "41b0ee7d-7e7e-493f-8344-d77272ebfbd2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "margin": null
+            },
+            "designerId": "7c73e7ab-9b85-4f9e-b5a0-dcd195602f94",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Real Time Update",
+                        "checked": true,
+                        "fieldLabel": "",
+                        "hideEmptyLabel": false,
+                        "itemId": "autoSave",
+                        "layout|flex": null
+                    },
+                    "designerId": "bf490d0f-719e-4086-9e41-95dda8a1cdc2"
+                },
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "designerId": "e1733d90-62a7-4904-bb05-0f432147c4d3"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "Save"
+                    },
+                    "designerId": "dcaec1ef-4485-4fb0-a31d-c21c08a6312f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "console.log('implement save');",
+                                    "var w = button.up('window');",
+                                    "helperObjSave(w,function() {",
+                                    "    w.close();",
+                                    "});",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "designerId": "2f5d20b9-a4c9-413d-8c41-408bae4767ec"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowShow",
+                "implHandler": [
+                    "console.log('Edit Object',component);",
+                    "component.down('#fields').hide();",
+                    "Ext.Ajax.request({",
+                    "    url: '/rest/object/'+component.objId,",
+                    "    success: function(res) {",
+                    "        var obj = Ext.JSON.decode(res.responseText);",
+                    "        component.down('#type').setValue('<img width=12 height=12 src=\"icons/'+obj.type+'.png\"> '+obj.type);",
+                    "        component.down('#text').suspendEvents();",
+                    "        component.down('#text').setValue(obj.text);",
+                    "        component.down('#text').resumeEvents();",
+                    "        component.down('#fontSize').suspendEvents();",
+                    "        component.down('#fontSize').setValue(obj.fontSize);",
+                    "        component.down('#fontSize').resumeEvents();",
+                    "        component.down('#dashArray').suspendEvents();",
+                    "        component.down('#dashArray').setValue(obj.dashArray||0);",
+                    "        component.down('#dashArray').resumeEvents();",
+                    "        component.down('#opacity').suspendEvents();",
+                    "        component.down('#opacity').setValue(obj.opacity*100);",
+                    "        component.down('#opacity').resumeEvents();",
+                    "        component.down('#round').suspendEvents();",
+                    "        component.down('#round').setValue(obj.round);",
+                    "        component.down('#round').resumeEvents();",
+                    "        component.down('#borderWidth').suspendEvents();",
+                    "        component.down('#borderWidth').setValue(obj.strokeWidth);",
+                    "        component.down('#borderWidth').resumeEvents();",
+                    "        component.down('#color').down('#color').setValue('<SPAN STYLE=\"background:'+obj.color+'\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>&nbsp;'+obj.color);",
+                    "        component.down('#background').down('#color').setValue('<SPAN STYLE=\"background:'+obj.fill+'\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>&nbsp;'+obj.fill);",
+                    "        switch (obj.type) {",
+                    "            case 'rect':",
+                    "                //component.down('#fontSize').hide();",
+                    "                break;",
+                    "            case 'text':",
+                    "                component.down('#dashArray').hide();",
+                    "                component.down('#round').hide();",
+                    "                component.down('#background').hide();",
+                    "                component.down('#borderWidth').hide();",
+                    "                break;",
+                    "            case 'oval':",
+                    "                component.down('#round').hide();",
+                    "                //component.down('#fontSize').hide();",
+                    "                break;",
+                    "            default:",
+                    "                break;             ",
+                    "        }",
+                    "        component.down('#fields').show();",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "show",
+                "scope": "me"
+            },
+            "designerId": "eb602bae-ccd6-44fe-8272-1d6fc848ed92"
+        }
+    ]
+}

@@ -28,7 +28,8 @@
             "mainView",
             "links",
             "deviceName",
-            "linkName"
+            "linkName",
+            "objName"
         ]
     },
     "designerId": "application",

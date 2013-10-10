@@ -14,7 +14,7 @@
 }
 
 .buttonClass {
-    background: #FFFFFF;
-    color: #000000;
-    font-weight: normal;
+    background: #C0C0C0;
+    color: #000000 !important;
+    font-weight: normal !important;
 }

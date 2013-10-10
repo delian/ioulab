@@ -40,7 +40,8 @@ Ext.application({
         'mainView',
         'links',
         'deviceName',
-        'linkName'
+        'linkName',
+        'objName'
     ],
     autoCreateViewport: true,
     name: 'iouLab',

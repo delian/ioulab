@@ -143,6 +143,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		obj.on('cell:doubleclick', function(obj,child,jq,x,y) {
 			if (obj.oType=='device'&&config.deviceDoubleClick) config.deviceDoubleClick(obj,x,y);
 			if (obj.oType=='link'&&config.linkDoubleClick) config.linkDoubleClick(obj,x,y);
+			if (obj.oType=='object'&&config.objectDoubleClick) config.objectDoubleClick(obj,x,y);
 		});
 		
 		if (readOnly) {
@@ -395,13 +396,16 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	function rawAddObject(msg) {
 		var obj;
 
-		msg.color = msg.color||'black';
-		msg.opacity = msg.opacity||0.1;
-		msg.fill = msg.fill||'white';
+		msg.color = msg.color||'#000000';
+		if (typeof msg.opacity=='undefined') msg.opacity = (msg.type=='text'?1:0);
+		msg.fill = msg.fill||'#FFFFFF';
 		msg.z = msg.z||(msg.type=='text'?-1:-2);
 		msg.width = msg.width||100;
 		msg.height = msg.height||100;
 		msg.fontSize = msg.fontSize||7;
+		msg.dashArray = msg.dashArray||0;
+		if (typeof msg.round=='undefined') msg.round=2;
+		if (typeof msg.strokeWidth=='undefined') msg.strokeWidth=1;
 
 		switch (msg.type) {
 			case 'rect':
@@ -409,7 +413,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					id: msg.id,
 				    position: { x: msg.x, y: msg.y },
 				    size: { width: msg.width, height: msg.height },
-				    attrs: { rect: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'pointer-events': readOnly?'none':'fill' }, text: { text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
+				    attrs: { rect: { rx: (msg.round/msg.width), ry: (msg.round/msg.height), 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'stroke-width': msg.strokeWidth, 'pointer-events': readOnly?'none':'fill' }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
 				    z: msg.z
 				});
 				break;
@@ -418,7 +422,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					id: msg.id,
 				    position: { x: msg.x, y: msg.y },
 				    size: { width: msg.width, height: msg.height },
-				    attrs: { circle: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'pointer-events': readOnly?'none':'fill' }, text: { text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
+				    attrs: { circle: { 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'stroke-width': msg.strokeWidth, 'pointer-events': readOnly?'none':'fill' }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
 				    z: msg.z
 				});
 				break;
@@ -427,7 +431,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					id: msg.id,
 				    position: { x: msg.x, y: msg.y },
 				    size: { width: msg.width, height: msg.height },
-				    attrs: { text: { text: msg.text, fill: msg.color, 'font-size': msg.fontSize, 'pointer-events': readOnly?'none':'fill' } },
+				    attrs: { text: { 'stroke-dasharray': msg.dashArray, opacity: msg.opacity, text: msg.text, fill: msg.color, 'font-size': msg.fontSize, 'pointer-events': readOnly?'none':'fill' } },
 				    z: msg.z
 				});
 				break;
@@ -623,13 +627,19 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		
 		switch (msg.type) {
 			case 'rect':
-				d.attr({ rect: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color }, text: { text: msg.text, fill: msg.color } });
+				setTimeout(function() {
+					d.attr({ rect: { rx: (msg.round/msg.width), ry: (msg.round/msg.height), 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
+				},60);
 				break;
 			case 'oval':
-				d.attr({ circle: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color }, text: { text: msg.text, fill: msg.color } });
+				setTimeout(function() {
+					d.attr({ circle: { 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
+				},60);
 				break;
 			case 'text':
-				d.attr({ text: { text: msg.text, fill: msg.color, 'font-size': msg.fontSize } });
+				setTimeout(function() {
+					d.attr({ text: { 'stroke-dasharray': msg.dashArray, opacity: msg.opacity, text: msg.text, fill: msg.color, 'font-size': msg.fontSize } });					
+				},60);
 				break;
 		}
 		

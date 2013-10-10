@@ -71,3 +71,26 @@ function showTip(obj,objModel) {
     },300);
 }
 
+function helperObjSave(c,cb) {
+    var color = c.down('#color').down('#color').value.match(/(.......)$/)[1]; // unsafe
+    var fill = c.down('#background').down('#color').value.match(/(.......)$/)[1];
+    console.log(color,fill);
+    Ext.Ajax.request({
+        method: 'PUT',
+        url: '/rest/object/'+c.objId,
+        jsonData: Ext.JSON.encode({
+            text: c.down('#text').getValue(),
+            fontSize: c.down('#fontSize').getValue(),
+            opacity: (c.down('#opacity').getValue()/100),
+            dashArray: c.down('#dashArray').getValue(),
+            round: c.down('#round').getValue(),
+            strokeWidth: c.down('#borderWidth').getValue(),
+            color: color,
+            fill: fill
+        }),
+        success: function(res) {
+            console.log('Successfuly saved');
+            if (cb) cb(res);
+        }
+    });
+}

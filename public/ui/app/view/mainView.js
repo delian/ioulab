@@ -1285,6 +1285,10 @@ Ext.define('iouLab.view.mainView', {
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);
                 Ext.create('widget.linkName',{ linkId: obj.id }).show();
+            },
+            objectDoubleClick: function(obj,x,y) {
+                console.log('Obj DoubleClick',arguments);
+                Ext.create('widget.objName', { objId: obj.id }).show();
             }
         });
         
