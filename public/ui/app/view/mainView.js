@@ -16,6 +16,7 @@
 Ext.define('iouLab.view.mainView', {
     extend: 'Ext.container.Viewport',
 
+    itemId: 'mainView',
     layout: {
         type: 'fit'
     },
@@ -574,6 +575,21 @@ Ext.define('iouLab.view.mainView', {
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                                                                        console.log('We want to start the device');
+                                                                                        Ext.Ajax.request({
+                                                                                            url: '/rest/device/'+record.get('id')+'/start',
+                                                                                            success: function(res) {
+                                                                                                console.log('We did start');
+                                                                                                record.set('status','online');
+                                                                                                record.commit();
+                                                                                            }
+                                                                                        });
+                                                                                    },
+                                                                                    icon: 'icons/start.png',
+                                                                                    tooltip: 'Start'
+                                                                                },
+                                                                                {
+                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
                                                                                         console.log('We want to stop the device');
                                                                                         Ext.Ajax.request({
                                                                                             url: '/rest/device/'+record.get('id')+'/stop',
@@ -587,21 +603,6 @@ Ext.define('iouLab.view.mainView', {
                                                                                     disabled: false,
                                                                                     icon: 'icons/stop.png',
                                                                                     tooltip: 'Stop'
-                                                                                },
-                                                                                {
-                                                                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                                                                        console.log('We want to start the device');
-                                                                                        Ext.Ajax.request({
-                                                                                            url: '/rest/device/'+record.get('id')+'/start',
-                                                                                            success: function(res) {
-                                                                                                console.log('We did start');
-                                                                                                record.set('status','online');
-                                                                                                record.commit();
-                                                                                            }
-                                                                                        });
-                                                                                    },
-                                                                                    icon: 'icons/start.png',
-                                                                                    tooltip: 'Start'
                                                                                 },
                                                                                 {
                                                                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
@@ -777,7 +778,7 @@ Ext.define('iouLab.view.mainView', {
                                                                     },
                                                                     fieldLabel: 'Add Link',
                                                                     labelAlign: 'right',
-                                                                    labelWidth: 80,
+                                                                    labelWidth: 70,
                                                                     emptyText: 'Select Link',
                                                                     editable: false,
                                                                     displayField: 'name',
@@ -788,6 +789,50 @@ Ext.define('iouLab.view.mainView', {
                                                                             fn: me.onComboboxChange1,
                                                                             scope: me
                                                                         }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    xtype: 'splitbutton',
+                                                                    cls: 'buttonClass',
+                                                                    text: 'Add Figure',
+                                                                    menu: {
+                                                                        xtype: 'menu',
+                                                                        width: 120,
+                                                                        items: [
+                                                                            {
+                                                                                xtype: 'menuitem',
+                                                                                handler: function(item, e) {
+                                                                                    console.log('rect button',arguments);
+
+                                                                                    diagram.addFigure('rect',100+Math.random()*100,100+Math.random()*100,'');
+
+                                                                                },
+                                                                                iconCls: 'rectImage',
+                                                                                text: 'Rectangle'
+                                                                            },
+                                                                            {
+                                                                                xtype: 'menuitem',
+                                                                                handler: function(item, e) {
+                                                                                    console.log('oval button',arguments);
+
+                                                                                    diagram.addFigure('oval',100+Math.random()*100,100+Math.random()*100,'');
+
+                                                                                },
+                                                                                iconCls: 'ovalImage',
+                                                                                text: 'Oval'
+                                                                            },
+                                                                            {
+                                                                                xtype: 'menuitem',
+                                                                                handler: function(item, e) {
+                                                                                    console.log('text button',arguments);
+
+                                                                                    diagram.addFigure('text',100+Math.random()*100,100+Math.random()*100,'Text');
+
+                                                                                },
+                                                                                iconCls: 'textImage',
+                                                                                text: 'Text'
+                                                                            }
+                                                                        ]
                                                                     }
                                                                 },
                                                                 {
@@ -1140,6 +1185,12 @@ Ext.define('iouLab.view.mainView', {
                 scaler.resumeEvents();
                 console.log('We received a set scale request to',msg);
             },
+            deviceHoverIn: function(obj,objModel) {
+                showTip(obj,objModel);
+            },
+            deviceHoverOut: function(obj, objModel) {
+                hideTip();
+            },
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
                 var id = obj.attributes.id;
@@ -1214,75 +1265,6 @@ Ext.define('iouLab.view.mainView', {
     onEditLabDiagramActivate: function(component, eOpts) {
         console.log('editLab is selected',arguments);
         
-        var t;
-        var th;
-        
-        function hideTip() {
-            if (th) clearTimeout(th);
-            th = setTimeout(function(){
-                if (t && t.hide) t.hide();
-            },500);
-        }
-        
-        function showTip(obj,objModel) {
-            if (th) clearTimeout(th);
-            th=0;
-            if (t && t.hide) t.hide();
-            console.log('To show tip for object',obj);
-            var ht = '<DIV STYLE="overflow:hidden"><CENTER><IMG SRC="'+obj.oMsg.icon+'" WIDTH=20 HEIGHT=20></CENTER>'+
-                '<TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>' +
-                '<TR><TD ALIGN=RIGHT><B>Name:</B></TD><TD NOWRAP>&nbsp;'+obj.oMsg.name+'</TD></TR>'+
-                '<TR><TD ALIGN=RIGHT><B>Status:</B></TD><TD NOWRAP>&nbsp;'+obj.oMsg.status+'</TD></TR>'+
-                '</TABLE><BR><CENTER>'+
-                '<IMG class="tooltipStart" STYLE="cursor:pointer" SRC="icons/start.png" WIDTH=15 HEIGHT=15>&nbsp;'+
-                '<IMG class="tooltipStop" STYLE="cursor:pointer" SRC="icons/stop.png" WIDTH=15 HEIGHT=15>&nbsp;'+
-                '<IMG class="tooltipTerminal" STYLE="cursor:pointer" SRC="icons/terminal.png" WIDTH=15 HEIGHT=15>&nbsp;'+
-                '</CENTER></DIV>';
-            t=Ext.create('Ext.tip.ToolTip', { html: ht, width: 150, height: 100, hideDelay: 2000 });
-            t.on('show',function() {
-                if (!t.getEl()) return;
-                console.log('showed',t.getEl());
-                var el = t.getEl();
-                el.on('mouseover',function() {
-                    if (th) clearTimeout(th);
-                });
-                el.on('mouseout',function() {
-                    hideTip();
-                });
-                var e = el.dom.getElementsByClassName('tooltipStart')[0];
-                if (e)  e.onclick=function() {
-                  console.log('Start clicked');
-                    Ext.Ajax.request({
-                        url: '/rest/device/'+obj.oMsg.id+'/start',
-                        success: function(res) {
-                            console.log('Device started');
-                        }
-                    });
-                  hideTip();
-                };
-                e = el.dom.getElementsByClassName('tooltipStop')[0];
-                if (e) e.onclick=function() {
-                  console.log('Stop clicked');
-                    Ext.Ajax.request({
-                        url: '/rest/device/'+obj.oMsg.id+'/stop',
-                        success: function(res) {
-                            console.log('Device stopped');
-                        }
-                    });
-                  hideTip();
-                };
-                e = el.dom.getElementsByClassName('tooltipTerminal')[0];
-                if (e) e.onclick=function() {
-                  console.log('Terminal clicked');
-                  window.open('terminal.html#'+obj.oMsg.id,'Terminal'+obj.oMsg.id,"location=0,status=0,scrollbars=0,width=650,height=400");
-                  hideTip();
-                };
-            });
-            th=setTimeout(function(){
-                t.showAt([objModel.clientX+15,objModel.clientY+15]);
-            },200);
-        }
-        
         diagram = new createDiagram(component.down('#diagram'),labId,false,{
             sockSetScale: function(msg) {
                 var scaler = component.down('#scaler');
@@ -1291,7 +1273,6 @@ Ext.define('iouLab.view.mainView', {
                 scaler.resumeEvents();
             },
             deviceHoverIn: function(obj,objModel) {
-                console.log('Show',arguments);
                 showTip(obj,objModel);
             },
             deviceHoverOut: function(obj, objModel) {

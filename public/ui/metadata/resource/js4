@@ -7,9 +7,9 @@
     "codeClass": null,
     "userConfig": {
         "defer": true,
-        "designer|userClassName": "js",
-        "id": "joint.js",
-        "url": "libs/joint.js"
+        "designer|userClassName": "js4",
+        "id": "helpers.js",
+        "url": "libs/helpers.js"
     },
-    "designerId": "aab33239-c350-4cfa-b4bb-8c6df48f761f"
+    "designerId": "2f227962-7edd-4891-a60a-ea2e1e214c6f"
 }

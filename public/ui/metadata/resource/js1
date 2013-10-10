@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "defer": true,
         "designer|userClassName": "js1",
         "id": "diagram.js",
         "url": "libs/diagram.js"

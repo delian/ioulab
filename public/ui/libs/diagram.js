@@ -70,7 +70,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		var elId;
 
 		if (e == 'cell:pointerup') {
-			elId = child.el.getAttribute('model-id');
+			elId = child.model.id;
 			jq.stopPropagation();
 			var d = new Date();
 			if (!diag.click[elId]) diag.click[elId] = new Date(0);
@@ -91,7 +91,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		}
 
 		if (e == 'cell:pointerdown') { // Not used for the moment
-			elId = child.el.getAttribute('model-id');
+			elId = child.model.id;
 		}
 
 		if ((!readOnly) && e == 'cell:pointermove') { // Draw trash
@@ -108,6 +108,17 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					diag.trashObj.remove();
 				delete (diag.trashObj);
 			}, trashFadeInterval);
+			
+			// Lets check are we talking for a a figure object?
+			var attr = child.model.attributes;
+			if ((attr.type=="basic.Rect" && Math.abs(attr.position.x+attr.size.width-x)<10 && Math.abs(attr.position.y+attr.size.height-y)<10 ) ||
+				(attr.type=="basic.Circle" && Math.abs(attr.position.x+attr.size.width-x)<10)){
+				elId = child.model.id;
+				var pattr = child.model._previousAttributes;
+				var objModel = objs[elId];
+				objModel.set('size',{ width: Math.max(20,attr.size.width + attr.position.x-pattr.position.x), height: Math.max(20,attr.size.height + attr.position.y-pattr.position.y) });
+				objModel.set('position', pattr.position);
+			}
 		}
 	});
 
@@ -161,6 +172,16 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				obj.oMsg.vertices = obj.attributes.vertices;
 				sendMsg('updateLink', obj.oMsg);
 			}
+			if (obj.oType == 'object') {
+				obj.oMsg.z = obj.attributes.z;
+				obj.oMsg.x = obj.attributes.position.x;
+				obj.oMsg.y = obj.attributes.position.y;
+				if (obj.attributes.size) {
+					obj.oMsg.width = obj.attributes.size.width;
+					obj.oMsg.height = obj.attributes.size.height;
+				}
+				sendMsg('updateObject', obj.oMsg);
+			}
 		});
 	if (!readOnly) obj.on('remove', function(type, child) { // Automatic handle of the remove
 			console.log('we shall remove', child, obj);
@@ -174,6 +195,12 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					lab : labId,
 					id : obj.id
 				});
+			if (obj.oType == 'object') {
+				sendMsg('removeObject', {
+					lab : labId,
+					id : obj.id
+				});				
+			}
 		});
 		objs[obj.id] = obj;
 		return graph.addCell(obj);
@@ -213,10 +240,10 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		addObj(image);
 		var objModel = paper.findViewByModel(image);
 		if (objModel) objModel.$el.hover(function(evt){
-			console.log('Hover In',arguments);
+			// console.log('Hover In',arguments);
 			if (config.deviceHoverIn) config.deviceHoverIn(image,evt,objModel);
 		}, function(evt) {
-			console.log('Hover Out',arguments);
+			// console.log('Hover Out',arguments);
 			if (config.deviceHoverOut) config.deviceHoverOut(image,evt,objModel);
 		})
 		sendMsg('addDevice', msg);
@@ -362,6 +389,87 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			}
 		});
 	}
+	
+	var pId = 100000;
+	
+	function rawAddObject(msg) {
+		var obj;
+
+		msg.color = msg.color||'black';
+		msg.opacity = msg.opacity||0.1;
+		msg.fill = msg.fill||'white';
+		msg.z = msg.z||(msg.type=='text'?-1:-2);
+		msg.width = msg.width||100;
+		msg.height = msg.height||100;
+		msg.fontSize = msg.fontSize||7;
+
+		switch (msg.type) {
+			case 'rect':
+				obj = new joint.shapes.basic.Rect({
+					id: msg.id,
+				    position: { x: msg.x, y: msg.y },
+				    size: { width: msg.width, height: msg.height },
+				    attrs: { rect: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'pointer-events': readOnly?'none':'fill' }, text: { text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
+				    z: msg.z
+				});
+				break;
+			case 'oval':
+				obj = new joint.shapes.basic.Circle({
+					id: msg.id,
+				    position: { x: msg.x, y: msg.y },
+				    size: { width: msg.width, height: msg.height },
+				    attrs: { circle: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color, 'pointer-events': readOnly?'none':'fill' }, text: { text: msg.text, fill: msg.color, 'pointer-events': readOnly?'none':'fill' } },
+				    z: msg.z
+				});
+				break;
+			case 'text':
+				obj = new joint.shapes.basic.Text({
+					id: msg.id,
+				    position: { x: msg.x, y: msg.y },
+				    size: { width: msg.width, height: msg.height },
+				    attrs: { text: { text: msg.text, fill: msg.color, 'font-size': msg.fontSize, 'pointer-events': readOnly?'none':'fill' } },
+				    z: msg.z
+				});
+				break;
+		}
+
+		obj.oMsg = msg;
+		obj.oType = 'object';
+		msg.lab = labId;
+		
+		addObj(obj);
+		sendMsg('addObject', msg);
+		return obj;
+	}
+	
+	function addFigure(type,x,y,text,width,height) {
+		console.log('addFigure',arguments);
+		
+		if (type!='rect' && type!='oval' && type!='text') return;
+
+		Ext.Ajax.request({
+			url : '/rest/allocate/objectId',
+			success : function(res) {
+				var msg = Ext.JSON.decode(res.responseText);
+				switch (type) {
+					case 'rect':
+						rawAddObject({ id: msg.id, type: 'rect', x: x, y: y, width: width, height: height, text: text });
+						break;
+					case 'oval':
+						rawAddObject({ id: msg.id, type: 'oval', x: x, y: y, width: width, height: height, text: text });
+						break;
+					case 'text':
+						rawAddObject({ id: msg.id, type: 'text', x: x, y: y, width: width, height: height, text: text, height: 50 });
+						break;
+					default:
+						break;
+				}		
+			},
+			failure : function() {
+				console.error('No object ID!!!');
+			}
+		});
+}
 
 	function getPaper() {
 		console.log('getPaper', arguments);
@@ -440,6 +548,21 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (config && config.sockAddLink)
 			config.sockAddLink(msg);
 	}
+	
+	function sockAddObject(msg) {
+		console.log('sockAddObject', arguments);
+
+		if (msg.lab!=labId) return;
+
+		if (objs[msg.id])
+			return sockUpdateObject(msg); // It exists, so instead we shall do an update
+
+		suspendEvents = true;
+		rawAddObject(msg);
+		suspendEvents = false;
+		if (config && config.sockAddObject)
+			config.sockAddObject(msg);
+	}
 
 	// TODO: May be width and height should be also maintained by the server?
 	function sockUpdateDevice(msg) {
@@ -481,6 +604,39 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		suspendEvents = false;
 		if (config && config.sockUpdateDevice)
 			config.sockUpdateDevice(msg);
+	}
+	
+	function sockUpdateObject(msg) {
+		console.log('sockUpdateObject', arguments);
+		
+		if (msg.lab!=labId) return;
+
+		if (!objs[msg.id])
+			return; // Does not exists, exist
+
+		suspendEvents = true;
+
+		var d = objs[msg.id];
+		d.set('size', { width: msg.width, height: msg.height });
+		d.set('position', { x: msg.x, y: msg.y });
+		d.set('z', msg.z);
+		
+		switch (msg.type) {
+			case 'rect':
+				d.attr({ rect: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color }, text: { text: msg.text, fill: msg.color } });
+				break;
+			case 'oval':
+				d.attr({ circle: { fill: msg.fill, 'fill-opacity': msg.opacity, stroke: msg.color }, text: { text: msg.text, fill: msg.color } });
+				break;
+			case 'text':
+				d.attr({ text: { text: msg.text, fill: msg.color, 'font-size': msg.fontSize } });
+				break;
+		}
+		
+		d.oMsg=msg;
+		suspendEvents = false;
+		if (config && config.sockUpdateObject)
+			config.sockUpdateObject(msg);
 	}
 
 	function sockUpdateLink(msg) {
@@ -567,6 +723,22 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (config && config.sockRemoveLink)
 			config.sockRemoveLink(msg);
 	}
+	
+	function sockRemoveObject(msg) {
+		console.log('sockRemoveObject', arguments);
+
+		if (msg.lab!=labId) return;
+
+		if (!objs[msg.id])
+			return; // Does not exists, exist
+
+		suspendEvents = true;
+		objs[msg.id].remove();
+		delete objs[msg.id];
+		suspendEvents = false;
+		if (config && config.sockRemoveObject)
+			config.sockRemoveObject(msg);
+	}
 
 	function sockSetScale(msg) {
 		console.log('sockSetScale', arguments);
@@ -602,8 +774,15 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					delete garbage[n.id];
 				});
 			}
+			if (msg.objects) {
+				Ext.Array.each(msg.objects, function(n) {
+					sockAddObject(n);
+					delete garbage[n.id];
+				});
+			}
 			for (k in garbage)
 				sockRemoveDevice({
+					lab: labId,
 					id : k
 				}); // This is how we clean the garbage. Should remove link as well.
 			if (msg.scale)
@@ -624,10 +803,13 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	socket.on('getAll', sockGetAll);
 	socket.on('addDevice', sockAddDevice);
 	socket.on('addLink', sockAddLink);
+	socket.on('addObject', sockAddObject);
 	socket.on('updateDevice', sockUpdateDevice);
 	socket.on('updateLink', sockUpdateLink);
+	socket.on('updateObject', sockUpdateObject);
 	socket.on('removeDevice', sockRemoveDevice);
 	socket.on('removeLink', sockRemoveLink);
+	socket.on('removeObject', sockRemoveObject);
 	socket.on('setScale', sockSetScale);
 	console.log('Try to do connect!');
 	socket.on('connect', function() { // Implement the Socket Interface
@@ -651,6 +833,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 	// diag.addObj = addObj;
 	diag.addDevice = addDevice;
 	diag.addLink = addLink;
+	diag.addFigure = addFigure;
 	// diag.rawAddDevice = rawAddDevice;
 	// diag.rawAddLink = rawAddLink;
 	diag.getPaper = getPaper;

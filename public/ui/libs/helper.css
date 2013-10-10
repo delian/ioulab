@@ -1,0 +1,20 @@
+.rectImage {
+    background-image:url(../icons/rect.png);
+    background-size: 16px 16px;
+}
+
+.ovalImage {
+    background-image:url(../icons/oval.png);
+    background-size: 16px 16px;
+}
+
+.textImage {
+    background-image:url(../icons/text.png);
+    background-size: 16px 16px;
+}
+
+.buttonClass {
+    background: #FFFFFF;
+    color: #000000;
+    font-weight: normal;
+}

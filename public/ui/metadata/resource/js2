@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "defer": true,
         "designer|userClassName": "js2",
         "id": "term.js",
         "url": "libs/term.js"
