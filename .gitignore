@@ -5,3 +5,4 @@ labs/*
 iou/*
 .project
 npm-debug.log
+v8.log
