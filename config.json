@@ -8,6 +8,7 @@
 	{ "id" : "IOU ADVENT 15.2T", "iouBin" : "../iou/i86bi_linux-adventerprisek9-ms.152-2", "description" : "IOU Router 15.2T Advanced Ent", "icon" : "icons/devices/cisco-router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
 	{ "id" : "IOU L2SW 12.2", "iouBin" : "../iou/i86bi_linuxl2-upk9-ms", "description" : "IOU L2 Switch 12.2", "icon" : "icons/devices/switch-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
 	{ "id" : "IOU L2SW 15.1", "iouBin" : "../iou/i86bi_linux_l2-ipbasek9-ms.jan24-2013-team_track", "description" : "IOU L2 Switch 15.1", "icon" : "icons/devices/switch-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
+	{ "id" : "IOU L2SW 15.1.1", "iouBin" : "../iou/i86bi_linux_l2-ipbasek9-ms.may8-2013-team_track", "description" : "IOU L2 Switch 15.1.1", "icon" : "icons/devices/switch-256-blue.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 },
 	{ "id" : "IOU TPGEN 12.4", "iouBin" : "../iou/i86bi_linux-tpgen.ipbase-ms.PAGENT.4.7.0", "description" : "IOU 12.4 PAGENT 4.7.0", "icon" : "icons/devices/router-256-black.png", "memory" : 256, "nvram" : 32, "ethernet" : 4, "serial" : 4 }
   ],
   "deviceIcons": [

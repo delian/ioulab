@@ -204,7 +204,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			}
 		});
 		objs[obj.id] = obj;
-		return graph.addCell(obj);
+		
+		return graph.addCell(obj);		
 	}
 
 	function rawAddDevice(msg) {
@@ -241,8 +242,10 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		addObj(image);
 		var objModel = paper.findViewByModel(image);
 		if (objModel) objModel.$el.hover(function(evt){
+			// console.log('Hover in');
 			if (config.deviceHoverIn) config.deviceHoverIn(image,evt,objModel);
 		}, function(evt) {
+			// console.log('Hover in');
 			if (config.deviceHoverOut) config.deviceHoverOut(image,evt,objModel);
 		})
 		sendMsg('addDevice', msg);
@@ -359,8 +362,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				'.connection': {
 					'stroke-dasharray': 3
 				}
-			});
-		} catch(e) {};
+			});			
+		} catch(e) { console.error(e); };
 		
 		try {
 			if (readOnly)
@@ -374,7 +377,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					'.connection': { 'pointer-events':'none' }, 
 					'.connection-wrap':  { 'pointer-events':'none' }
 				});
-		} catch(e) {};
+		} catch(e) { console.error(e); };
 		
 /*
 		link.attr({
@@ -610,7 +613,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		if (msg.status) d.oStatus = msg.status;
 
 		if (msg.icon) {
-			try { // The crash we experience is somehow related to set attribute values, even though they work. This way we avoid the mainstream of the program to be blocked
+			setTimeout(function() {
 				d.attr({
 					text : {
 						text : msg.name || ""
@@ -620,9 +623,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 						opacity : msg.status == 'offline' ? offlineOpacity : 1
 					}
 				});
-			} catch(e) {
-				console.warn('Error in update',e);
-			};
+			},50);
 		}
 		suspendEvents = false;
 		if (config && config.sockUpdateDevice)
@@ -646,19 +647,19 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		
 		switch (msg.type) {
 			case 'rect':
-				try {
-					d.attr({ rect: { rx: (msg.round/msg.width), ry: (msg.round/msg.height), 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
-				} catch(e) { console.warn('Error in rect update',e); };
+				setTimeout(function() {
+					d.attr({ rect: { rx: (msg.round/msg.width), ry: (msg.round/msg.height), 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });	
+				},50);
 				break;
 			case 'oval':
-				try {
-					d.attr({ circle: { 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
-				} catch(e) { console.warn('Error in oval update',e); };
+				setTimeout(function() {
+					d.attr({ circle: { 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });
+				},50);
 				break;
 			case 'text':
-				try {
+				setTimeout(function() {
 					d.attr({ text: { 'stroke-dasharray': msg.dashArray, opacity: msg.opacity, text: msg.text, fill: msg.color, 'font-size': msg.fontSize } });					
-				} catch(e) { console.warn('Error in text update',e); };
+				},50);
 				break;
 		}
 		
@@ -700,7 +701,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		d.set('target', msg.target);
 		d.set('z', msg.z);
 		
-		try {
+		setTimeout(function() {
 			d.label(0, {
 				position : linkSLabel,
 				attrs : {
@@ -708,10 +709,10 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 						text : msg.source.name || ""
 					}
 				}
-			});
-		} catch(e) { console.warn('error in link label update',e); }
+			});			
+		},50);
 		
-		try {
+		setTimeout(function() {
 			d.label(1, {
 				position : linkLabel,
 				attrs : {
@@ -721,9 +722,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					}
 				}
 			});
-		} catch(e) { console.warn('error in link label update',e); }
-
-		try {
+		},65);
+		
+		setTimeout(function() {
 			d.label(2, {
 				position : linkNLabel,
 				attrs : {
@@ -732,7 +733,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 					}
 				}
 			});
-		} catch(e) { console.warn('error in link label update',e); }
+		},85);
 
 		d.oMsg=msg;
 		suspendEvents = false;
