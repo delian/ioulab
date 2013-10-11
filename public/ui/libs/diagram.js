@@ -241,10 +241,8 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		addObj(image);
 		var objModel = paper.findViewByModel(image);
 		if (objModel) objModel.$el.hover(function(evt){
-			// console.log('Hover In',arguments);
 			if (config.deviceHoverIn) config.deviceHoverIn(image,evt,objModel);
 		}, function(evt) {
-			// console.log('Hover Out',arguments);
 			if (config.deviceHoverOut) config.deviceHoverOut(image,evt,objModel);
 		})
 		sendMsg('addDevice', msg);
@@ -301,11 +299,26 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 
 	function rawAddLink(msg) {
 		console.log('rawAddLink', arguments);
+		
+		if (typeof msg.source == 'undefined') msg.source={ name: "" };
+		if (typeof msg.target == 'undefined') msg.target={ name: "" };
+		if (typeof msg.source.name == 'undefined') msg.source.name="";
+		if (typeof msg.target.name == 'undefined') msg.target.name="";
+		if (typeof msg.source.id == 'undefined') {
+			msg.source.x = msg.source.x||100+parseInt(Math.random()*100);
+			msg.source.y = msg.source.y||100+parseInt(Math.random()*100);
+		}
+		if (typeof msg.target.id == 'undefined') {
+			msg.target.x = msg.target.x||100+parseInt(Math.random()*100);
+			msg.target.y = msg.target.y||100+parseInt(Math.random()*100);
+		}
+		if (typeof msg.vertices == 'undefined') msg.vertices=[];
+		
 		link = new joint.dia.Link({
 			id : msg.id,
 			source : msg.source,
 			target : msg.target,
-			vertices : msg.vertices ? msg.vertices : [],
+			vertices : msg.vertices,
 			attrs: {
 				'.connection': {
 					'stroke-width':1.5
@@ -315,7 +328,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				position : linkSLabel,
 				attrs : {
 					text : {
-						text : msg.source.name || "",
+						text : msg.source.name,
 						'pointer-events': 'none'
 					}
 				}
@@ -323,7 +336,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				position : linkLabel,
 				attrs : {
 					text : {
-						text : msg.name || "",
+						text : msg.name,
 						'font-weight' : 'bold',
 						'pointer-events': 'none'
 					}
@@ -332,7 +345,7 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 				position : linkNLabel,
 				attrs : {
 					text : {
-						text : msg.target.name || "",
+						text : msg.target.name,
 						'pointer-events': 'none'
 					}
 				}
@@ -340,23 +353,29 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 			} ],
 			smooth : true
 		});
-
-		if (readOnly) link.attr({
-			'.labels': { 'pointer-events':'none' }, 
-			'.link-tools': { 'pointer-events':'none' }, 
-			'.marker-source': { 'pointer-events':'none' },
-			'.marker-target': { 'pointer-events':'none' },
-			'.marker-vertices': { 'pointer-events':'none' },
-			'.marker-arrowheads': { 'pointer-events':'none' }, 
-			'.connection': { 'pointer-events':'none' }, 
-			'.connection-wrap':  { 'pointer-events':'none' }
-		}); // Not working
 		
-		if (msg.type=='serial') link.attr({
-			'.connection': {
-				'stroke-dasharray': 3
-			}
-		});
+		try {
+			if (msg.type=='serial') link.attr({
+				'.connection': {
+					'stroke-dasharray': 3
+				}
+			});
+		} catch(e) {};
+		
+		try {
+			if (readOnly)
+				link.attr({
+					'.labels': { 'pointer-events':'none' }, 
+					'.link-tools': { 'pointer-events':'none' }, 
+					'.marker-source': { 'pointer-events':'none' },
+					'.marker-target': { 'pointer-events':'none' },
+					'.marker-vertices': { 'pointer-events':'none' },
+					'.marker-arrowheads': { 'pointer-events':'none' }, 
+					'.connection': { 'pointer-events':'none' }, 
+					'.connection-wrap':  { 'pointer-events':'none' }
+				});
+		} catch(e) {};
+		
 /*
 		link.attr({
 		    '.connection': { stroke: 'blue' },
@@ -573,27 +592,25 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		console.log('sockUpdateDevice', arguments);
 		
 		if (msg.lab!=labId) return;
-
 		if (!objs[msg.id]) return; // Does not exists, exit
 
 		suspendEvents = true;
 		
 		var d = objs[msg.id];
-
 		d.oMsg = msg;
-		
 		d.forceUpdate=true;
 
 		d.set('position', {
 			x : msg.x,
 			y : msg.y
 		});
+		
 		d.set('z', msg.z);
 
 		if (msg.status) d.oStatus = msg.status;
 
 		if (msg.icon) {
-			setTimeout(function(){ // The crash we experience is somehow related to set attribute values, even though they work. This way we avoid the mainstream of the program to be blocked
+			try { // The crash we experience is somehow related to set attribute values, even though they work. This way we avoid the mainstream of the program to be blocked
 				d.attr({
 					text : {
 						text : msg.name || ""
@@ -603,7 +620,9 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 						opacity : msg.status == 'offline' ? offlineOpacity : 1
 					}
 				});
-			},25);
+			} catch(e) {
+				console.warn('Error in update',e);
+			};
 		}
 		suspendEvents = false;
 		if (config && config.sockUpdateDevice)
@@ -627,19 +646,19 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		
 		switch (msg.type) {
 			case 'rect':
-				setTimeout(function() {
+				try {
 					d.attr({ rect: { rx: (msg.round/msg.width), ry: (msg.round/msg.height), 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
-				},60);
+				} catch(e) { console.warn('Error in rect update',e); };
 				break;
 			case 'oval':
-				setTimeout(function() {
+				try {
 					d.attr({ circle: { 'stroke-dasharray': msg.dashArray, fill: msg.fill, 'fill-opacity': msg.opacity, 'stroke-width': msg.strokeWidth, stroke: msg.color }, text: { 'font-size': msg.fontSize, text: msg.text, fill: msg.color } });					
-				},60);
+				} catch(e) { console.warn('Error in oval update',e); };
 				break;
 			case 'text':
-				setTimeout(function() {
+				try {
 					d.attr({ text: { 'stroke-dasharray': msg.dashArray, opacity: msg.opacity, text: msg.text, fill: msg.color, 'font-size': msg.fontSize } });					
-				},60);
+				} catch(e) { console.warn('Error in text update',e); };
 				break;
 		}
 		
@@ -660,39 +679,60 @@ function createDiagram(extJsObj, labId, readOnly, config) {
 		suspendEvents = true;
 
 		var d = objs[msg.id];
-		if (msg.vertices)
-			d.set('vertices', msg.vertices);
+
+		if (typeof msg.source == 'undefined') msg.source={ name: "" };
+		if (typeof msg.target == 'undefined') msg.target={ name: "" };
+		if (typeof msg.source.name == 'undefined') msg.source.name="";
+		if (typeof msg.target.name == 'undefined') msg.target.name="";
+		if (typeof msg.source.id == 'undefined') {
+			msg.source.x = msg.source.x||100+parseInt(Math.random()*100);
+			msg.source.y = msg.source.y||100+parseInt(Math.random()*100);
+		}
+		if (typeof msg.target.id == 'undefined') {
+			msg.target.x = msg.target.x||100+parseInt(Math.random()*100);
+			msg.target.y = msg.target.y||100+parseInt(Math.random()*100);
+		}
+		if (typeof msg.vertices == 'undefined') msg.vertices=[];
+		
+		
+		d.set('vertices', msg.vertices);
 		d.set('source', msg.source);
 		d.set('target', msg.target);
 		d.set('z', msg.z);
 		
-		d.label(0, {
-			position : linkSLabel,
-			attrs : {
-				text : {
-					text : msg.source.name || ""
+		try {
+			d.label(0, {
+				position : linkSLabel,
+				attrs : {
+					text : {
+						text : msg.source.name || ""
+					}
 				}
-			}
-		});
+			});
+		} catch(e) { console.warn('error in link label update',e); }
 		
-		d.label(1, {
-			position : linkLabel,
-			attrs : {
-				text : {
-					text : msg.name || "",
-					'font-weight' : 'bold'
+		try {
+			d.label(1, {
+				position : linkLabel,
+				attrs : {
+					text : {
+						text : msg.name || "",
+						'font-weight' : 'bold'
+					}
 				}
-			}
-		});
-		
-		d.label(2, {
-			position : linkNLabel,
-			attrs : {
-				text : {
-					text : msg.target.name || ""
+			});
+		} catch(e) { console.warn('error in link label update',e); }
+
+		try {
+			d.label(2, {
+				position : linkNLabel,
+				attrs : {
+					text : {
+						text : msg.target.name || ""
+					}
 				}
-			}
-		});
+			});
+		} catch(e) { console.warn('error in link label update',e); }
 
 		d.oMsg=msg;
 		suspendEvents = false;
