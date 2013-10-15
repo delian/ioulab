@@ -2614,7 +2614,8 @@
                                                                 "fn": "handler",
                                                                 "implHandler": [
                                                                     "console.log('Refresh is invoked!');",
-                                                                    "if (diagram) diagram.refresh();"
+                                                                    "if (diagram) diagram.refresh();",
+                                                                    ""
                                                                 ]
                                                             },
                                                             "designerId": "10a3016f-b99f-472f-a98a-2002d190a81e"

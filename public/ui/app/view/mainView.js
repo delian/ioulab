@@ -893,6 +893,7 @@ Ext.define('iouLab.view.mainView', {
                                                             handler: function(event, toolEl, owner, tool) {
                                                                 console.log('Refresh is invoked!');
                                                                 if (diagram) diagram.refresh();
+
                                                             },
                                                             type: 'refresh'
                                                         }

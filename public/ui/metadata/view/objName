@@ -567,7 +567,7 @@
                     "                //component.down('#fontSize').hide();",
                     "                break;",
                     "            default:",
-                    "                break;             ",
+                    "                break;",
                     "        }",
                     "        component.down('#fields').show();",
                     "    }",
