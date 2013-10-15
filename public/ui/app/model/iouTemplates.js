@@ -43,6 +43,12 @@ Ext.define('iouLab.model.iouTemplates', {
         },
         {
             name: 'icon'
+        },
+        {
+            name: 'qemuImage'
+        },
+        {
+            name: 'qemuParams'
         }
     ]
 });

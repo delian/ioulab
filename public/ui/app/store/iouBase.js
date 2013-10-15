@@ -40,6 +40,18 @@ Ext.define('iouLab.store.iouBase', {
                 },
                 {
                     name: 'serial'
+                },
+                {
+                    name: 'qemuImage'
+                },
+                {
+                    name: 'qemuParams'
+                },
+                {
+                    name: 'type'
+                },
+                {
+                    name: 'icon'
                 }
             ],
             proxy: {

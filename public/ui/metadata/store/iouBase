@@ -95,6 +95,54 @@
                 "url": "/rest/iouBase"
             },
             "designerId": "38c752bf-98bf-469d-a79f-7a7bb20c0e29"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qemuImage"
+            },
+            "designerId": "0f0eaaa3-8115-4a94-a6e8-dbbb7ac50f6f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "qemuParams"
+            },
+            "designerId": "b8d48a6b-e20f-46d9-ade5-da34c01c56ee"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "type"
+            },
+            "designerId": "0f633c3f-97cc-4846-b99e-f64590caa24d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "icon"
+            },
+            "designerId": "31868cc4-ad7e-44cf-95a6-106a74a68ae5"
         }
     ]
 }

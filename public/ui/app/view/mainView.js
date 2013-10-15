@@ -326,8 +326,8 @@ Ext.define('iouLab.view.mainView', {
                                                                         allowDecimals: false,
                                                                         allowExponential: false,
                                                                         autoStripChars: true,
-                                                                        maxValue: 128,
-                                                                        minValue: 32
+                                                                        maxValue: 256,
+                                                                        minValue: 0
                                                                     }
                                                                 },
                                                                 {
@@ -1068,7 +1068,9 @@ Ext.define('iouLab.view.mainView', {
                     ethernet: r.get('ethernet'),
                     serial: r.get('serial'),
                     name: field.getValue(),
-                    icon: Ext.StoreMgr.get('routerIcons').getAt(0).get('id'), // Get the first router Icon
+                    icon: r.get('icon')||Ext.StoreMgr.get('routerIcons').getAt(0).get('id'), // Get the first router Icon
+                    qemuImage: r.get('qemuImage'),
+                    qemuParams: r.get('qemuParams'),
                     type: newValue
                 });
         

@@ -19,6 +19,10 @@
     "socket.io": "*",
     "mongodb": "*",
     "connect-mongo": "*",
-    "waitpid": "*"
+    "waitpid": "*",
+    "unix-dgram": "*",
+    "net": "*",
+    "rfb2": "*",
+    "picha": "*"
   }
 }
