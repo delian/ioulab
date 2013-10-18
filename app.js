@@ -65,5 +65,6 @@ mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 		sIo = io.listen(server, { log: false });
 		require('./lib/labSocketBus.js')(sIo,db,e);
 		require('./lib/termSocketBus.js')(sIo,db,e);
+		require('./lib/vncSocketBus.js')(sIo,db,e);
 	});
 });
