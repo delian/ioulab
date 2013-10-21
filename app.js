@@ -50,6 +50,12 @@ var server = http.createServer(app);
 var port = config.serverPort||app.get('port');
 var io = require('socket.io');
 
+process.on('uncaughtException', function (err) {
+	  console.error(err);
+//	  console.error(err.stack);
+	  console.log("Node NOT Exiting...");
+});
+
 //Connect to the MongoDB
 mongoClient.connect(config.mongoUrl,function(err,mongoDb) {
 	if (err) throw err;
