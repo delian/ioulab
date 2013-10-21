@@ -101,6 +101,7 @@
       var canvas = self._screen.getCanvas();
       canvas.width = config.width;
       canvas.height = config.height;
+      window.resizeTo(config.width+1,config.height+1);
       if (typeof callback === 'function') callback();
     });
     this._socket.on('frame', function (frame) {
