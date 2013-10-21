@@ -87,12 +87,9 @@
   };
 
   Client.prototype.connect = function (config) {
-    this._socket = io.connect();
+    this._socket = io.connect('/vnc');
     this._socket.emit('init', {
       id: config.id
-//      host: config.host,
-//      port: config.port,
-//      password: config.password
     });
     this._addHandlers(config.callback);
     this._initEventListeners();
