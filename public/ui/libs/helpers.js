@@ -62,7 +62,7 @@ function showTip(obj,objModel) {
         e = el.dom.getElementsByClassName('tooltipTerminal')[0];
         if (e) e.onclick=function() {
           console.log('Terminal clicked');
-          window.open('terminal.html#'+obj.oMsg.id,'Terminal'+obj.oMsg.id,"location=0,status=0,scrollbars=0,width=650,height=400");
+          openTerminal(obj.oMsg.id);
           hideTip();
         };
     });
@@ -91,6 +91,23 @@ function helperObjSave(c,cb) {
         success: function(res) {
             console.log('Successfuly saved');
             if (cb) cb(res);
+        }
+    });
+}
+
+function openTerminal(id) {
+    Ext.Ajax.request({
+        method: 'GET',
+        url: '/rest/device/'+id,
+        success: function(res) {
+            var obj=Ext.JSON.decode(res.responseText);
+            if (obj && obj.fullType && obj.fullType.iouBin ) {
+                if (obj.fullType.iouBin.type=='qemu') {
+                  window.open('vnc.html#'+id,'VNC'+id,"location=0,status=0,scrollbars=0,width=800,height=600");
+                } else {
+                  window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=0,width=800,height=600");                    
+                }
+            }
         }
     });
 }

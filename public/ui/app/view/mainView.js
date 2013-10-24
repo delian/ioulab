@@ -915,6 +915,10 @@ Ext.define('iouLab.view.mainView', {
                                             xtype: 'panel',
                                             itemId: 'labDocs',
                                             title: 'Lab Documents',
+                                            tabConfig: {
+                                                xtype: 'tab',
+                                                hidden: true
+                                            },
                                             items: [
                                                 {
                                                     xtype: 'panel',
@@ -1196,8 +1200,7 @@ Ext.define('iouLab.view.mainView', {
             },
             deviceDoubleClick: function(obj,x,y) {
                 console.log('Device DoubleClick',arguments);
-                var id = obj.attributes.id;
-                window.open('terminal.html#'+id,'Terminal'+id,"location=0,status=0,scrollbars=0,width=650,height=400");
+                openTerminal(obj.attributes.id);
             },
             linkDoubleClick: function(obj,x,y) {
                 console.log('Link DoubleClick',arguments);

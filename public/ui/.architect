@@ -420,7 +420,6 @@
                                         },
                                         {
                                             "id": "ef33b40f-4a0f-496e-9c1b-0dddde64583c",
-                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "814d69f6-a45b-4a48-98c4-6426b53b2b33"
@@ -475,7 +474,6 @@
                                         },
                                         {
                                             "id": "09b41842-8399-4581-a4e0-a3fd063bc9ba",
-                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "2a2e73a3-e103-40fc-a031-aeffa0e83d74"
@@ -993,6 +991,7 @@
         },
         "bb15d7c8-965f-4d2b-bc1a-f59572637fcd": {
             "id": "bb15d7c8-965f-4d2b-bc1a-f59572637fcd",
+            "expanded": false,
             "cn": [
                 {
                     "id": "9b6458b3-a905-4298-9fbe-c97914eee71f"
@@ -1001,6 +1000,7 @@
         },
         "6d53458f-8d92-4a19-9bd3-db54ac1a612a": {
             "id": "6d53458f-8d92-4a19-9bd3-db54ac1a612a",
+            "expanded": false,
             "cn": [
                 {
                     "id": "72439fdc-2aca-49a1-bf40-4de678baa310"
@@ -1255,11 +1255,11 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "8105505c-6cd0-4292-b831-730d57d36e88",
-        "selectedInstance": "02019d51-5d3f-45e8-822b-f6d5e3c0230a"
+        "topInstance": "2f227962-7edd-4891-a60a-ea2e1e214c6f",
+        "selectedInstance": "2f227962-7edd-4891-a60a-ea2e1e214c6f"
     },
     "codeState": {
-        "topInstance": "8105505c-6cd0-4292-b831-730d57d36e88"
+        "topInstance": "2f227962-7edd-4891-a60a-ea2e1e214c6f"
     },
     "editMode": "code",
     "userSettings": {}
