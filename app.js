@@ -19,7 +19,7 @@ var MongoStore = require('connect-mongo')(express);
 var app = express();
 
 // all environments
-app.set('port', config.serverPort || process.env.PORT || 3000);
+app.set('port', config.serverPort || process.env.PORT || 3333);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) { app.use(express.errorHandler()); }
 
 app.get('/',function(req,res){
-	res.redirect('/ui/app.html');
+	res.redirect('/ui/index.html');
 });
 
 // Set the mongoDB connection

@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "debug": true,
         "designer|userClassName": "Library",
         "theme": "neptune"
     },
