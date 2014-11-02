@@ -24,10 +24,10 @@
         "generateArchitectVersion": true,
         "sdkPath": ""
     },
-    "xdsVersion": "3.0.0",
-    "xdsBuild": 1261,
+    "xdsVersion": "3.0.1",
+    "xdsBuild": 1343,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000001,
+    "upgradeVersion": 300000000004,
     "framework": "ext42",
     "viewOrderMap": {
         "view": [
