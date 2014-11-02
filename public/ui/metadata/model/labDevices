@@ -20,6 +20,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField16",
             "designerId": "39102515-9348-4922-9bac-0af288f66778"
         },
         {
@@ -32,6 +33,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField17",
             "designerId": "478b2a05-286b-41bf-bfbd-0d377e87ecb6"
         },
         {
@@ -44,6 +46,7 @@
             "userConfig": {
                 "name": "type"
             },
+            "name": "MyField18",
             "designerId": "f5c692c5-719b-4d3a-8046-40a0fb4a3641"
         },
         {
@@ -56,6 +59,7 @@
             "userConfig": {
                 "name": "status"
             },
+            "name": "MyField19",
             "designerId": "79c8c75d-84b5-4511-a77b-bb62593e0820"
         },
         {
@@ -68,6 +72,7 @@
             "userConfig": {
                 "name": "icon"
             },
+            "name": "MyField20",
             "designerId": "fe4f5e11-1a71-4890-bf84-676df525ffac"
         }
     ]

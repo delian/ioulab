@@ -24,6 +24,7 @@
             "userConfig": {
                 "url": "/rest/lab/1/devices"
             },
+            "name": "MyRestProxy2",
             "designerId": "6c9f0dc1-dbc7-426b-9559-537aa50b2b74"
         }
     ]

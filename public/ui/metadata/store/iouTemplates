@@ -24,6 +24,7 @@
             "userConfig": {
                 "url": "/rest/ious"
             },
+            "name": "MyRestProxy1",
             "designerId": "9b6458b3-a905-4298-9fbe-c97914eee71f"
         }
     ]

@@ -22,6 +22,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField34",
             "designerId": "4fc15dbf-8b15-4791-9281-99d006b24d90"
         },
         {
@@ -34,6 +35,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField35",
             "designerId": "90e5744a-4146-491b-a3c4-0527a9fc2671"
         },
         {
@@ -46,6 +48,7 @@
             "userConfig": {
                 "name": "width"
             },
+            "name": "MyField36",
             "designerId": "2663a67b-6d6e-48e8-a90d-b89cc6ee0ece"
         },
         {
@@ -58,6 +61,7 @@
             "userConfig": {
                 "name": "height"
             },
+            "name": "MyField37",
             "designerId": "68d3b60e-3a00-4188-956e-31130d9ec46f"
         },
         {
@@ -70,6 +74,7 @@
             "userConfig": {
                 "url": "/rest/icons"
             },
+            "name": "MyRestProxy5",
             "designerId": "52202d31-2d97-426a-8612-da05ea53988c"
         }
     ]

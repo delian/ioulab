@@ -28,6 +28,7 @@
                 "layout": "fit",
                 "margin": "5 5 5 5"
             },
+            "name": "MyContainer5",
             "designerId": "ab257503-01d2-4e56-a8aa-2c824c3b0169",
             "cn": [
                 {
@@ -43,6 +44,7 @@
                         "labelAlign": "right",
                         "value": null
                     },
+                    "name": "MyDisplayField5",
                     "designerId": "df05f97c-2212-4b5e-8717-0f902bade67d"
                 },
                 {
@@ -57,6 +59,7 @@
                         "itemId": "text",
                         "labelAlign": "right"
                     },
+                    "name": "MyTextField10",
                     "designerId": "659c213d-d82e-4626-9d20-c19e00721c2f",
                     "cn": [
                         {
@@ -75,6 +78,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onTextChange",
                             "designerId": "95124f32-dc3f-47f5-adf9-756577fb403d"
                         }
                     ]
@@ -94,6 +98,7 @@
                         "minValue": 1,
                         "step": 0.5
                     },
+                    "name": "MyNumberField4",
                     "designerId": "f10483cc-9173-4463-ab26-8447fc5ef078",
                     "cn": [
                         {
@@ -112,6 +117,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onFontSizeChange",
                             "designerId": "17f96b66-0573-4e6b-8647-1d2231238839"
                         }
                     ]
@@ -131,6 +137,7 @@
                         "minValue": 0,
                         "step": 0.5
                     },
+                    "name": "MyNumberField5",
                     "designerId": "7a6224e7-4f21-49bc-8e0b-07790101abbe",
                     "cn": [
                         {
@@ -149,6 +156,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onFontSizeChange2",
                             "designerId": "18f1d4bb-dd6b-4be8-8a63-fa56d9d43706"
                         }
                     ]
@@ -167,6 +175,7 @@
                         "maxValue": 20,
                         "minValue": 0
                     },
+                    "name": "MyNumberField6",
                     "designerId": "04e20e6d-5057-4386-baf1-8dc13bdd3516",
                     "cn": [
                         {
@@ -185,6 +194,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onFontSizeChange1",
                             "designerId": "7c12fe04-97ac-4af6-abe2-4df1509f2345"
                         }
                     ]
@@ -201,6 +211,7 @@
                         "itemId": "color",
                         "layout": "hbox"
                     },
+                    "name": "MyContainer6",
                     "designerId": "0de54674-7a9e-4160-b79b-2ecb8a81d8ec",
                     "cn": [
                         {
@@ -217,6 +228,7 @@
                                 "layout|flex": 1,
                                 "value": null
                             },
+                            "name": "MyDisplayField6",
                             "designerId": "82d71cbc-81d4-45e7-a935-b5828fbadc7e"
                         },
                         {
@@ -230,6 +242,7 @@
                                 "cls": "buttonClass",
                                 "text": "Select Color"
                             },
+                            "name": "MySplitButton1",
                             "designerId": "fd8e3bef-0b81-40dd-9653-20ebd02cd389",
                             "cn": [
                                 {
@@ -239,6 +252,7 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "name": "MyColorMenu",
                                     "configAlternates": {
                                         "handler": "object"
                                     },
@@ -272,6 +286,7 @@
                                                     ""
                                                 ]
                                             },
+                                            "name": "handler",
                                             "designerId": "62f6a700-9576-4e4f-bf2e-ff2d26d90616"
                                         }
                                     ]
@@ -292,6 +307,7 @@
                         "itemId": "background",
                         "layout": "hbox"
                     },
+                    "name": "MyContainer7",
                     "designerId": "a8fa5a81-ec40-4c8b-92e7-33c3230f8c35",
                     "cn": [
                         {
@@ -308,6 +324,7 @@
                                 "layout|flex": 1,
                                 "value": null
                             },
+                            "name": "MyDisplayField7",
                             "designerId": "54046624-3b2a-4072-937c-e0ccae47fa2d"
                         },
                         {
@@ -321,6 +338,7 @@
                                 "cls": "buttonClass",
                                 "text": "Select Color"
                             },
+                            "name": "MySplitButton2",
                             "designerId": "4d6c2402-1bab-4fd3-b9ac-4c111f2146cc",
                             "cn": [
                                 {
@@ -330,6 +348,7 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "name": "MyColorMenu1",
                                     "designerId": "245eb5f6-7049-407a-ab7d-04a9b496cc4d",
                                     "cn": [
                                         {
@@ -353,6 +372,7 @@
                                                     ""
                                                 ]
                                             },
+                                            "name": "handler",
                                             "designerId": "24b98cb0-b709-4732-9170-c7c17fd4c5af"
                                         }
                                     ]
@@ -374,6 +394,7 @@
                         "labelAlign": "right",
                         "value": 17
                     },
+                    "name": "MySlider2",
                     "designerId": "20c7d09b-d71c-431d-a0c0-b58cf7aae3eb",
                     "cn": [
                         {
@@ -392,6 +413,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onOpacityChange",
                             "designerId": "2792915b-dd9c-4df3-b2a2-10acf614a402"
                         }
                     ]
@@ -410,6 +432,7 @@
                         "maxValue": 30,
                         "value": 0
                     },
+                    "name": "MySlider3",
                     "designerId": "063104c1-2f48-4e89-b124-0817d0d5418f",
                     "cn": [
                         {
@@ -428,6 +451,7 @@
                                 "name": "change",
                                 "scope": "me"
                             },
+                            "name": "onOpacityChange1",
                             "designerId": "41b0ee7d-7e7e-493f-8344-d77272ebfbd2"
                         }
                     ]
@@ -445,6 +469,7 @@
                 "dock": "bottom",
                 "margin": null
             },
+            "name": "MyToolbar7",
             "designerId": "7c73e7ab-9b85-4f9e-b5a0-dcd195602f94",
             "cn": [
                 {
@@ -462,6 +487,7 @@
                         "itemId": "autoSave",
                         "layout|flex": null
                     },
+                    "name": "MyCheckbox",
                     "designerId": "bf490d0f-719e-4086-9e41-95dda8a1cdc2"
                 },
                 {
@@ -474,6 +500,7 @@
                     "userConfig": {
                         "layout|flex": null
                     },
+                    "name": "MyFill5",
                     "designerId": "e1733d90-62a7-4904-bb05-0f432147c4d3"
                 },
                 {
@@ -487,6 +514,7 @@
                         "layout|flex": null,
                         "text": "Save"
                     },
+                    "name": "MyButton10",
                     "designerId": "dcaec1ef-4485-4fb0-a31d-c21c08a6312f",
                     "cn": [
                         {
@@ -509,6 +537,7 @@
                                 "name": "click",
                                 "scope": "me"
                             },
+                            "name": "onButtonClick",
                             "designerId": "2f5d20b9-a4c9-413d-8c41-408bae4767ec"
                         }
                     ]
@@ -578,6 +607,7 @@
                 "name": "show",
                 "scope": "me"
             },
+            "name": "onWindowShow",
             "designerId": "eb602bae-ccd6-44fe-8272-1d6fc848ed92"
         }
     ]

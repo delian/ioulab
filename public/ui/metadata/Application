@@ -31,6 +31,7 @@
             "objName"
         ]
     },
+    "name": "Application",
     "designerId": "application",
     "cn": [
         {
@@ -46,6 +47,7 @@
                     "Ext.QuickTips.init();"
                 ]
             },
+            "name": "launch",
             "designerId": "273cf99f-c462-421e-86d4-c426cf1f7a86"
         }
     ]

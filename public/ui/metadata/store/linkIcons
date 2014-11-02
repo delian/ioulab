@@ -22,6 +22,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField21",
             "designerId": "a59f1fe0-f086-42ff-ad3d-4061f561d37e"
         },
         {
@@ -34,6 +35,7 @@
             "userConfig": {
                 "name": "icon"
             },
+            "name": "MyField22",
             "designerId": "295f908b-554d-49ec-ab05-c96126caffae"
         },
         {
@@ -46,6 +48,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField23",
             "designerId": "37df9d3f-6ce8-48c6-a448-ab03f163317d"
         },
         {
@@ -58,6 +61,7 @@
             "userConfig": {
                 "url": "/rest/linkIcons"
             },
+            "name": "MyRestProxy3",
             "designerId": "93948fcf-5cb0-4133-9271-8dc76302f602"
         }
     ]

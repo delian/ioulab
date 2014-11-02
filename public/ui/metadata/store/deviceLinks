@@ -23,6 +23,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField38",
             "designerId": "8f20aef7-1b7f-47ab-8274-64c385b0678a"
         },
         {
@@ -35,6 +36,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField39",
             "designerId": "1054d1a4-bd01-409c-8954-3919b531af62"
         },
         {
@@ -47,6 +49,7 @@
             "userConfig": {
                 "name": "lab"
             },
+            "name": "MyField40",
             "designerId": "62786bde-4b60-4ec3-ad68-fa30b32348ba"
         },
         {
@@ -59,6 +62,7 @@
             "userConfig": {
                 "name": "source"
             },
+            "name": "MyField41",
             "designerId": "cbb693c0-ccd9-4f72-8639-166717902705"
         },
         {
@@ -71,6 +75,7 @@
             "userConfig": {
                 "name": "target"
             },
+            "name": "MyField42",
             "designerId": "bc6d6ea6-a376-4333-b9f5-961d43501651"
         },
         {
@@ -83,6 +88,7 @@
             "userConfig": {
                 "url": "/rest/device/22/links"
             },
+            "name": "MyRestProxy6",
             "designerId": "effb3f05-5d38-4962-879d-f7c269df33e3"
         },
         {
@@ -95,6 +101,7 @@
             "userConfig": {
                 "name": "type"
             },
+            "name": "MyField43",
             "designerId": "1fe07a3b-b396-4419-8e7d-8920703dc8e6"
         }
     ]

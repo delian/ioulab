@@ -23,6 +23,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField2",
             "designerId": "5b3eb4e2-979f-4a77-b39a-51989c1088fa"
         },
         {
@@ -35,6 +36,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField3",
             "designerId": "cbc978b1-38c5-43be-a2cd-d714e77deab6"
         },
         {
@@ -47,6 +49,7 @@
             "userConfig": {
                 "name": "description"
             },
+            "name": "MyField4",
             "designerId": "d94aab14-7b70-45d6-8690-f461be95f348"
         },
         {
@@ -59,6 +62,7 @@
             "userConfig": {
                 "url": "/rest/labs"
             },
+            "name": "MyRestProxy",
             "designerId": "c8572772-0cd4-449f-8829-8401e4e1041b"
         },
         {
@@ -87,6 +91,7 @@
                 "name": "datachanged",
                 "scope": "me"
             },
+            "name": "onStoreDataChangeD",
             "designerId": "5e8ef1b8-6866-4ac6-86fd-a5f2a770f9f2"
         }
     ]

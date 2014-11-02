@@ -25,6 +25,7 @@
             "userConfig": {
                 "title": "Properties"
             },
+            "name": "MyFieldSet2",
             "designerId": "5d27cabf-6c4f-4ad3-958a-e1c2e6132f87",
             "cn": [
                 {
@@ -40,6 +41,7 @@
                         "labelAlign": "right",
                         "layout|anchor": "100%"
                     },
+                    "name": "MyTextField8",
                     "designerId": "d0e837c1-87a7-4130-b269-b89b756ea7de"
                 }
             ]
@@ -54,6 +56,7 @@
             "userConfig": {
                 "dock": "bottom"
             },
+            "name": "MyToolbar5",
             "designerId": "feb60251-36f5-4909-9d9c-b5e81d0dbd2d",
             "cn": [
                 {
@@ -66,6 +69,7 @@
                     "userConfig": {
                         "layout|flex": null
                     },
+                    "name": "MyFill3",
                     "designerId": "288fbf35-4211-4a2d-b21b-59174d492368"
                 },
                 {
@@ -79,6 +83,7 @@
                         "layout|flex": null,
                         "text": "Save"
                     },
+                    "name": "MyButton8",
                     "designerId": "05a60919-241f-4fc4-b519-35cd008c4869",
                     "cn": [
                         {
@@ -109,6 +114,7 @@
                                 "name": "click",
                                 "scope": "me"
                             },
+                            "name": "onButtonClick",
                             "designerId": "bbdea929-8ed3-475d-bcd0-857da9fda85a"
                         }
                     ]
@@ -140,6 +146,7 @@
                 "name": "show",
                 "scope": "me"
             },
+            "name": "onWindowShow",
             "designerId": "56dcc57b-2854-462a-9f9f-b27e56b08c71"
         }
     ]

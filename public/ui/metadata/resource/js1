@@ -9,7 +9,8 @@
         "defer": true,
         "designer|userClassName": "js1",
         "id": "diagram.js",
-        "url": "libs/diagram.js"
+        "url": "libs/diagram.js",
+        "x-compile": true
     },
     "designerId": "fb1cb1bd-3f1f-4b9a-8940-543ef872c00c"
 }

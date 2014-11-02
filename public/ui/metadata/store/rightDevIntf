@@ -21,6 +21,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField45",
             "designerId": "bad79073-e525-42d7-ba6a-247fcf713b95"
         },
         {
@@ -33,6 +34,7 @@
             "userConfig": {
                 "url": "/rest/device/1/interfaces/free"
             },
+            "name": "MyRestProxy8",
             "designerId": "922b00e6-55c3-4e94-814d-65814efd2aec"
         }
     ]

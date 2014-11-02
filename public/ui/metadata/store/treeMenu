@@ -34,6 +34,7 @@
             "userConfig": {
                 "name": "text"
             },
+            "name": "MyField",
             "designerId": "23692e60-51ab-406f-969d-66ca4473f14e"
         },
         {
@@ -46,6 +47,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField1",
             "designerId": "ecc71177-a8d6-4055-9248-45a9599c2874"
         }
     ]

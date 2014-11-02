@@ -30,6 +30,7 @@
                 "title": null,
                 "titleCollapse": null
             },
+            "name": "MyGridPanel4",
             "designerId": "85278d18-0630-4e39-87a5-8ffe340b97d4",
             "cn": [
                 {
@@ -39,6 +40,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "name": "MyGridView4",
                     "designerId": "421c04a9-aec4-46d5-9b92-9435c368c8da"
                 },
                 {
@@ -54,6 +56,7 @@
                         "hidden": true,
                         "text": "Id"
                     },
+                    "name": "MyColumn18",
                     "designerId": "eef4f48c-8841-4b3d-b7d7-30b38c0776a8"
                 },
                 {
@@ -69,6 +72,7 @@
                         "hidden": true,
                         "text": "Lab"
                     },
+                    "name": "MyColumn19",
                     "designerId": "b64cc820-18bc-4a82-af5c-42b61cbc50ac"
                 },
                 {
@@ -83,6 +87,7 @@
                         "flex": 1,
                         "text": "Type"
                     },
+                    "name": "MyColumn20",
                     "designerId": "916af5c6-0e58-42fe-99f3-be72158c57c6"
                 },
                 {
@@ -97,6 +102,7 @@
                         "flex": 2,
                         "text": "Source Device"
                     },
+                    "name": "MyColumn21",
                     "designerId": "976f43b9-64ff-4de4-b46f-e368008020a1",
                     "cn": [
                         {
@@ -123,6 +129,7 @@
                                     ""
                                 ]
                             },
+                            "name": "renderer",
                             "designerId": "8446f3de-259a-4303-89be-8477431e7853"
                         }
                     ]
@@ -139,6 +146,7 @@
                         "flex": 2,
                         "text": "Source Interface"
                     },
+                    "name": "MyTemplateColumn2",
                     "designerId": "b934cf98-3617-4321-b90a-dabe1458579e",
                     "cn": [
                         {
@@ -154,6 +162,7 @@
                                     "{source.name}"
                                 ]
                             },
+                            "name": "tpl2",
                             "designerId": "51412a93-96d8-40ee-90ad-9499fceeea91"
                         }
                     ]
@@ -170,6 +179,7 @@
                         "flex": 2,
                         "text": "Target Device"
                     },
+                    "name": "MyColumn22",
                     "designerId": "d6b989e1-17cc-4413-9596-6bbed1e310ea",
                     "cn": [
                         {
@@ -196,6 +206,7 @@
                                     ""
                                 ]
                             },
+                            "name": "renderer",
                             "designerId": "ca561adf-bbb9-4b51-b9f4-cb1bd539b062"
                         }
                     ]
@@ -212,6 +223,7 @@
                         "flex": 2,
                         "text": "Target Interface"
                     },
+                    "name": "MyTemplateColumn3",
                     "designerId": "3a89c325-7135-496e-8b33-251d1540c8a0",
                     "cn": [
                         {
@@ -228,6 +240,7 @@
                                     ""
                                 ]
                             },
+                            "name": "tpl3",
                             "designerId": "051a1443-66ad-4382-90e3-80fcc5586611"
                         }
                     ]
@@ -244,6 +257,7 @@
                         "flex": 2,
                         "text": "Link Name"
                     },
+                    "name": "MyColumn23",
                     "designerId": "66d5e706-0327-4af2-af5d-8e84729cc7df",
                     "cn": [
                         {
@@ -253,6 +267,7 @@
                                 "type": "object"
                             },
                             "codeClass": null,
+                            "name": "MyTextField7",
                             "designerId": "8367cdac-b371-4864-aaac-a3a2b7b6a36d"
                         }
                     ]
@@ -264,6 +279,7 @@
                         "type": "array"
                     },
                     "codeClass": "Ext.grid.plugin.RowEditing",
+                    "name": "MyRowEditingPlugin3",
                     "designerId": "99758aeb-81d5-42d2-a09d-d5ad6f21684b"
                 }
             ]

@@ -25,6 +25,7 @@
                 "designer|displayName": "Root Container",
                 "layout": "hbox"
             },
+            "name": "MyContainer",
             "designerId": "9db4c2a2-5855-4dd2-ba21-1331c4e1ed06",
             "cn": [
                 {
@@ -63,6 +64,7 @@
                         "store": "treeMenu",
                         "title": "Select Service"
                     },
+                    "name": "MyTreePanel",
                     "designerId": "5a9ae581-353c-4dfc-a1ac-07b1f78670ac",
                     "cn": [
                         {
@@ -77,6 +79,7 @@
                                 "designer|displayName": "Main Tree",
                                 "stripeRows": true
                             },
+                            "name": "MyTreeView",
                             "designerId": "dc67083c-3354-4792-afb2-155dcb2b22a9"
                         },
                         {
@@ -120,6 +123,7 @@
                                 "name": "select",
                                 "scope": "me"
                             },
+                            "name": "onTreepanelSelect",
                             "designerId": "f0108156-1762-461a-92a5-a8c6ebff0bc7"
                         },
                         {
@@ -137,6 +141,7 @@
                                 "name": "render",
                                 "scope": "me"
                             },
+                            "name": "onTreeMenuRender",
                             "designerId": "51a56ef9-810c-40f7-9658-946506bde5f9"
                         }
                     ]
@@ -154,6 +159,7 @@
                         "layout|flex": 4,
                         "resizable": null
                     },
+                    "name": "MyContainer1",
                     "designerId": "778f83a6-d41c-41d8-b43c-48c28b908d17",
                     "cn": [
                         {
@@ -176,6 +182,7 @@
                                 "resizeHandles": null,
                                 "title": null
                             },
+                            "name": "MyTabPanel",
                             "designerId": "9d75c525-7dc1-4f61-840d-9e39701de305",
                             "cn": [
                                 {
@@ -189,6 +196,7 @@
                                         "itemId": "manageLabs",
                                         "title": "Manage Labs"
                                     },
+                                    "name": "MyPanel",
                                     "designerId": "8cb0007e-d2ff-4980-a470-cb1f1ec19a8c",
                                     "cn": [
                                         {
@@ -198,6 +206,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig",
                                             "designerId": "90e9e621-e128-41f7-b615-6ec8abfac8ee"
                                         },
                                         {
@@ -211,6 +220,7 @@
                                                 "header": false,
                                                 "title": "Create/Delete Labs"
                                             },
+                                            "name": "MyPanel1",
                                             "designerId": "94a898cb-a766-4c9b-82e3-8bc4e31bf391",
                                             "cn": [
                                                 {
@@ -226,6 +236,7 @@
                                                         "store": "editLabs",
                                                         "title": "Edit Labs"
                                                     },
+                                                    "name": "MyGridPanel",
                                                     "designerId": "6bf7c5f1-a08f-4a1c-8473-050eba1ce0f4",
                                                     "cn": [
                                                         {
@@ -235,6 +246,7 @@
                                                                 "type": "object"
                                                             },
                                                             "codeClass": null,
+                                                            "name": "MyGridView",
                                                             "designerId": "8e26eba1-7472-47e4-8f61-51a1ad10c503"
                                                         },
                                                         {
@@ -249,6 +261,7 @@
                                                                 "hidden": true,
                                                                 "text": "Id"
                                                             },
+                                                            "name": "MyColumn",
                                                             "designerId": "92075a06-e6d4-4355-9ae2-73a66198b502"
                                                         },
                                                         {
@@ -263,6 +276,7 @@
                                                                 "flex": 1,
                                                                 "text": "Name"
                                                             },
+                                                            "name": "MyColumn1",
                                                             "designerId": "5b9a34a3-02e5-47e2-be80-ad9035ffb3e9",
                                                             "cn": [
                                                                 {
@@ -272,6 +286,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyTextField",
                                                                     "designerId": "5ccd508c-ea4f-4e70-8633-4be6bf04e024"
                                                                 }
                                                             ]
@@ -288,6 +303,7 @@
                                                                 "flex": 3,
                                                                 "text": "Description"
                                                             },
+                                                            "name": "MyColumn2",
                                                             "designerId": "614a039d-c704-42bd-8b09-801cd43c18d5",
                                                             "cn": [
                                                                 {
@@ -297,6 +313,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyTextField1",
                                                                     "designerId": "5d9f2dd0-3878-4430-aaf4-bce7807d8d15"
                                                                 }
                                                             ]
@@ -312,6 +329,7 @@
                                                                 "designer|displayName": "refresh",
                                                                 "type": "refresh"
                                                             },
+                                                            "name": "MyTool",
                                                             "designerId": "59b3ae80-d94b-46cf-b8e9-e4a08c6df2ee",
                                                             "cn": [
                                                                 {
@@ -334,6 +352,7 @@
                                                                             ""
                                                                         ]
                                                                     },
+                                                                    "name": "handler",
                                                                     "designerId": "8282b6bd-9bc5-4547-8409-2fa09ed97e73"
                                                                 }
                                                             ]
@@ -345,6 +364,7 @@
                                                                 "type": "array"
                                                             },
                                                             "codeClass": "Ext.grid.plugin.RowEditing",
+                                                            "name": "MyRowEditingPlugin",
                                                             "designerId": "da814c82-bd24-4440-a2a8-f47ddaf00211"
                                                         },
                                                         {
@@ -358,6 +378,7 @@
                                                                 "align": "center",
                                                                 "maxWidth": 50
                                                             },
+                                                            "name": "MyActionColumn",
                                                             "designerId": "67f0133c-b3f4-4544-87ab-825fe35cd98a",
                                                             "cn": [
                                                                 {
@@ -373,6 +394,7 @@
                                                                         "iconCls": null,
                                                                         "tooltip": "Delete"
                                                                     },
+                                                                    "name": "MyActionColumnItem",
                                                                     "designerId": "105cfbae-dd47-47be-b97b-2ba421486337",
                                                                     "cn": [
                                                                         {
@@ -400,6 +422,7 @@
                                                                                     ""
                                                                                 ]
                                                                             },
+                                                                            "name": "handler",
                                                                             "designerId": "edbaebef-fc98-4c04-a903-e9dd05e37cbf"
                                                                         }
                                                                     ]
@@ -418,6 +441,7 @@
                                                                 "designer|displayName": "editToolbar",
                                                                 "dock": "top"
                                                             },
+                                                            "name": "MyToolbar",
                                                             "designerId": "8ecbb064-51ef-4dbc-a220-237d0c278cf1",
                                                             "cn": [
                                                                 {
@@ -436,6 +460,7 @@
                                                                         "labelWidth": 90,
                                                                         "layout|flex": null
                                                                     },
+                                                                    "name": "MyTextField2",
                                                                     "designerId": "0504572d-f4da-401f-8ec3-ee69c8f6c028",
                                                                     "cn": [
                                                                         {
@@ -468,6 +493,7 @@
                                                                                 "name": "keypress",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onTextfieldKeypress",
                                                                             "designerId": "58127bbb-cfee-489f-9a78-e2f7bca27f59"
                                                                         }
                                                                     ]
@@ -491,6 +517,7 @@
                                         "itemId": "manageIOU",
                                         "title": "Manage Device Templates"
                                     },
+                                    "name": "MyPanel2",
                                     "designerId": "2bf95ebe-b3e4-4322-b7c7-880e00cf4281",
                                     "cn": [
                                         {
@@ -500,6 +527,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig1",
                                             "designerId": "76a42bcc-fb34-4ea4-9104-87551e32ca7e"
                                         },
                                         {
@@ -513,6 +541,7 @@
                                                 "header": false,
                                                 "title": "Manage Device Templates"
                                             },
+                                            "name": "MyPanel3",
                                             "designerId": "e736e685-e346-4a9b-840b-c4976a13b23f",
                                             "cn": [
                                                 {
@@ -528,6 +557,7 @@
                                                         "store": "iouTemplates",
                                                         "title": "Edit Device Templates"
                                                     },
+                                                    "name": "MyGridPanel1",
                                                     "designerId": "3f71bcdb-2b46-4541-b6d1-50e25b8b7e94",
                                                     "cn": [
                                                         {
@@ -537,6 +567,7 @@
                                                                 "type": "object"
                                                             },
                                                             "codeClass": null,
+                                                            "name": "MyGridView1",
                                                             "designerId": "e4568972-a237-4c66-8674-3c6a044d9191"
                                                         },
                                                         {
@@ -550,6 +581,7 @@
                                                                 "designer|displayName": "refresh",
                                                                 "type": "refresh"
                                                             },
+                                                            "name": "MyTool1",
                                                             "designerId": "665bdce3-0784-436f-9ebe-137d98769035",
                                                             "cn": [
                                                                 {
@@ -572,6 +604,7 @@
                                                                             ""
                                                                         ]
                                                                     },
+                                                                    "name": "handler",
                                                                     "designerId": "bccd9e98-7c15-4d82-920f-ddd84f78284e"
                                                                 }
                                                             ]
@@ -583,6 +616,7 @@
                                                                 "type": "array"
                                                             },
                                                             "codeClass": "Ext.grid.plugin.RowEditing",
+                                                            "name": "MyRowEditingPlugin1",
                                                             "designerId": "b162a97d-c50c-41ac-be21-51ad72d8f4d4"
                                                         },
                                                         {
@@ -597,6 +631,7 @@
                                                                 "designer|displayName": "editToolbar",
                                                                 "dock": "top"
                                                             },
+                                                            "name": "MyToolbar1",
                                                             "designerId": "89066af9-153c-40c8-85ce-83a4e8559b05",
                                                             "cn": [
                                                                 {
@@ -618,6 +653,7 @@
                                                                         "layout|flex": null,
                                                                         "store": "iouBase"
                                                                     },
+                                                                    "name": "MyComboBox",
                                                                     "designerId": "4a9268cf-d23c-4187-ae36-349fa83092be",
                                                                     "customConfigs": [
                                                                         {
@@ -667,6 +703,7 @@
                                                                                 "name": "change",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onTextfieldKeypress1",
                                                                             "designerId": "c9a3f20b-5e65-4382-8c2b-8ea05b69b770"
                                                                         }
                                                                     ]
@@ -686,6 +723,7 @@
                                                                 "hidden": true,
                                                                 "text": "Id"
                                                             },
+                                                            "name": "MyColumn3",
                                                             "designerId": "5ae5a9b8-b37b-467f-b080-11943f3e45b7"
                                                         },
                                                         {
@@ -700,6 +738,7 @@
                                                                 "flex": 1,
                                                                 "text": "Name"
                                                             },
+                                                            "name": "MyColumn4",
                                                             "designerId": "3a664e63-bed2-4cbf-b34d-d5b22dd9d825"
                                                         },
                                                         {
@@ -714,6 +753,7 @@
                                                                 "flex": 4,
                                                                 "text": "Description"
                                                             },
+                                                            "name": "MyColumn5",
                                                             "designerId": "7b810de6-392e-4146-af81-479b622ae4f3",
                                                             "cn": [
                                                                 {
@@ -723,6 +763,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyTextField3",
                                                                     "designerId": "633d5fbe-2587-4165-b89f-acac48ea8c9f"
                                                                 }
                                                             ]
@@ -740,6 +781,7 @@
                                                                 "flex": 0.7,
                                                                 "text": "Icon"
                                                             },
+                                                            "name": "MyTemplateColumn",
                                                             "designerId": "52cd7b97-8d2b-49db-b59f-1b98d74f8c1e",
                                                             "cn": [
                                                                 {
@@ -755,6 +797,7 @@
                                                                             "<IMG SRC=\"{icon}\" width=15 height=15/>"
                                                                         ]
                                                                     },
+                                                                    "name": "tpl",
                                                                     "designerId": "fc8ef276-9601-4c7d-9d27-c56a059aaea2"
                                                                 },
                                                                 {
@@ -779,6 +822,7 @@
                                                                         "store": "routerIcons",
                                                                         "valueField": "id"
                                                                     },
+                                                                    "name": "MyComboBox1",
                                                                     "configAlternates": {
                                                                         "listConfig": "object"
                                                                     },
@@ -806,6 +850,7 @@
                                                                 "flex": 1,
                                                                 "text": "Memory (Mb)"
                                                             },
+                                                            "name": "MyColumn6",
                                                             "designerId": "85831594-e8fd-471d-a72e-d3fc7162d05c",
                                                             "cn": [
                                                                 {
@@ -822,6 +867,7 @@
                                                                         "maxValue": 512,
                                                                         "minValue": 256
                                                                     },
+                                                                    "name": "MyNumberField",
                                                                     "designerId": "ddba3802-1fc8-4959-b962-723969d43fad"
                                                                 }
                                                             ]
@@ -839,6 +885,7 @@
                                                                 "flex": 1,
                                                                 "text": "Nvram (Kb)"
                                                             },
+                                                            "name": "MyColumn7",
                                                             "designerId": "0e555fec-ee6b-4148-b6c6-ccb25d6b72ea",
                                                             "cn": [
                                                                 {
@@ -855,6 +902,7 @@
                                                                         "maxValue": 256,
                                                                         "minValue": 0
                                                                     },
+                                                                    "name": "MyNumberField1",
                                                                     "designerId": "30a7d8a8-f340-49f0-81a9-ccad68ce06ec"
                                                                 }
                                                             ]
@@ -872,6 +920,7 @@
                                                                 "flex": 1,
                                                                 "text": "Ethernet"
                                                             },
+                                                            "name": "MyColumn8",
                                                             "designerId": "83d4bde8-4320-4f81-a911-24cb46461ed3",
                                                             "cn": [
                                                                 {
@@ -888,6 +937,7 @@
                                                                         "maxValue": 40,
                                                                         "minValue": 0
                                                                     },
+                                                                    "name": "MyNumberField2",
                                                                     "designerId": "b1575ae7-2d37-4edf-970e-6eb0b8451675"
                                                                 }
                                                             ]
@@ -905,6 +955,7 @@
                                                                 "flex": 1,
                                                                 "text": "Serial"
                                                             },
+                                                            "name": "MyColumn9",
                                                             "designerId": "f6c53146-4f94-4c51-b5a5-fb899a1bce09",
                                                             "cn": [
                                                                 {
@@ -921,6 +972,7 @@
                                                                         "maxValue": 40,
                                                                         "minValue": 0
                                                                     },
+                                                                    "name": "MyNumberField3",
                                                                     "designerId": "d3c00e68-a76b-4d45-9ef8-75b63b868c11"
                                                                 }
                                                             ]
@@ -938,6 +990,7 @@
                                                                 "flex": 1,
                                                                 "text": "Type"
                                                             },
+                                                            "name": "MyColumn10",
                                                             "designerId": "9c47973b-170e-43e7-ac69-27f5c8541225",
                                                             "cn": [
                                                                 {
@@ -954,6 +1007,7 @@
                                                                         "editable": false,
                                                                         "store": "iouBase"
                                                                     },
+                                                                    "name": "MyComboBox2",
                                                                     "designerId": "85fd70c8-2068-4fc2-b528-d34b0ffc862d"
                                                                 }
                                                             ]
@@ -969,6 +1023,7 @@
                                                                 "align": "center",
                                                                 "maxWidth": 50
                                                             },
+                                                            "name": "MyActionColumn1",
                                                             "designerId": "2679dcea-5ce9-4c78-9991-ac50d4bd00e8",
                                                             "cn": [
                                                                 {
@@ -981,6 +1036,7 @@
                                                                     "userConfig": {
                                                                         "icon": "icons/delete.png"
                                                                     },
+                                                                    "name": "MyActionColumnItem1",
                                                                     "designerId": "3a74028e-8ed3-4012-ba1a-6e51dd313f4e",
                                                                     "cn": [
                                                                         {
@@ -1008,6 +1064,7 @@
                                                                                     ""
                                                                                 ]
                                                                             },
+                                                                            "name": "handler",
                                                                             "designerId": "82384b52-2466-4be4-b3b0-db2fd2b70224"
                                                                         }
                                                                     ]
@@ -1031,6 +1088,7 @@
                                         "itemId": "manageLab",
                                         "title": "Lab Devices"
                                     },
+                                    "name": "MyPanel4",
                                     "designerId": "692dcde6-e75d-47d3-9d70-9df81a740892",
                                     "cn": [
                                         {
@@ -1040,6 +1098,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig2",
                                             "designerId": "7b6bf580-284d-4f88-887e-d45355f61152"
                                         },
                                         {
@@ -1052,6 +1111,7 @@
                                             "userConfig": {
                                                 "title": "Manage devices"
                                             },
+                                            "name": "MyPanel5",
                                             "designerId": "7f1a0ae3-9c76-4120-8778-3c0e99acf58b",
                                             "cn": [
                                                 {
@@ -1065,6 +1125,7 @@
                                                         "collapsible": true,
                                                         "title": "LAB"
                                                     },
+                                                    "name": "MyFieldSet",
                                                     "designerId": "d926a03f-e83d-41f5-8d0f-219a6ea70d4b",
                                                     "cn": [
                                                         {
@@ -1082,6 +1143,7 @@
                                                                 "layout|anchor": "100%",
                                                                 "value": null
                                                             },
+                                                            "name": "MyDisplayField",
                                                             "designerId": "aaede833-edb5-4dfb-8f75-755fae8ef84f"
                                                         },
                                                         {
@@ -1099,6 +1161,7 @@
                                                                 "layout|anchor": "100%",
                                                                 "value": null
                                                             },
+                                                            "name": "MyDisplayField1",
                                                             "designerId": "bcf2f8c5-956f-4b2b-bce5-727b4918002f"
                                                         },
                                                         {
@@ -1113,6 +1176,7 @@
                                                                 "container|align": null,
                                                                 "frame": false
                                                             },
+                                                            "name": "MyToolbar2",
                                                             "designerId": "08a18923-5ee9-43e3-8ac9-8adf8c43321f",
                                                             "cn": [
                                                                 {
@@ -1126,6 +1190,7 @@
                                                                         "layout|flex": null,
                                                                         "text": "Stop All"
                                                                     },
+                                                                    "name": "MyButton",
                                                                     "designerId": "22d7472d-cada-479d-a483-eceab0afdbb5",
                                                                     "cn": [
                                                                         {
@@ -1155,6 +1220,7 @@
                                                                                 "name": "click",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onButtonClick",
                                                                             "designerId": "0174fd43-20d6-4d80-9b97-9e8257e51b13"
                                                                         }
                                                                     ]
@@ -1170,6 +1236,7 @@
                                                                         "layout|flex": null,
                                                                         "text": "Start All"
                                                                     },
+                                                                    "name": "MyButton1",
                                                                     "designerId": "b1012e03-1866-42b8-aef6-11abb4f0f700",
                                                                     "cn": [
                                                                         {
@@ -1195,6 +1262,7 @@
                                                                                 "name": "click",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onButtonClick1",
                                                                             "designerId": "d1b17ea3-2d0f-4ad4-a9ce-0ccce230623d"
                                                                         }
                                                                     ]
@@ -1209,6 +1277,7 @@
                                                                     "userConfig": {
                                                                         "layout|flex": null
                                                                     },
+                                                                    "name": "MyFill",
                                                                     "designerId": "ee0bc724-5ada-4617-883b-a4ad33487090"
                                                                 },
                                                                 {
@@ -1222,6 +1291,7 @@
                                                                         "layout|flex": null,
                                                                         "text": "Reset All Startup Configs to Default"
                                                                     },
+                                                                    "name": "MyButton2",
                                                                     "designerId": "5cee473d-cbd9-4851-b2a9-dbfa1de96339",
                                                                     "cn": [
                                                                         {
@@ -1247,6 +1317,7 @@
                                                                                 "name": "click",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onButtonClick2",
                                                                             "designerId": "bd1343e7-9a3a-4c09-b6cb-9e4a279c3c22"
                                                                         }
                                                                     ]
@@ -1262,6 +1333,7 @@
                                                                         "layout|flex": null,
                                                                         "text": "Copy All Startup Configs to Default"
                                                                     },
+                                                                    "name": "MyButton3",
                                                                     "designerId": "ae42b299-e7ed-4a06-8e7a-795b67c5d5e9",
                                                                     "cn": [
                                                                         {
@@ -1287,6 +1359,7 @@
                                                                                 "name": "click",
                                                                                 "scope": "me"
                                                                             },
+                                                                            "name": "onButtonClick3",
                                                                             "designerId": "d0ff3684-1061-41fb-99b1-62cf0faa4ed0"
                                                                         }
                                                                     ]
@@ -1306,6 +1379,7 @@
                                                         "collapsible": true,
                                                         "title": "Devices"
                                                     },
+                                                    "name": "MyFieldSet1",
                                                     "designerId": "98fb3729-9967-499d-8048-3fe640fece8b",
                                                     "cn": [
                                                         {
@@ -1323,6 +1397,7 @@
                                                                 "store": "labDevices",
                                                                 "title": "Review Devices"
                                                             },
+                                                            "name": "MyGridPanel2",
                                                             "designerId": "37e5a23d-9356-4c5c-8461-c7f61491a24c",
                                                             "cn": [
                                                                 {
@@ -1332,6 +1407,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyGridView2",
                                                                     "designerId": "e94a00c2-7d30-4797-ace6-8ff32f58c95d"
                                                                 },
                                                                 {
@@ -1345,6 +1421,7 @@
                                                                         "designer|displayName": "refresh",
                                                                         "type": "refresh"
                                                                     },
+                                                                    "name": "MyTool2",
                                                                     "designerId": "57223c9c-2ff3-472c-843e-070f1f930ec3",
                                                                     "cn": [
                                                                         {
@@ -1367,6 +1444,7 @@
                                                                                     ""
                                                                                 ]
                                                                             },
+                                                                            "name": "handler",
                                                                             "designerId": "60db43ce-68ad-44cc-9fa3-58548b477088"
                                                                         }
                                                                     ]
@@ -1388,6 +1466,7 @@
                                                                         "name": "select",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onGridpanelSelect1",
                                                                     "designerId": "5c9fa4f1-fb01-41bf-8462-fb6abcb9eebf"
                                                                 },
                                                                 {
@@ -1402,6 +1481,7 @@
                                                                         "hidden": true,
                                                                         "text": "Id"
                                                                     },
+                                                                    "name": "MyColumn11",
                                                                     "designerId": "b71c9b40-6514-4f8c-be68-4c586d7552d5"
                                                                 },
                                                                 {
@@ -1417,6 +1497,7 @@
                                                                         "flex": 0.5,
                                                                         "text": "Status"
                                                                     },
+                                                                    "name": "MyColumn12",
                                                                     "designerId": "6862fa2c-d24c-41c5-bb63-9f8db5f1db30"
                                                                 },
                                                                 {
@@ -1431,6 +1512,7 @@
                                                                         "flex": 0.3,
                                                                         "text": "Icon"
                                                                     },
+                                                                    "name": "MyTemplateColumn1",
                                                                     "designerId": "6758afc7-2148-4964-ad56-ca901f68ada4",
                                                                     "cn": [
                                                                         {
@@ -1446,6 +1528,7 @@
                                                                                     "<IMG SRC=\"{icon}\" width=15 height=15/>"
                                                                                 ]
                                                                             },
+                                                                            "name": "tpl1",
                                                                             "designerId": "e162942f-26d7-4892-9c31-666864e502b6"
                                                                         }
                                                                     ]
@@ -1462,6 +1545,7 @@
                                                                         "flex": 2,
                                                                         "text": "Name"
                                                                     },
+                                                                    "name": "MyColumn13",
                                                                     "designerId": "b049bc3f-76f0-4031-97b8-3f04aa3f91c4",
                                                                     "cn": [
                                                                         {
@@ -1471,6 +1555,7 @@
                                                                                 "type": "object"
                                                                             },
                                                                             "codeClass": null,
+                                                                            "name": "MyTextField4",
                                                                             "designerId": "4c3c88d4-c1f8-4e7b-8854-8de0eab9994f"
                                                                         }
                                                                     ]
@@ -1487,6 +1572,7 @@
                                                                         "flex": 2,
                                                                         "text": "Template"
                                                                     },
+                                                                    "name": "MyColumn14",
                                                                     "designerId": "50fdec24-c171-4c83-861d-bb5565b30788",
                                                                     "cn": [
                                                                         {
@@ -1513,6 +1599,7 @@
                                                                                     ""
                                                                                 ]
                                                                             },
+                                                                            "name": "renderer",
                                                                             "designerId": "8c73582f-d80c-47d5-990d-f84257308eeb"
                                                                         }
                                                                     ]
@@ -1530,6 +1617,7 @@
                                                                         "maxWidth": null,
                                                                         "width": 120
                                                                     },
+                                                                    "name": "MyActionColumn2",
                                                                     "designerId": "8e4f18df-b480-42ff-881b-a9c73f0ab4e0",
                                                                     "cn": [
                                                                         {
@@ -1544,6 +1632,7 @@
                                                                                 "icon": "icons/link.png",
                                                                                 "tooltip": "Show Links"
                                                                             },
+                                                                            "name": "MyActionColumnItem2",
                                                                             "designerId": "130a48c0-50f1-486f-9abc-47f0636e14ce",
                                                                             "cn": [
                                                                                 {
@@ -1571,6 +1660,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "b3192729-6363-4f53-911e-3c6abaa0dd4e"
                                                                                 }
                                                                             ]
@@ -1587,6 +1677,7 @@
                                                                                 "icon": "icons/terminal.png",
                                                                                 "tooltip": "Open Console"
                                                                             },
+                                                                            "name": "MyActionColumnItem3",
                                                                             "designerId": "bde8ab80-ccdb-405b-937c-5dc84ee426b7",
                                                                             "cn": [
                                                                                 {
@@ -1612,6 +1703,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "dccd1e3e-7d3b-4735-849d-57ed0230a544"
                                                                                 }
                                                                             ]
@@ -1628,6 +1720,7 @@
                                                                                 "icon": "icons/start.png",
                                                                                 "tooltip": "Start"
                                                                             },
+                                                                            "name": "MyActionColumnItem4",
                                                                             "designerId": "e8f27641-4dbc-4c5b-abe5-2c8c128d6405",
                                                                             "cn": [
                                                                                 {
@@ -1660,6 +1753,7 @@
                                                                                             "});"
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "8458bbcf-17dc-4dfb-bc7a-58f8b711e3a0"
                                                                                 }
                                                                             ]
@@ -1678,6 +1772,7 @@
                                                                                 "iconCls": null,
                                                                                 "tooltip": "Stop"
                                                                             },
+                                                                            "name": "MyActionColumnItem5",
                                                                             "designerId": "90155d60-f9a4-4dba-90cd-46279028479b",
                                                                             "cn": [
                                                                                 {
@@ -1710,6 +1805,7 @@
                                                                                             "});"
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "8a14828d-e6c1-4c43-88b3-6857ee151fd6"
                                                                                 }
                                                                             ]
@@ -1726,6 +1822,7 @@
                                                                                 "icon": "icons/reset.png",
                                                                                 "tooltip": "Reset to default"
                                                                             },
+                                                                            "name": "MyActionColumnItem6",
                                                                             "designerId": "0e1f3da1-8516-4a82-a31c-4cb417c4cadc",
                                                                             "cn": [
                                                                                 {
@@ -1757,6 +1854,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "3f187c85-12d0-46e9-a943-2e858480f40a"
                                                                                 }
                                                                             ]
@@ -1773,6 +1871,7 @@
                                                                                 "icon": "icons/save.png",
                                                                                 "tooltip": "Save to default"
                                                                             },
+                                                                            "name": "MyActionColumnItem7",
                                                                             "designerId": "df5ba340-3cfe-4dd4-933e-08d56f4a3c45",
                                                                             "cn": [
                                                                                 {
@@ -1804,6 +1903,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "b1b9b15f-286b-4d69-9bdc-465bb5adaa7b"
                                                                                 }
                                                                             ]
@@ -1817,6 +1917,7 @@
                                                                         "type": "array"
                                                                     },
                                                                     "codeClass": "Ext.grid.plugin.RowEditing",
+                                                                    "name": "MyRowEditingPlugin2",
                                                                     "designerId": "00deba0c-a9e5-404b-a719-a71cc7b9a3fa"
                                                                 }
                                                             ]
@@ -1852,6 +1953,7 @@
                                                 "name": "activate",
                                                 "scope": "me"
                                             },
+                                            "name": "onManageLabActivate",
                                             "designerId": "2f96e4a4-dff5-4329-9d89-8a5b9835a9ac"
                                         }
                                     ]
@@ -1867,6 +1969,7 @@
                                         "itemId": "labDiagram",
                                         "title": "Lab Diagram"
                                     },
+                                    "name": "MyPanel6",
                                     "designerId": "ef33b40f-4a0f-496e-9c1b-0dddde64583c",
                                     "cn": [
                                         {
@@ -1876,6 +1979,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig3",
                                             "designerId": "814d69f6-a45b-4a48-98c4-6426b53b2b33"
                                         },
                                         {
@@ -1888,6 +1992,7 @@
                                             "userConfig": {
                                                 "title": "Lab diagram"
                                             },
+                                            "name": "MyPanel7",
                                             "designerId": "9d060c15-1db1-4509-ac49-004af79d4f6e",
                                             "cn": [
                                                 {
@@ -1900,6 +2005,7 @@
                                                     "userConfig": {
                                                         "dock": "top"
                                                     },
+                                                    "name": "MyToolbar3",
                                                     "designerId": "b84f676a-b68f-4af7-b88c-f09ba67b9d37",
                                                     "cn": [
                                                         {
@@ -1913,6 +2019,7 @@
                                                                 "designer|displayName": "Space",
                                                                 "layout|flex": null
                                                             },
+                                                            "name": "MyFill1",
                                                             "designerId": "d90e4b79-13e8-47a2-8bfe-4ed76efa505a"
                                                         },
                                                         {
@@ -1933,6 +2040,7 @@
                                                                 "value": 100,
                                                                 "width": 160
                                                             },
+                                                            "name": "MySlider",
                                                             "designerId": "8fdee731-6fbc-4e44-8dc4-c94c8d5d2ead",
                                                             "cn": [
                                                                 {
@@ -1952,6 +2060,7 @@
                                                                         "name": "change",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onSliderChange1",
                                                                     "designerId": "8c76d685-a349-41ef-90a0-0d2740519497"
                                                                 }
                                                             ]
@@ -1967,6 +2076,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Start All"
                                                             },
+                                                            "name": "MyButton4",
                                                             "designerId": "ccbbdaa6-a10c-4b29-bcb4-f29688e51469",
                                                             "cn": [
                                                                 {
@@ -1989,6 +2099,7 @@
                                                                         "name": "click",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onButtonClick4",
                                                                     "designerId": "f0d1e73c-264e-4aa2-afef-f5674a688904"
                                                                 }
                                                             ]
@@ -2004,6 +2115,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Stop All"
                                                             },
+                                                            "name": "MyButton5",
                                                             "designerId": "e65667f7-3f52-4b43-821c-7425796aae5e",
                                                             "cn": [
                                                                 {
@@ -2026,6 +2138,7 @@
                                                                         "name": "click",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onButtonClick5",
                                                                     "designerId": "d9029685-b431-40aa-905a-20a70e150eda"
                                                                 }
                                                             ]
@@ -2045,6 +2158,7 @@
                                                         "layout": "fit",
                                                         "style": null
                                                     },
+                                                    "name": "MyContainer2",
                                                     "designerId": "f3358f80-b02a-449a-93c0-c17a64313267"
                                                 }
                                             ]
@@ -2087,6 +2201,7 @@
                                                 "name": "activate",
                                                 "scope": "me"
                                             },
+                                            "name": "onLabDiagramActivate",
                                             "designerId": "5c001a86-338f-47ed-ba52-091474a4a270"
                                         },
                                         {
@@ -2108,6 +2223,7 @@
                                                 "name": "deactivate",
                                                 "scope": "me"
                                             },
+                                            "name": "onLabDiagramDeactivate",
                                             "designerId": "3508c2b6-c169-4e08-a0fa-48e0407102c4"
                                         }
                                     ]
@@ -2123,6 +2239,7 @@
                                         "itemId": "editLabDiagram",
                                         "title": "Edit Lab Diagram"
                                     },
+                                    "name": "MyPanel8",
                                     "designerId": "09b41842-8399-4581-a4e0-a3fd063bc9ba",
                                     "cn": [
                                         {
@@ -2132,6 +2249,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig4",
                                             "designerId": "2a2e73a3-e103-40fc-a031-aeffa0e83d74"
                                         },
                                         {
@@ -2145,6 +2263,7 @@
                                                 "layout": "fit",
                                                 "title": "Lab diagram"
                                             },
+                                            "name": "MyPanel9",
                                             "designerId": "cae186a1-5dae-4dfd-9607-8408c55b9ef4",
                                             "cn": [
                                                 {
@@ -2157,6 +2276,7 @@
                                                     "userConfig": {
                                                         "dock": "top"
                                                     },
+                                                    "name": "MyToolbar4",
                                                     "designerId": "324caedc-44d1-4fd0-86db-44caed44778e",
                                                     "cn": [
                                                         {
@@ -2187,6 +2307,7 @@
                                                                 "store": "iouTemplates",
                                                                 "valueField": "id"
                                                             },
+                                                            "name": "MyComboBox3",
                                                             "configAlternates": {
                                                                 "listConfig": "object"
                                                             },
@@ -2224,6 +2345,7 @@
                                                                         "name": "change",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onComboboxChange",
                                                                     "designerId": "6b493dd1-6e0f-4570-8b12-acd7629406dc"
                                                                 }
                                                             ]
@@ -2256,6 +2378,7 @@
                                                                 "store": "linkIcons",
                                                                 "valueField": "id"
                                                             },
+                                                            "name": "MyComboBox4",
                                                             "configAlternates": {
                                                                 "listConfig": "object"
                                                             },
@@ -2293,6 +2416,7 @@
                                                                         "name": "change",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onComboboxChange1",
                                                                     "designerId": "f55305b9-5aa1-4d0a-b701-cbfab9cff9c1"
                                                                 }
                                                             ]
@@ -2309,6 +2433,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Add Figure"
                                                             },
+                                                            "name": "MySplitButton",
                                                             "designerId": "8a934b0b-02c4-4d86-9359-c58c590953ec",
                                                             "cn": [
                                                                 {
@@ -2321,6 +2446,7 @@
                                                                     "userConfig": {
                                                                         "width": 120
                                                                     },
+                                                                    "name": "MyMenu",
                                                                     "designerId": "1f7b0a7f-0c49-4845-b66c-533b4f5dc07e",
                                                                     "cn": [
                                                                         {
@@ -2336,6 +2462,7 @@
                                                                                 "style": null,
                                                                                 "text": "Rectangle"
                                                                             },
+                                                                            "name": "MyMenuItem",
                                                                             "designerId": "c2db4f71-5ec0-451e-babb-f114d073665c",
                                                                             "cn": [
                                                                                 {
@@ -2358,6 +2485,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "3616dea5-4b0c-4685-b970-1f29f9dc76f4"
                                                                                 }
                                                                             ]
@@ -2374,6 +2502,7 @@
                                                                                 "iconCls": "ovalImage",
                                                                                 "text": "Oval"
                                                                             },
+                                                                            "name": "MyMenuItem1",
                                                                             "designerId": "9882aa67-b730-4590-9168-6af22adbc29c",
                                                                             "cn": [
                                                                                 {
@@ -2396,6 +2525,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "71d904cc-b81f-4691-85c9-9f7ee5db296f"
                                                                                 }
                                                                             ]
@@ -2412,6 +2542,7 @@
                                                                                 "iconCls": "textImage",
                                                                                 "text": "Text"
                                                                             },
+                                                                            "name": "MyMenuItem2",
                                                                             "designerId": "2798228a-8fda-41a0-ae1f-bfa4bfdb33e1",
                                                                             "cn": [
                                                                                 {
@@ -2434,6 +2565,7 @@
                                                                                             ""
                                                                                         ]
                                                                                     },
+                                                                                    "name": "handler",
                                                                                     "designerId": "acf4d8c2-2889-446b-993d-2b63b06e217b"
                                                                                 }
                                                                             ]
@@ -2453,6 +2585,7 @@
                                                                 "designer|displayName": "Space",
                                                                 "layout|flex": null
                                                             },
+                                                            "name": "MyFill2",
                                                             "designerId": "3a8dde44-d8dc-442a-beff-87c7eb82c1f7"
                                                         },
                                                         {
@@ -2473,6 +2606,7 @@
                                                                 "value": 100,
                                                                 "width": 160
                                                             },
+                                                            "name": "MySlider1",
                                                             "designerId": "dc579f15-ce75-4e1d-adb9-988a1087eddd",
                                                             "cn": [
                                                                 {
@@ -2491,6 +2625,7 @@
                                                                         "name": "change",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onSliderChange",
                                                                     "designerId": "a72f4930-fe17-4c9c-9029-7b48c264f10c"
                                                                 }
                                                             ]
@@ -2506,6 +2641,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Start All"
                                                             },
+                                                            "name": "MyButton6",
                                                             "designerId": "cdf157e1-a923-490b-ae97-d2eb16d8c042",
                                                             "cn": [
                                                                 {
@@ -2528,6 +2664,7 @@
                                                                         "name": "click",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onButtonClick7",
                                                                     "designerId": "3f471406-5cbb-4415-a715-d1e50463e2e9"
                                                                 }
                                                             ]
@@ -2543,6 +2680,7 @@
                                                                 "layout|flex": null,
                                                                 "text": "Stop All"
                                                             },
+                                                            "name": "MyButton7",
                                                             "designerId": "a7c4ced5-66eb-4275-a713-4850eac16668",
                                                             "cn": [
                                                                 {
@@ -2565,6 +2703,7 @@
                                                                         "name": "click",
                                                                         "scope": "me"
                                                                     },
+                                                                    "name": "onButtonClick6",
                                                                     "designerId": "f9cf9eaf-1afa-43c1-9035-918cc2be6c6a"
                                                                 }
                                                             ]
@@ -2583,6 +2722,7 @@
                                                         "itemId": "diagram",
                                                         "layout": "fit"
                                                     },
+                                                    "name": "MyContainer3",
                                                     "designerId": "3abfec4b-250a-4afa-b890-69db69bcb01f"
                                                 },
                                                 {
@@ -2596,6 +2736,7 @@
                                                         "designer|displayName": "refresh",
                                                         "type": "refresh"
                                                     },
+                                                    "name": "MyTool3",
                                                     "designerId": "ce496246-4f74-41dd-828d-9d8b3915c2ce",
                                                     "cn": [
                                                         {
@@ -2619,6 +2760,7 @@
                                                                     ""
                                                                 ]
                                                             },
+                                                            "name": "handler",
                                                             "designerId": "10a3016f-b99f-472f-a98a-2002d190a81e"
                                                         }
                                                     ]
@@ -2668,6 +2810,7 @@
                                                 "name": "activate",
                                                 "scope": "me"
                                             },
+                                            "name": "onEditLabDiagramActivate",
                                             "designerId": "616dbd45-9181-4a9a-a2ea-affca4fa7581"
                                         },
                                         {
@@ -2688,6 +2831,7 @@
                                                 "name": "deactivate",
                                                 "scope": "me"
                                             },
+                                            "name": "onEditLabDiagramDeactivate",
                                             "designerId": "537df7a8-067d-4049-82a4-d10bf8d900bb"
                                         }
                                     ]
@@ -2703,6 +2847,7 @@
                                         "itemId": "labDocs",
                                         "title": "Lab Documents"
                                     },
+                                    "name": "MyPanel10",
                                     "designerId": "5a465bb6-efa8-455d-83dd-799b77f309d5",
                                     "cn": [
                                         {
@@ -2715,6 +2860,7 @@
                                             "userConfig": {
                                                 "hidden": true
                                             },
+                                            "name": "TabConfig5",
                                             "designerId": "38876746-7f79-4415-a013-efd3b33bb3f7"
                                         },
                                         {
@@ -2727,6 +2873,7 @@
                                             "userConfig": {
                                                 "title": "Documents in relation to the Lab"
                                             },
+                                            "name": "MyPanel11",
                                             "designerId": "ca6668ad-4a0d-4d58-8c26-210f6af769e3"
                                         }
                                     ]
@@ -2742,6 +2889,7 @@
                                         "itemId": "labs",
                                         "title": "Labs"
                                     },
+                                    "name": "MyPanel12",
                                     "designerId": "34b9ce9d-5342-4daa-b1b5-d3a10e0902a4",
                                     "cn": [
                                         {
@@ -2751,6 +2899,7 @@
                                                 "type": "object"
                                             },
                                             "codeClass": null,
+                                            "name": "TabConfig6",
                                             "designerId": "d1dce724-dd4b-481b-8d46-9abee1799cd2"
                                         },
                                         {
@@ -2764,6 +2913,7 @@
                                                 "header": false,
                                                 "title": "Please select a Lab"
                                             },
+                                            "name": "MyPanel13",
                                             "designerId": "4dbaf215-c7f6-401c-8d5f-981c794e4ef5",
                                             "cn": [
                                                 {
@@ -2780,6 +2930,7 @@
                                                         "store": "editLabs",
                                                         "title": "Please select a Lab"
                                                     },
+                                                    "name": "MyGridPanel3",
                                                     "designerId": "a9de6fac-cad9-4e0c-8832-d60a5651d3b6",
                                                     "cn": [
                                                         {
@@ -2789,6 +2940,7 @@
                                                                 "type": "object"
                                                             },
                                                             "codeClass": null,
+                                                            "name": "MyGridView3",
                                                             "designerId": "9f87709c-8a42-4e87-8285-de9da096ca27"
                                                         },
                                                         {
@@ -2803,6 +2955,7 @@
                                                                 "hidden": true,
                                                                 "text": "Id"
                                                             },
+                                                            "name": "MyColumn15",
                                                             "designerId": "b12f003b-44a4-49c4-9660-e964a9816f71"
                                                         },
                                                         {
@@ -2817,6 +2970,7 @@
                                                                 "flex": 1,
                                                                 "text": "Name"
                                                             },
+                                                            "name": "MyColumn16",
                                                             "designerId": "c7a6796b-6369-409e-8f1e-d29a9f33ec39",
                                                             "cn": [
                                                                 {
@@ -2826,6 +2980,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyTextField5",
                                                                     "designerId": "eefb8f57-9fe6-4629-99e7-7d4ddf410263"
                                                                 }
                                                             ]
@@ -2842,6 +2997,7 @@
                                                                 "flex": 3,
                                                                 "text": "Description"
                                                             },
+                                                            "name": "MyColumn17",
                                                             "designerId": "5ebaf405-af22-481a-b284-1ddc81e1614e",
                                                             "cn": [
                                                                 {
@@ -2851,6 +3007,7 @@
                                                                         "type": "object"
                                                                     },
                                                                     "codeClass": null,
+                                                                    "name": "MyTextField6",
                                                                     "designerId": "f2acee3a-1d43-4a04-8918-fd754ed2d0b8"
                                                                 }
                                                             ]
@@ -2866,6 +3023,7 @@
                                                                 "designer|displayName": "refresh",
                                                                 "type": "refresh"
                                                             },
+                                                            "name": "MyTool4",
                                                             "designerId": "8712ff2c-faa7-42ee-bf38-ca8c9a2b44be",
                                                             "cn": [
                                                                 {
@@ -2888,6 +3046,7 @@
                                                                             ""
                                                                         ]
                                                                     },
+                                                                    "name": "handler",
                                                                     "designerId": "6fdf57f9-0975-4b25-9f11-69a226d64ac0"
                                                                 }
                                                             ]
@@ -2909,6 +3068,7 @@
                                                                 "name": "select",
                                                                 "scope": "me"
                                                             },
+                                                            "name": "onGridpanelSelect",
                                                             "designerId": "b06bc3cd-7bae-4121-a362-d6fc8bcd6554"
                                                         }
                                                     ]

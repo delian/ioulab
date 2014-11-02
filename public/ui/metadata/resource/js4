@@ -9,7 +9,8 @@
         "defer": true,
         "designer|userClassName": "js4",
         "id": "helpers.js",
-        "url": "libs/helpers.js"
+        "url": "libs/helpers.js",
+        "x-compile": true
     },
     "designerId": "2f227962-7edd-4891-a60a-ea2e1e214c6f"
 }

@@ -20,6 +20,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField5",
             "designerId": "0cc34e70-149a-44b3-97e0-c0ff1de065eb"
         },
         {
@@ -32,6 +33,7 @@
             "userConfig": {
                 "name": "name"
             },
+            "name": "MyField6",
             "designerId": "69bad704-0b66-4349-a673-0fd0814c8b7e"
         },
         {
@@ -44,6 +46,7 @@
             "userConfig": {
                 "name": "description"
             },
+            "name": "MyField7",
             "designerId": "d193b203-49f7-4343-b981-5a950bebdc8a"
         },
         {
@@ -56,6 +59,7 @@
             "userConfig": {
                 "name": "memory"
             },
+            "name": "MyField8",
             "designerId": "b86bcbde-19af-4857-9fcc-1de92e6ec2ce"
         },
         {
@@ -68,6 +72,7 @@
             "userConfig": {
                 "name": "nvram"
             },
+            "name": "MyField9",
             "designerId": "6fc90eca-5eb2-4f5c-917c-f6a414d45ee6"
         },
         {
@@ -80,6 +85,7 @@
             "userConfig": {
                 "name": "ethernet"
             },
+            "name": "MyField10",
             "designerId": "d007e9b6-1d7d-4e3d-8a5e-4a687ae69e30"
         },
         {
@@ -92,6 +98,7 @@
             "userConfig": {
                 "name": "serial"
             },
+            "name": "MyField11",
             "designerId": "d77a637d-a314-481c-b15e-433e891fcf14"
         },
         {
@@ -104,6 +111,7 @@
             "userConfig": {
                 "name": "type"
             },
+            "name": "MyField12",
             "designerId": "e8659240-f99e-4140-b85c-2b93e3529408"
         },
         {
@@ -116,6 +124,7 @@
             "userConfig": {
                 "name": "icon"
             },
+            "name": "MyField13",
             "designerId": "8910e4b5-5ae1-4ed6-a68e-87dba97d6064"
         },
         {
@@ -128,6 +137,7 @@
             "userConfig": {
                 "name": "qemuImage"
             },
+            "name": "MyField14",
             "designerId": "32a923ee-9cf2-475a-9f49-37b8e3e0aed7"
         },
         {
@@ -140,6 +150,7 @@
             "userConfig": {
                 "name": "qemuParams"
             },
+            "name": "MyField15",
             "designerId": "02019d51-5d3f-45e8-822b-f6d5e3c0230a"
         }
     ]

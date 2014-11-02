@@ -22,6 +22,7 @@
             "userConfig": {
                 "name": "id"
             },
+            "name": "MyField24",
             "designerId": "72439fdc-2aca-49a1-bf40-4de678baa310"
         },
         {
@@ -34,6 +35,7 @@
             "userConfig": {
                 "name": "description"
             },
+            "name": "MyField25",
             "designerId": "cd49c552-6fd9-4945-87b7-6dfaa062bae0"
         },
         {
@@ -46,6 +48,7 @@
             "userConfig": {
                 "name": "memory"
             },
+            "name": "MyField26",
             "designerId": "882c2455-2375-48c4-bf62-e76949fcc10e"
         },
         {
@@ -58,6 +61,7 @@
             "userConfig": {
                 "name": "nvram"
             },
+            "name": "MyField27",
             "designerId": "0a8f3a40-3010-442a-8418-868a2e2dcb44"
         },
         {
@@ -70,6 +74,7 @@
             "userConfig": {
                 "name": "ethernet"
             },
+            "name": "MyField28",
             "designerId": "fac812bf-2be5-4616-82da-f3cfe40e643f"
         },
         {
@@ -82,6 +87,7 @@
             "userConfig": {
                 "name": "serial"
             },
+            "name": "MyField29",
             "designerId": "759ae9c3-03cf-4c41-bb49-31720c68c567"
         },
         {
@@ -94,6 +100,7 @@
             "userConfig": {
                 "url": "/rest/iouBase"
             },
+            "name": "MyRestProxy4",
             "designerId": "38c752bf-98bf-469d-a79f-7a7bb20c0e29"
         },
         {
@@ -106,6 +113,7 @@
             "userConfig": {
                 "name": "qemuImage"
             },
+            "name": "MyField30",
             "designerId": "0f0eaaa3-8115-4a94-a6e8-dbbb7ac50f6f"
         },
         {
@@ -118,6 +126,7 @@
             "userConfig": {
                 "name": "qemuParams"
             },
+            "name": "MyField31",
             "designerId": "b8d48a6b-e20f-46d9-ade5-da34c01c56ee"
         },
         {
@@ -130,6 +139,7 @@
             "userConfig": {
                 "name": "type"
             },
+            "name": "MyField32",
             "designerId": "0f633c3f-97cc-4846-b99e-f64590caa24d"
         },
         {
@@ -142,6 +152,7 @@
             "userConfig": {
                 "name": "icon"
             },
+            "name": "MyField33",
             "designerId": "31868cc4-ad7e-44cf-95a6-106a74a68ae5"
         }
     ]

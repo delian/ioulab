@@ -2,9 +2,9 @@
     "name": "ui",
     "settings": {
         "cmd": {
-            "license": "gpl",
-            "cmdVersion": "4.0.0.193",
-            "frameworkVersion": "4.2.0.663"
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
         },
         "canvasControls": {
             "viewportSize": {
@@ -14,7 +14,7 @@
                 "width": null
             }
         },
-        "urlPrefix": "http://127.0.0.1:3000/",
+        "urlPrefix": "http://localhost/ui/",
         "exportPath": "",
         "spacesToIndent": 4,
         "lineEnding": "LF",
@@ -22,12 +22,16 @@
         "cacheBust": false,
         "buildShouldOverwriteIndex": true,
         "generateArchitectVersion": true,
-        "sdkPath": ""
+        "sdkPath": "",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1128-inputEl": "a new version of the framework is available"
     },
-    "xdsVersion": "3.0.1",
-    "xdsBuild": 1343,
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1934,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000004,
+    "upgradeVersion": 300000000007,
     "framework": "ext42",
     "viewOrderMap": {
         "view": [
